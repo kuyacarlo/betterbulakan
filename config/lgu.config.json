@@ -1,61 +1,68 @@
 {
   "lgu": {
-    "name": "Los Ba\u00f1os",
-    "fullName": "Municipality of Los Ba\u00f1os",
-    "province": "Laguna",
-    "districtEngineeringOffice": "Laguna 2nd DEO",
-    "region": "Region IV-A",
-    "regionCode": "CALABARZON",
+    "name": "Bulakan",
+    "fullName": "Municipality of Bulakan",
+    "shortName": "BLK",
+    "province": "Bulacan",
+    "districtEngineeringOffice": "Bulacan 1st DEO",
+    "region": "Region III",
+    "regionCode": "030000000",
     "type": "municipality",
-    "officialWebsite": "https://losbanos.gov.ph",
-    "provinceWebsite": "https://laguna.gov.ph"
+    "officialWebsite": "https://elgu-bulacan-bulacan-news.e.gov.ph/home",
+    "provinceWebsite": "https://bulacan.gov.ph"
   },
   "portal": {
-    "name": "BetterLB",
-    "domain": "betterlb.org",
-    "baseUrl": "https://betterlb.org",
-    "description": "Community-powered portal of the Municipality of Los Ba\u00f1os.",
-    "brandColor": "#0066eb",
-    "footerBrandName": "Better Los Ba\u00f1os",
+    "name": "BetterBulakan",
+    "domain": "betterbulakan.org",
+    "baseUrl": "https://betterbulakan.vercel.app",
+    "tagline": "Community Powered Bulakan Portal",
+    "description": "Community-powered portal of the Municipality of Bulakan, Bulacan.",
+    "brandColor": "#0b5cad",
+    "navbarTagline": "A Community-run portal for",
+    "footerBrandName": "Better Bulakan",
+    "footerTagline": "Community Civic Portal",
     "logoWhitePath": "/logos/svg/betterlb-icon-white.svg",
     "navbarLogoPath": "/logos/svg/betterlb-icon-colored.svg",
     "defaultOgImagePath": "/logos/svg/betterlb-icon-colored.svg",
     "faviconPath": "/logos/png/betterlb-banner-colored.png",
     "faviconSvgPath": "/logos/svg/betterlb-logo-primary.svg",
     "appleTouchIconPath": "/logos/png/betterlb-banner-inverted.png",
-    "githubUrl": "https://github.com/BetterLosBanos/betterlb",
+    "githubUrl": "https://github.com/kuyacarlo/betterbulakan",
     "discordUrl": "https://discord.gg/dA6tkU4FYS",
-    "facebookUrl": "https://facebook.com/betterlb.org",
-    "contactEmail": "volunteers@bettergov.ph"
+    "facebookUrl": "https://www.facebook.com/vergel.c.meneses",
+    "contactEmail": "mo.bulakanbulacan@gmail.com"
   },
   "location": {
     "coordinates": {
-      "lat": 14.1763,
-      "lon": 121.2219
+      "lat": 14.7947,
+      "lon": 120.8789
     },
     "weather": {
-      "defaultCity": "Los Ba\u00f1os"
+      "defaultCity": "Bulakan",
+      "enabled": true
     }
   },
   "transparency": {
     "procurement": {
-      "organizationName": "MUNICIPALITY OF LOS BA\u00d1OS, LAGUNA",
+      "organizationName": "MUNICIPALITY OF BULAKAN, BULACAN",
       "externalDashboard": "https://transparency.bettergov.ph/organizations/"
     },
     "infrastructure": {
-      "searchString": "Los Ba\u00f1os",
-      "exactMatchTargets": ["los ba\u00f1os", "los banos"]
+      "searchString": "Bulakan",
+      "exactMatchTargets": ["bulakan"]
     }
   },
   "dataPaths": {
-    "departments": "src/data/lgu/losbanos/directory/departments.json",
-    "barangays": "src/data/lgu/losbanos/directory/barangays.json",
-    "services": "src/data/lgu/losbanos/services/categories"
+    "departments": "src/data/directory/departments.json",
+    "barangays": "src/data/directory/barangays.json",
+    "executive": "src/data/directory/executive.json",
+    "legislative": "src/data/directory/legislative.json",
+    "services": "src/data/services/categories"
   },
   "features": {
     "openLGU": true,
     "transparency": true,
-    "tourism": true,
+    "tourism": false,
     "statistics": true
   }
 }
