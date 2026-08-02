@@ -60,7 +60,7 @@
     "services": "src/data/services/categories"
   },
   "features": {
-    "openLGU": true,
+    "openLGU": false,
     "transparency": true,
     "tourism": false,
     "statistics": true

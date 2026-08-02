@@ -1,0 +1,115 @@
+[
+  {
+    "service": "Official Citizen's Charter (PDF)",
+    "slug": "citizens-charter-pdf",
+    "type": "information",
+    "description": "Official Citizen's Charter of the Municipality of Bulakan — requirements, fees, and processing times for frontline services.",
+    "url": "https://drive.google.com/file/d/13qUeSH-ibdJk3axJZ5qdEVhnxA2Gh-gG/view",
+    "officeSlug": [
+      "office-of-the-mayor"
+    ],
+    "category": {
+      "name": "Government Information",
+      "slug": "government-information"
+    },
+    "quickInfo": {
+      "fee": "Free to view",
+      "whoCanApply": "Public",
+      "appointmentType": "Online document"
+    },
+    "updatedAt": "2026-08-02T00:00:00Z",
+    "sources": [
+      {
+        "name": "Municipality of Bulakan eLGU",
+        "url": "https://elgu-bulacan-bulacan-news.e.gov.ph/home"
+      }
+    ]
+  },
+  {
+    "service": "Municipal Ordinances",
+    "slug": "municipal-ordinances",
+    "type": "information",
+    "description": "Published ordinances of the Sangguniang Bayan of Bulakan, including appropriation ordinances.",
+    "url": "https://elgu-bulacan-bulacan-news.e.gov.ph/ordinances",
+    "officeSlug": [
+      "sangguniang-bayan"
+    ],
+    "category": {
+      "name": "Government Information",
+      "slug": "government-information"
+    },
+    "quickInfo": {
+      "fee": "Free to browse",
+      "whoCanApply": "Public",
+      "appointmentType": "Online"
+    },
+    "updatedAt": "2026-08-02T00:00:00Z",
+    "sources": [
+      {
+        "name": "Bulakan eLGU Ordinances",
+        "url": "https://elgu-bulacan-bulacan-news.e.gov.ph/ordinances"
+      },
+      {
+        "name": "DILG LGRC Bulakan ordinances library",
+        "url": "https://www.lgrcbulacan.region3.dilg.gov.ph/e-library/lgu-ordinances/bulakan"
+      }
+    ]
+  },
+  {
+    "service": "Mayor's Office Contact",
+    "slug": "mayors-office-contact",
+    "type": "information",
+    "description": "Reach the Office of the Mayor — Hon. Vergel C. Meneses — for municipal inquiries.",
+    "officeSlug": [
+      "office-of-the-mayor"
+    ],
+    "category": {
+      "name": "Government Information",
+      "slug": "government-information"
+    },
+    "quickInfo": {
+      "fee": "None",
+      "whoCanApply": "Public",
+      "appointmentType": "Phone / email / walk-in",
+      "documents": "As needed for your request"
+    },
+    "steps": [
+      "Call (044) 760-0374 or (044) 760-5542.",
+      "Email mo.bulakanbulacan@gmail.com.",
+      "Visit Municipal Hall, Poblacion (San Jose), Bulakan, Bulacan 3017."
+    ],
+    "updatedAt": "2026-08-02T00:00:00Z",
+    "sources": [
+      {
+        "name": "Provincial Government of Bulacan — Bulakan page",
+        "url": "https://bulacan.gov.ph/cities-and-municipalities/bulakan/"
+      }
+    ]
+  },
+  {
+    "service": "Provincial information — Bulakan",
+    "slug": "provincial-bulakan-profile",
+    "type": "information",
+    "description": "Official provincial profile for Bulakan: history, barangays, officials, and contact numbers.",
+    "url": "https://bulacan.gov.ph/cities-and-municipalities/bulakan/",
+    "officeSlug": [
+      "municipal-planning-and-development-office"
+    ],
+    "category": {
+      "name": "Government Information",
+      "slug": "government-information"
+    },
+    "quickInfo": {
+      "fee": "Free",
+      "whoCanApply": "Public",
+      "appointmentType": "Online"
+    },
+    "updatedAt": "2026-08-02T00:00:00Z",
+    "sources": [
+      {
+        "name": "bulacan.gov.ph",
+        "url": "https://bulacan.gov.ph/cities-and-municipalities/bulakan/"
+      }
+    ]
+  }
+]

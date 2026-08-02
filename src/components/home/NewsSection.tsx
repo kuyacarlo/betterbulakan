@@ -49,7 +49,10 @@ const NewsSection: FC = () => {
             {t('news.title')}
           </h2>
           <a
-            href='https://losbanos.gov.ph/all'
+            href={
+              config.lgu.officialWebsite ||
+              'https://elgu-bulacan-bulacan-news.e.gov.ph/home'
+            }
             target='_blank'
             rel='noopener noreferrer'
             className='flex items-center font-medium text-kapwa-text-brand transition-colors hover:text-kapwa-text-brand'

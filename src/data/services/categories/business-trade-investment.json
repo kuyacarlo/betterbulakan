@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "service": "eLGU Online Transactions",
+    "slug": "elgu-online-transactions",
+    "type": "transaction",
+    "description": "Official eLGU portal for Bulakan transactions — business permits, clearances, civil registry, and related municipal services.",
+    "url": "https://elgu-bulacan-bulacan-news.e.gov.ph/home",
+    "officeSlug": [
+      "business-permit-and-licensing-office",
+      "local-civil-registry-office"
+    ],
+    "category": {
+      "name": "Business & Trade",
+      "slug": "business-trade-investment"
+    },
+    "steps": [
+      "Open the Bulakan eLGU portal.",
+      "Select the service you need (business, clearance, civil registry, etc.).",
+      "Complete the online or over-the-counter requirements."
+    ],
+    "quickInfo": {
+      "fee": "Varies by service",
+      "whoCanApply": "Residents and business owners",
+      "appointmentType": "Online / walk-in via eLGU"
+    },
+    "updatedAt": "2026-08-02T00:00:00Z",
+    "sources": [
+      {
+        "name": "Bulakan eLGU",
+        "url": "https://elgu-bulacan-bulacan-news.e.gov.ph/home"
+      }
+    ]
+  }
+]

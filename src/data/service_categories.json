@@ -1,6 +1,11 @@
 {
   "categories": [
     {
+      "name": "Government Information",
+      "slug": "government-information",
+      "description": "Citizen charter, ordinances, eLGU links, and municipal contacts for Bulakan."
+    },
+    {
       "name": "Certificates & Vital Records",
       "slug": "certificates-vital-records",
       "description": "Birth, death, marriage certificates, and other vital records."
