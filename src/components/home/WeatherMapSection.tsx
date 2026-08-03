@@ -65,12 +65,20 @@ export default function WeatherMapSection() {
       try {
         setLoading(true);
         const data = await fetchWeatherData(); // WeatherData[]
-        const losBanos = data[0]; // Only 1 city
-        setWeather(losBanos);
+        setWeather(data[0] ?? null);
       } catch (err: unknown) {
-        setError(
-          err instanceof Error ? err.message : 'Failed to fetch weather data'
-        );
+        // Offline / missing API key should not dump raw HTTP status into the UI
+        const message =
+          err instanceof Error ? err.message : 'Failed to fetch weather data';
+        if (
+          message.includes('503') ||
+          message.includes('API unavailable') ||
+          message.toLowerCase().includes('offline')
+        ) {
+          setError('Weather data is temporarily unavailable.');
+        } else {
+          setError(message);
+        }
       } finally {
         setLoading(false);
       }
