@@ -83,3 +83,4 @@ graphify-out/
 context/transcripts/
 .memsearch/
 .vercel
+ide_state.json/
