@@ -2,113 +2,183 @@
   {
     "slug": "barangay-bagumbayan",
     "barangay_name": "Bagumbayan",
-    "address": "Barangay Hall, Brgy. Bagumbayan, Bulakan, Bulacan",
+    "address": "Barangay Hall, Brgy. Bagumbayan, Bulakan, Bulacan 3017",
     "trunkline": [],
     "website": null,
-    "officials": []
+    "officials": [
+      {
+        "role": "Punong Barangay",
+        "name": "Leandro L. Del Rosario"
+      }
+    ]
   },
   {
     "slug": "barangay-balubad",
     "barangay_name": "Balubad",
-    "address": "Barangay Hall, Brgy. Balubad, Bulakan, Bulacan",
+    "address": "Barangay Hall, Brgy. Balubad, Bulakan, Bulacan 3017",
     "trunkline": [],
     "website": null,
-    "officials": []
+    "officials": [
+      {
+        "role": "Punong Barangay",
+        "name": "Mario S. Bernardino"
+      }
+    ]
   },
   {
     "slug": "barangay-bambang",
     "barangay_name": "Bambang",
-    "address": "Barangay Hall, Brgy. Bambang, Bulakan, Bulacan",
+    "address": "Barangay Hall, Brgy. Bambang, Bulakan, Bulacan 3017",
     "trunkline": [],
     "website": null,
-    "officials": []
+    "officials": [
+      {
+        "role": "Punong Barangay",
+        "name": "Jose Narciso C. Roque"
+      }
+    ]
   },
   {
     "slug": "barangay-matungao",
     "barangay_name": "Matungao",
-    "address": "Barangay Hall, Brgy. Matungao, Bulakan, Bulacan",
+    "address": "Barangay Hall, Brgy. Matungao, Bulakan, Bulacan 3017",
     "trunkline": [],
     "website": null,
-    "officials": []
+    "officials": [
+      {
+        "role": "Punong Barangay",
+        "name": "Anthony Mark R. Cruz"
+      }
+    ]
   },
   {
     "slug": "barangay-maysantol",
     "barangay_name": "Maysantol",
-    "address": "Barangay Hall, Brgy. Maysantol, Bulakan, Bulacan",
+    "address": "Barangay Hall, Brgy. Maysantol, Bulakan, Bulacan 3017",
     "trunkline": [],
     "website": null,
-    "officials": []
+    "officials": [
+      {
+        "role": "Punong Barangay",
+        "name": "Bernardita W. Federico"
+      }
+    ]
   },
   {
     "slug": "barangay-perez",
     "barangay_name": "Perez",
-    "address": "Barangay Hall, Brgy. Perez, Bulakan, Bulacan",
+    "address": "Barangay Hall, Brgy. Perez, Bulakan, Bulacan 3017",
     "trunkline": [],
     "website": null,
-    "officials": []
+    "officials": [
+      {
+        "role": "Punong Barangay",
+        "name": "Santos Manuel Villanueva"
+      }
+    ]
   },
   {
     "slug": "barangay-pitpitan",
     "barangay_name": "Pitpitan",
-    "address": "Barangay Hall, Brgy. Pitpitan, Bulakan, Bulacan",
+    "address": "Barangay Hall, Brgy. Pitpitan, Bulakan, Bulacan 3017",
     "trunkline": [],
     "website": null,
-    "officials": []
+    "officials": [
+      {
+        "role": "Punong Barangay",
+        "name": "Wilfredo Caluag Obias"
+      }
+    ]
   },
   {
     "slug": "barangay-san-francisco",
     "barangay_name": "San Francisco",
-    "address": "Barangay Hall, Brgy. San Francisco, Bulakan, Bulacan",
+    "address": "Barangay Hall, Brgy. San Francisco, Bulakan, Bulacan 3017",
     "trunkline": [],
     "website": null,
-    "officials": []
+    "officials": [
+      {
+        "role": "Punong Barangay",
+        "name": "Mercedita S. Santos"
+      }
+    ]
   },
   {
     "slug": "barangay-san-jose",
     "barangay_name": "San Jose (Poblacion)",
-    "address": "Barangay Hall, Brgy. San Jose, Bulakan, Bulacan",
+    "address": "Barangay Hall, Brgy. San Jose, Bulakan, Bulacan 3017",
     "trunkline": [],
     "website": null,
-    "officials": []
+    "officials": [
+      {
+        "role": "Punong Barangay",
+        "name": "Manuel Cuesta Dionisio"
+      }
+    ]
   },
   {
     "slug": "barangay-san-nicolas",
     "barangay_name": "San Nicolas",
-    "address": "Barangay Hall, Brgy. San Nicolas, Bulakan, Bulacan",
+    "address": "Barangay Hall, Brgy. San Nicolas, Bulakan, Bulacan 3017",
     "trunkline": [],
     "website": null,
-    "officials": []
+    "officials": [
+      {
+        "role": "Punong Barangay",
+        "name": "Rolando Peña Baltazar"
+      }
+    ]
   },
   {
     "slug": "barangay-santa-ana",
     "barangay_name": "Santa Ana",
-    "address": "Barangay Hall, Brgy. Santa Ana, Bulakan, Bulacan",
+    "address": "Barangay Hall, Brgy. Santa Ana, Bulakan, Bulacan 3017",
     "trunkline": [],
     "website": null,
-    "officials": []
+    "officials": [
+      {
+        "role": "Punong Barangay",
+        "name": "Gloria Sevilla De Lino"
+      }
+    ]
   },
   {
     "slug": "barangay-santa-ines",
     "barangay_name": "Santa Ines",
-    "address": "Barangay Hall, Brgy. Santa Ines, Bulakan, Bulacan",
+    "address": "Barangay Hall, Brgy. Santa Ines, Bulakan, Bulacan 3017",
     "trunkline": [],
     "website": null,
-    "officials": []
+    "officials": [
+      {
+        "role": "Punong Barangay",
+        "name": "Rogelio F. Galvez Jr."
+      }
+    ]
   },
   {
     "slug": "barangay-taliptip",
     "barangay_name": "Taliptip",
-    "address": "Barangay Hall, Brgy. Taliptip, Bulakan, Bulacan",
+    "address": "Barangay Hall, Brgy. Taliptip, Bulakan, Bulacan 3017",
     "trunkline": [],
     "website": null,
-    "officials": []
+    "officials": [
+      {
+        "role": "Punong Barangay",
+        "name": "Michael Manuel Ramos"
+      }
+    ]
   },
   {
     "slug": "barangay-tibig",
     "barangay_name": "Tibig",
-    "address": "Barangay Hall, Brgy. Tibig, Bulakan, Bulacan",
+    "address": "Barangay Hall, Brgy. Tibig, Bulakan, Bulacan 3017",
     "trunkline": [],
     "website": null,
-    "officials": []
+    "officials": [
+      {
+        "role": "Punong Barangay",
+        "name": "Maria Rosario Lava Gamboa"
+      }
+    ]
   }
 ]

@@ -1,6 +1,24 @@
 {
   "emergencyHotlines": [
     {
+      "name": "Bulakan MDRRMO (Disaster & Rescue)",
+      "category": "Emergency",
+      "numbers": ["0951-836-0294", "(044) 792-0767"],
+      "description": "Municipal Disaster Risk Reduction & Management Office for emergency rescue and disaster response."
+    },
+    {
+      "name": "PNP Bulakan Municipal Police Station",
+      "category": "Security",
+      "numbers": ["(044) 760-4812", "(044) 792-0300", "0998-598-5378"],
+      "description": "Bulakan Municipal Police Station 24/7 law enforcement and emergency response hotline."
+    },
+    {
+      "name": "BFP Bulakan Fire Station",
+      "category": "Emergency",
+      "numbers": ["(044) 792-1407", "0945-107-0788"],
+      "description": "Bureau of Fire Protection Bulakan station for fire emergencies and rescue."
+    },
+    {
       "name": "National Emergency Hotline",
       "category": "Emergency",
       "numbers": ["911"],
