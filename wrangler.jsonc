@@ -1,22 +1,32 @@
 {
-	"name": "betterlb",
+	"name": "betterbulakan",
 	"pages_build_output_dir": "dist",
 	"compatibility_date": "2026-01-13",
 	"kv_namespaces": [
 		{
 			"binding": "WEATHER_KV",
-			"id": "a6daec9904a04769918521d0b3d836e3"
+			"id": "f3e679d0ea5c48498aa1a2ef4fe738a1"
+		},
+		{
+			"binding": "FOREX_KV",
+			"id": "4025aa213bed4873a3d27305a2df6617"
 		}
 	],
 	"d1_databases": [
 		{
+			"binding": "BETTERBULAKAN_DB",
+			"database_name": "betterbulakan-db",
+			"database_id": "f370bc76-f3cc-4270-a41a-de4b1ea92aca",
+			"migrations_dir": "db/migrations"
+		},
+		{
 			"binding": "BETTERLB_DB",
-			"database_name": "betterlb-openlgu",
-			"database_id": "2adbe9e2-d061-473b-8de2-8aacdae4fb0d",
+			"database_name": "betterbulakan-db",
+			"database_id": "f370bc76-f3cc-4270-a41a-de4b1ea92aca",
 			"migrations_dir": "db/migrations"
 		}
 	],
 	"vars": {
-		"GITHUB_REPO": "BetterLosBanos/betterlb",
+		"GITHUB_REPO": "kuyacarlo/betterbulakan"
 	}
 }

@@ -1,10 +1,10 @@
 # Weather API
 
-The Weather API provides current weather conditions and 3-hour forecasts for Los Baños, Philippines using the OpenWeatherMap API.
+The Weather API provides current weather conditions and 3-hour forecasts for Bulakan, Philippines using the OpenWeatherMap API.
 
 ## Overview
 
-- **Base URL:** `https://betterlb.gov.ph/api/weather`
+- **Base URL:** `https://betterbulakan.org/api/weather`
 - **Authentication:** None required
 - **Data Source:** OpenWeatherMap API
 - **Cache Duration:** 1 hour (3,600 seconds)
@@ -164,44 +164,46 @@ Retrieves current weather and 3-hour forecast data. Returns cached data if avail
 ### Get All Cities
 
 ```bash
-curl https://betterlb.gov.ph/api/weather
+curl https://betterbulakan.org/api/weather
 ```
 
-### Get Specific City
-
+**Get Weather for Specific City:**
 ```bash
-curl "https://betterlb.gov.ph/api/weather?city=Los Baños"
+curl "https://betterbulakan.org/api/weather?city=Bulakan"
 ```
 
-### Force Update (Bypass Cache)
-
+**Force Refresh from OpenWeatherMap:**
 ```bash
-curl "https://betterlb.gov.ph/api/weather?update=true"
+curl "https://betterbulakan.org/api/weather?update=true"
 ```
 
-### Get Specific City with Force Update
-
+**Force Refresh for Specific City:**
 ```bash
-curl "https://betterlb.gov.ph/api/weather?city=Los Baños&update=true"
+curl "https://betterbulakan.org/api/weather?city=Bulakan&update=true"
 ```
 
-### JavaScript/TypeScript Example
+### TypeScript / JavaScript Example
 
 ```typescript
-// Fetch weather data
-const response = await fetch('https://betterlb.gov.ph/api/weather');
-const weather = await response.json();
+// Fetch current weather
+const response = await fetch('https://betterbulakan.org/api/weather');
+const data = await response.json();
 
-// Access Los Baños weather
-const losBanos = weather.los_banos;
-console.log(`Temperature: ${losBanos.main.temp}°C`);
-console.log(`Humidity: ${losBanos.main.humidity}%`);
-console.log(`Description: ${losBanos.weather[0].description}`);
+if (data.success) {
+  console.log(`Current temp: ${data.data.Bulakan.main.temp}°C`);
+  console.log(`Conditions: ${data.data.Bulakan.weather[0].description}`);
+}
 
-// Access hourly forecast
-losBanos.hourly.forEach((hour, index) => {
-  console.log(`Hour ${index + 1}: ${hour.temp}°C - ${hour.description}`);
-});
+// Fetch with force update
+async function refreshWeather() {
+  try {
+    const response = await fetch('https://betterbulakan.org/api/weather?update=true');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Failed to refresh weather:', error);
+  }
+}
 ```
 
 ### React Example
@@ -210,11 +212,12 @@ losBanos.hourly.forEach((hour, index) => {
 import { useState, useEffect } from 'react';
 
 interface WeatherData {
-  los_banos: {
+  bulakan: {
     main: { temp: number; humidity: number };
     weather: Array<{ description: string; icon: string }>;
     hourly: Array<{ temp: number; description: string }>;
   };
+};
 }
 
 export function WeatherWidget() {
@@ -224,7 +227,7 @@ export function WeatherWidget() {
   useEffect(() => {
     async function fetchWeather() {
       try {
-        const response = await fetch('https://betterlb.gov.ph/api/weather');
+        const response = await fetch('https://betterbulakan.org/api/weather');
         const data = await response.json();
         setWeather(data);
       } catch (error) {
@@ -345,8 +348,8 @@ export async function scheduled(controller: ScheduledController, env: Env) {
 The API implements CORS protection for security:
 
 **Allowed Origins:**
-- `https://betterlb.pages.dev` (production)
-- `https://betterlb.gov.ph` (custom domain)
+- `https://betterbulakan.org` (production)
+- `https://betterbulakan.pages.dev` (Cloudflare Pages)
 - `http://localhost:5173` (Vite dev server)
 - `http://localhost:8788` (Wrangler dev server)
 
@@ -427,19 +430,19 @@ The API is designed to support multiple cities:
 
 ```bash
 # Test basic request
-curl https://betterlb.gov.ph/api/weather
+curl https://betterbulakan.org/api/weather
 
 # Test city filtering
-curl "https://betterlb.gov.ph/api/weather?city=Los Baños"
+curl "https://betterbulakan.org/api/weather?city=Bulakan"
 
 # Test force update
-curl "https://betterlb.gov.ph/api/weather?update=true"
+curl "https://betterbulakan.org/api/weather?update=true"
 
 # Test case insensitivity
-curl "https://betterlb.gov.ph/api/weather?city=los_banos"
+curl "https://betterbulakan.org/api/weather?city=bulakan"
 
 # Test OPTIONS preflight
-curl -X OPTIONS https://betterlb.gov.ph/api/weather \
+curl -X OPTIONS https://betterbulakan.org/api/weather \
   -H "Origin: http://localhost:5173" \
   -v
 ```
@@ -451,9 +454,9 @@ curl -X OPTIONS https://betterlb.gov.ph/api/weather \
 const response = await fetch('http://localhost:8788/api/weather');
 const data = await response.json();
 
-assert(data.los_banos);
-assert(data.los_banos.main.temp > 0);
-assert(data.los_banos.hourly.length === 8);
+assert(data.bulakan);
+assert(data.bulakan.main.temp > 0);
+assert(data.bulakan.hourly.length === 8);
 ```
 
 ---
@@ -468,4 +471,4 @@ assert(data.los_banos.hourly.length === 8);
 
 **Last Updated:** 2026-02-28
 **API Version:** 1.0.0
-**Maintained By:** BetterLB Development Team
+**Maintained By:** BetterBulakan Development Team

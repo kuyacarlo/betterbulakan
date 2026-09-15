@@ -1,6 +1,6 @@
 #!/bin/bash
 # D1 Database Migration Automation Script
-# BetterLB - Cloudflare D1 Migration Management
+# BetterBulakan - Cloudflare D1 Migration Management
 #
 # Usage:
 #   ./scripts/migrate.sh local              # Run migrations on local database
@@ -21,8 +21,8 @@ NC='\033[0m' # No Color
 # Configuration
 MIGRATIONS_DIR="db/migrations"
 DB_BINDING="BETTERLB_DB"
-DB_NAME="betterlb-openlgu"
-WRANGLER_CMD="npx wrangler d1 execute"
+DB_NAME="betterbulakan-db"
+WRANGLER_CMD="pnpm exec wrangler d1 execute"
 
 # Functions
 log_info() {
@@ -43,14 +43,9 @@ log_error() {
 
 # Check if wrangler is installed
 check_wrangler() {
-    if ! command -v npx &> /dev/null; then
-        log_error "npx is not installed. Please install Node.js and npm."
+    if ! command -v pnpm &> /dev/null && ! command -v npx &> /dev/null; then
+        log_error "Neither pnpm nor npx is installed. Please install Node.js and pnpm."
         exit 1
-    fi
-
-    if ! npx wrangler --version &> /dev/null; then
-        log_error "Wrangler is not installed. Installing..."
-        npm install -g wrangler
     fi
 }
 
@@ -127,7 +122,7 @@ run_migration() {
     fi
 
     # Record migration
-    local sql="INSERT INTO schema_migrations (name) VALUES ('$migration_name');"
+    local sql="INSERT OR IGNORE INTO schema_migrations (name) VALUES ('$migration_name');"
 
     if [ "$local_flag" = "--local" ]; then
         ${WRANGLER_CMD} ${DB_BINDING} --local --command="$sql" > /dev/null

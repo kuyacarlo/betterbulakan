@@ -1,3 +1,4 @@
 #!/bin/bash
-cd /workspace/github/betterlb
-exec npx vite --port 5173 --host 0.0.0.0
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$DIR"
+exec pnpm run dev --host 0.0.0.0

@@ -1,12 +1,13 @@
 export interface Env {
   // KV Namespaces
-  WEATHER_KV: KVNamespace;
-  FOREX_KV: KVNamespace;
-  BROWSER_KV: KVNamespace;
+  WEATHER_KV?: KVNamespace;
+  FOREX_KV?: KVNamespace;
+  BROWSER_KV?: KVNamespace;
 
   // D1 Database
-  BETTERLB_DB: D1Database;
-  DB: D1Database; // Legacy name for backward compatibility
+  BETTERBULAKAN_DB?: D1Database;
+  BETTERLB_DB?: D1Database;
+  DB?: D1Database; // Legacy name for backward compatibility
 
   // Environment variables
   WEATHER_API_KEY?: string;

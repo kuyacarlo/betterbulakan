@@ -144,37 +144,42 @@ export default function WeatherMapSection() {
       popupContent.appendChild(popupSub);
       marker.bindPopup(popupContent);
 
-      // Force resize after a short delay to ensure proper rendering
-      setTimeout(() => {
-        if (mapInstance) {
-          mapInstance.invalidateSize();
-          console.log('Map: Initial resize complete');
-        }
+      // Force resize after short delays to ensure full tile coverage
+      const resizeTimer1 = setTimeout(() => {
+        if (mapInstance) mapInstance.invalidateSize();
       }, 100);
 
-      // Another resize after tiles might have loaded
-      setTimeout(() => {
-        if (mapInstance) {
-          mapInstance.invalidateSize();
-          console.log('Map: Secondary resize complete');
-        }
-      }, 500);
+      const resizeTimer2 = setTimeout(() => {
+        if (mapInstance) mapInstance.invalidateSize();
+      }, 400);
+
+      const resizeTimer3 = setTimeout(() => {
+        if (mapInstance) mapInstance.invalidateSize();
+      }, 800);
+
+      const handleResize = () => {
+        if (mapInstance) mapInstance.invalidateSize();
+      };
+      window.addEventListener('resize', handleResize);
 
       console.log('Map: Leaflet initialized successfully');
+
+      return () => {
+        clearTimeout(resizeTimer1);
+        clearTimeout(resizeTimer2);
+        clearTimeout(resizeTimer3);
+        window.removeEventListener('resize', handleResize);
+        if (mapInstance) {
+          try {
+            mapInstance.remove();
+          } catch (e) {
+            console.warn('Map: Cleanup warning:', e);
+          }
+        }
+      };
     } catch (error) {
       console.error('Map: Initialization failed:', error);
     }
-
-    return () => {
-      if (mapInstance) {
-        console.log('Map: Cleaning up map instance');
-        try {
-          mapInstance.remove();
-        } catch (e) {
-          console.warn('Map: Cleanup warning:', e);
-        }
-      }
-    };
   }, []);
 
   // Safe hourly forecast
@@ -183,98 +188,115 @@ export default function WeatherMapSection() {
       ? weather.hourly.slice(0, 4)
       : Array.from({ length: 4 }, (_, i) => ({
           hour: `${i + 1}PM`,
-          temperature: weather?.temperature ?? 30,
+          temperature: weather?.temperature ?? 28,
           icon: weather?.icon ?? 'Sun',
         }));
 
-  const WeatherIcon = weather ? lucideIconMap[weather.icon || 'Sun'] : Sun;
+  const WeatherIcon = weather ? lucideIconMap[weather.icon || 'Sun'] || Sun : Sun;
 
   return (
     <section className='border-kapwa-border-weak border-t py-12 bg-kapwa-bg-surface'>
       <div className='container px-4 mx-auto'>
-        {/* Header - restored */}
-        <div className='mb-12 text-center'>
+        {/* Section Header */}
+        <div className='mb-8 text-center'>
           <h2 className='text-2xl font-bold md:text-3xl text-kapwa-text-strong'>
             Weather and Map of {config.lgu.name}
           </h2>
+          <p className='text-kapwa-text-support mt-2 text-sm md:text-base'>
+            Current weather forecast and municipal center location
+          </p>
         </div>
 
-        <div className='flex flex-col items-stretch gap-6 md:flex-row'>
-          {/* Weather Card - using Card component */}
-          <Card className='w-full flex-1 md:min-w-[200px]'>
-            <CardContent className='p-4 md:p-6'>
+        <div className='grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch'>
+          {/* Weather Card */}
+          <Card className='lg:col-span-5 w-full flex flex-col justify-between shadow-sm min-h-[380px] md:min-h-[440px]'>
+            <CardContent className='p-6 md:p-8 flex flex-col justify-between h-full'>
               {loading ? (
-                <div className='text-kapwa-text-disabled flex items-center gap-2'>
-                  <LoaderIcon className='h-5 w-5 animate-spin' />
-                  Loading weather...
+                <div className='flex flex-col items-center justify-center flex-1 py-12 text-kapwa-text-disabled gap-3'>
+                  <LoaderIcon className='h-8 w-8 animate-spin text-kapwa-text-brand' />
+                  <span className='text-base font-medium'>Loading weather forecast...</span>
                 </div>
               ) : error ? (
-                <p className='text-kapwa-text-danger'>{error}</p>
+                <div className='flex flex-col items-center justify-center flex-1 py-12 text-center gap-3'>
+                  <Cloud className='h-12 w-12 text-kapwa-text-disabled' />
+                  <p className='text-kapwa-text-support font-medium'>{error}</p>
+                </div>
               ) : weather ? (
                 <>
                   {/* Top: Temp & Condition */}
-                  <div className='flex items-center gap-4 mb-4'>
-                    <WeatherIcon className='text-kapwa-text-brand h-14 w-14 shrink-0' />
-                    <div className='flex flex-col gap-1'>
-                      <div className='text-kapwa-text-strong text-5xl font-bold'>
+                  <div className='flex items-center justify-between gap-6 pb-6 border-b border-kapwa-border-weak'>
+                    <div className='flex flex-col'>
+                      <div className='text-kapwa-text-strong text-5xl md:text-6xl font-extrabold tracking-tight'>
                         {weather.temperature}°C
                       </div>
-                      <div className='text-kapwa-text-on-disabled text-center text-base capitalize'>
+                      <div className='text-kapwa-text-support text-lg capitalize font-medium mt-1'>
                         {weather.condition}
                       </div>
-                      <div className='text-kapwa-text-disabled mt-1 flex items-center gap-2 text-sm'>
-                        <MapPin className='h-4 w-4' />
-                        {config.lgu.name}, {config.lgu.province}
+                      <div className='text-kapwa-text-disabled mt-2 flex items-center gap-1.5 text-sm'>
+                        <MapPin className='h-4 w-4 shrink-0 text-kapwa-text-brand' />
+                        <span>{config.lgu.name}, {config.lgu.province}</span>
                       </div>
                     </div>
+                    <WeatherIcon className='text-kapwa-text-brand h-20 w-20 shrink-0 stroke-[1.5]' />
                   </div>
 
                   {/* Middle: Humidity & Wind */}
-                  <div className='text-kapwa-text-support flex justify-center gap-8 mb-4 text-sm'>
-                    <div className='flex items-center gap-2'>
-                      <Droplet className='text-kapwa-text-link h-4 w-4' />
-                      {weather.humidity}%
+                  <div className='grid grid-cols-2 gap-4 py-4 bg-kapwa-bg-hover rounded-xl px-4 my-4'>
+                    <div className='flex items-center gap-3'>
+                      <Droplet className='text-kapwa-text-link h-5 w-5 shrink-0' />
+                      <div>
+                        <div className='text-xs text-kapwa-text-disabled'>Humidity</div>
+                        <div className='text-sm font-semibold text-kapwa-text-strong'>{weather.humidity}%</div>
+                      </div>
                     </div>
-                    <div className='flex items-center gap-2'>
-                      <Wind className='text-kapwa-text-disabled h-4 w-4' />
-                      {weather.windSpeed} m/s
+                    <div className='flex items-center gap-3'>
+                      <Wind className='text-kapwa-text-brand h-5 w-5 shrink-0' />
+                      <div>
+                        <div className='text-xs text-kapwa-text-disabled'>Wind Speed</div>
+                        <div className='text-sm font-semibold text-kapwa-text-strong'>{weather.windSpeed} m/s</div>
+                      </div>
                     </div>
                   </div>
 
                   {/* Bottom: Hourly forecast */}
-                  <div className='flex justify-between gap-2'>
-                    {hourlyForecast.map((h, idx) => {
-                      const IconComp = lucideIconMap[h.icon] || Sun;
-                      return (
-                        <div
-                          key={idx}
-                          className='hover:bg-kapwa-bg-surface-brand bg-kapwa-bg-hover flex w-full flex-col items-center gap-1.5 rounded-xl p-2 transition-all duration-200 hover:-translate-y-0.5 sm:flex-1 sm:p-3'
-                        >
-                          <IconComp className='text-kapwa-text-brand h-6 w-6' />
-                          <div className='text-base font-bold'>
-                            {h.temperature}°
+                  <div>
+                    <div className='text-xs font-semibold text-kapwa-text-disabled uppercase tracking-wider mb-2.5'>
+                      Forecast
+                    </div>
+                    <div className='grid grid-cols-4 gap-2'>
+                      {hourlyForecast.map((h, idx) => {
+                        const IconComp = lucideIconMap[h.icon] || Sun;
+                        return (
+                          <div
+                            key={idx}
+                            className='hover:bg-kapwa-bg-surface-brand bg-kapwa-bg-hover flex flex-col items-center gap-1 rounded-xl p-2.5 transition-all duration-200'
+                          >
+                            <span className='text-xs text-kapwa-text-disabled font-medium'>
+                              {h.hour}
+                            </span>
+                            <IconComp className='text-kapwa-text-brand h-6 w-6 my-1' />
+                            <span className='text-sm font-bold text-kapwa-text-strong'>
+                              {h.temperature}°
+                            </span>
                           </div>
-                          <div className='text-kapwa-text-disabled text-xs'>
-                            {h.hour}
-                          </div>
-                        </div>
-                      );
-                    })}
+                        );
+                      })}
+                    </div>
                   </div>
                 </>
               ) : (
-                <p className='text-kapwa-text-strong'>
+                <div className='flex flex-col items-center justify-center flex-1 py-12 text-kapwa-text-support'>
                   No weather data available.
-                </p>
+                </div>
               )}
             </CardContent>
           </Card>
 
           {/* Map Container */}
-          <div className='flex w-full flex-col overflow-hidden rounded-xl shadow-sm hover:shadow-md md:flex-[2.5]'>
+          <div className='lg:col-span-7 flex flex-col overflow-hidden rounded-2xl border border-kapwa-border-weak shadow-sm hover:shadow-md min-h-[380px] md:min-h-[440px] bg-kapwa-bg-surface'>
             <div
               id='map-container'
-              className='h-64 w-full md:flex-1'
+              className='w-full h-full min-h-[320px] md:min-h-[380px] flex-1'
               role='application'
               aria-label={`Interactive map of ${config.lgu.fullName} Municipal Hall`}
             >
@@ -292,10 +314,15 @@ export default function WeatherMapSection() {
                 </div>
               </noscript>
             </div>
-            <div className='border-kapwa-border-weak bg-kapwa-bg-surface flex items-center gap-2 border-t p-3'>
-              <MapPin className='text-kapwa-text-brand h-5 w-5' />
-              <span className='text-kapwa-text-support text-sm font-medium'>
-                {config.lgu.fullName} Municipal Hall
+            <div className='border-kapwa-border-weak bg-kapwa-bg-surface flex items-center justify-between gap-2 border-t p-3.5 px-4'>
+              <div className='flex items-center gap-2'>
+                <MapPin className='text-kapwa-text-brand h-5 w-5 shrink-0' />
+                <span className='text-kapwa-text-strong text-sm font-medium'>
+                  {config.lgu.fullName} Municipal Hall
+                </span>
+              </div>
+              <span className='text-xs text-kapwa-text-disabled'>
+                {config.location.coordinates.lat}, {config.location.coordinates.lon}
               </span>
             </div>
           </div>

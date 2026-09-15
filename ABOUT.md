@@ -1,8 +1,8 @@
 ## Inspiration
-The inspiration for BetterLB came from recognizing that the Municipality of Los Baños deserved a modern, accessible portal that residents could actually rely on. Official government websites are often difficult to navigate on mobile, slow to update, and lack accessibility features. We wanted to build something community-driven and open-source — a portal that puts Los Bañenses first.
+The inspiration for BetterBulakan came from recognizing that the Municipality of Bulakan deserved a modern, accessible portal that residents could actually rely on. Official government websites are often difficult to navigate on mobile, slow to update, and lack accessibility features. We wanted to build something community-driven and open-source — a portal that puts Bulakeños first.
 
 ## What it does
-BetterLB serves as a community-built portal for the Municipality of Los Baños, offering:
+BetterBulakan serves as a community-built portal for the Municipality of Bulakan, offering:
 - A modern, user-friendly interface for accessing municipal government services
 - Comprehensive public services directory with requirements, fees, and step-by-step processes
 - Legislative portal with ordinances, resolutions, and executive orders from the Sangguniang Bayan
@@ -33,11 +33,11 @@ The platform is built using modern web technologies:
 - Keeping data accurate and up-to-date through community contribution workflows
 
 ## Accomplishments that we're proud of
-- Built a fully open-source, community-audited portal at zero cost to Los Baños residents
+- Built a fully open-source, community-audited portal at zero cost to Bulakan residents
 - Created a searchable legislative archive of ordinances, resolutions, and executive orders
 - Implemented a powerful fuzzy search and filtering system for services and legislation
 - Developed a responsive design that works seamlessly on all devices
-- Built a scalable, forkable architecture so other LGUs in the Philippines can adopt it
+- Built on a scalable, forkable architecture from BetterLB / BetterGov.ph
 - Achieved excellent performance metrics through Cloudflare's edge network
 - Created a structured data pipeline for processing and publishing legislative documents
 
@@ -49,8 +49,8 @@ The platform is built using modern web technologies:
 - How to design community contribution workflows that non-developers can participate in
 - The importance of open data and transparency in local governance
 
-## What's next for BetterLB
+## What's next for BetterBulakan
 - Expanding coverage of barangay-level services and officials
 - Adding more real-time transparency data (budget execution, project tracking)
 - Growing the volunteer community of data auditors and translators
-- Helping other LGUs fork and deploy their own portals based on BetterLB
+- Collaborating with the broader BetterGov.ph / BetterLGU open-source ecosystem

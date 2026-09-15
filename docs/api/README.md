@@ -1,10 +1,10 @@
-# BetterLB API Documentation
+# BetterBulakan API Documentation
 
-Welcome to the BetterLB API documentation. This system provides comprehensive documentation for all API endpoints available in the BetterLB municipal government portal.
+Welcome to the BetterBulakan API documentation. This system provides comprehensive documentation for all API endpoints available in the BetterBulakan municipal government portal.
 
 ## Overview
 
-BetterLB exposes multiple API categories for different purposes:
+BetterBulakan exposes multiple API categories for different purposes:
 
 - **Public APIs** - No authentication required, publicly accessible
 - **Admin APIs** - GitHub OAuth authentication required, for administrative operations
@@ -15,7 +15,7 @@ BetterLB exposes multiple API categories for different purposes:
 All API endpoints are prefixed with `/api/`:
 
 ```
-https://betterlb.gov.ph/api/
+https://betterbulakan.org/api/
 ```
 
 ## Quick Start
@@ -24,10 +24,10 @@ https://betterlb.gov.ph/api/
 
 1. **Weather API** - Get current weather and forecasts
    ```bash
-   curl https://betterlb.gov.ph/api/weather
+   curl https://betterbulakan.org/api/weather
    ```
 
-2. **Contribution Flow** - Community contributions are submitted via [GitHub Issues](https://github.com/BetterLosBanos/betterlb/issues/new?template=contribution.yml) using the contribution issue template. The `/contribute` page on the site links users directly to GitHub.
+2. **Contribution Flow** - Community contributions are submitted via GitHub issues. The `/contribute` page on the site links users directly to GitHub.
 
 ### Admin APIs (Authentication Required)
 
@@ -35,34 +35,27 @@ All admin endpoints require GitHub OAuth authentication:
 
 1. **Login** - Redirect to GitHub OAuth
    ```bash
-   curl https://betterlb.gov.ph/api/admin/auth/login
+   curl https://betterbulakan.org/api/admin/auth/login
    ```
 
 2. **Get Session** - Check authentication status
    ```bash
-   curl https://betterlb.gov.ph/api/admin/auth/session \
+   curl https://betterbulakan.org/api/admin/auth/session \
      -H "Cookie: session=<your-session-cookie>"
    ```
 
 3. **Make Authenticated Request** - Include session cookie in requests
    ```bash
-   curl https://betterlb.gov.ph/api/admin/documents \
+   curl https://betterbulakan.org/api/admin/documents \
      -H "Cookie: session=<your-session-cookie>"
    ```
 
-### OpenLGU API (Public Legislative Data)
-
-Comprehensive documentation available in [openlgu-api.md](./openlgu-api.md)
+### OpenLGU APIs (Public Legislative Data)
 
 ```bash
-# Get documents
-curl https://betterlb.gov.ph/api/openlgu/documents?limit=10
-
-# Get persons
-curl https://betterlb.gov.ph/api/openlgu/persons?term=1
-
-# Get terms
-curl https://betterlb.gov.ph/api/openlgu/terms
+curl https://betterbulakan.org/api/openlgu/documents?limit=10
+curl https://betterbulakan.org/api/openlgu/persons?term=1
+curl https://betterbulakan.org/api/openlgu/terms
 ```
 
 ---
@@ -318,7 +311,7 @@ curl "https://betterlb.gov.ph/api/admin/audit-logs?action=create_document&limit=
 
 All public APIs support CORS for authorized origins:
 
-- **Production:** `https://betterlb.pages.dev`, `https://betterlb.gov.ph`
+- **Production:** `https://betterbulakan.pages.dev`, `https://betterbulakan.org`
 - **Development:** `http://localhost:5173`, `http://localhost:8788`
 
 **CORS Headers:**
@@ -332,7 +325,7 @@ Access-Control-Max-Age: 86400
 ### Admin APIs
 
 Admin APIs require same-origin requests (no CORS for security).
-All admin requests must originate from `https://betterlb.gov.ph`.
+All admin requests must originate from `https://betterbulakan.org`.
 
 ---
 
@@ -342,18 +335,18 @@ All admin requests must originate from `https://betterlb.gov.ph`.
 
 **Public API (Weather):**
 ```typescript
-const response = await fetch('https://betterlb.gov.ph/api/weather');
+const response = await fetch('https://betterbulakan.org/api/weather');
 const weather = await response.json();
-console.log(weather.los_banos);
+console.log(weather.bulakan);
 ```
 
 **Admin API (Authenticated):**
 ```typescript
 // Login
-window.location.href = 'https://betterlb.gov.ph/api/admin/auth/login';
+window.location.href = 'https://betterbulakan.org/api/admin/auth/login';
 
 // After callback, make authenticated request
-const response = await fetch('https://betterlb.gov.ph/api/admin/documents', {
+const response = await fetch('https://betterbulakan.org/api/admin/documents', {
   credentials: 'include', // Include session cookie
 });
 const data = await response.json();
@@ -362,13 +355,13 @@ const data = await response.json();
 **Admin API (CSRF-Protected):**
 ```typescript
 // Get CSRF token
-const csrfResponse = await fetch('https://betterlb.gov.ph/api/admin/auth/csrf', {
+const csrfResponse = await fetch('https://betterbulakan.org/api/admin/auth/csrf', {
   credentials: 'include',
 });
 const { csrfToken } = await csrfResponse.json();
 
 // Make CSRF-protected request
-const response = await fetch('https://betterlb.gov.ph/api/admin/documents', {
+const response = await fetch('https://betterbulakan.org/api/admin/documents', {
   method: 'POST',
   credentials: 'include',
   headers: {

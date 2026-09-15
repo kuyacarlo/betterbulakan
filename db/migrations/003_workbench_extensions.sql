@@ -65,4 +65,4 @@ CREATE INDEX IF NOT EXISTS idx_review_decisions_created_at
 -- SCHEMA MIGRATIONS
 -- ============================================================================
 
-INSERT INTO schema_migrations (name) VALUES ('003_workbench_extensions.sql');
+INSERT OR IGNORE INTO schema_migrations (name) VALUES ('003_workbench_extensions.sql');

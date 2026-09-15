@@ -1,6 +1,6 @@
-# BetterLB Architecture
+# BetterBulakan Architecture
 
-High-level architecture overview for developers working on BetterLB.
+High-level architecture overview for developers working on BetterBulakan.
 
 ---
 
@@ -172,11 +172,11 @@ Component testing for complex UI components.
 
 ## Deployment
 
-### Production (BetterLB)
+### Production (BetterBulakan)
 - **Platform:** Cloudflare Pages
-- **Database:** D1 `betterlb_openlgu`
+- **Database:** D1 `betterbulakan-db`
 - **Search:** Self-hosted Meilisearch
-- **Domain:** betterlb.org
+- **Domain:** betterbulakan.org
 - **Wrangler:** 4.70.0 (pinned for compatibility)
 
 ### For Other LGUs

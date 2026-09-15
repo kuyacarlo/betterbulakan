@@ -1,6 +1,6 @@
-# BetterLB OpenLGU
+# BetterBulakan OpenLGU
 
-This context describes the civic-legislative data language used by BetterLB's OpenLGU portal. It distinguishes source intake, review, and canonical public records for municipal legislation.
+This context describes the civic-legislative data language used by BetterBulakan's OpenLGU portal. It distinguishes source intake, review, and canonical public records for municipal legislation.
 
 ## Language
 
@@ -13,7 +13,7 @@ The separate workflow that merges service data into public Citizens Charter serv
 _Avoid_: OpenLGU pipeline, legislative pipeline
 
 **Source Record**:
-A raw observation from an upstream source, such as a website table row, Facebook post, or OCR result. A source record records what was seen, not what BetterLB believes is true.
+A raw observation from an upstream source, such as a website table row, Facebook post, or OCR result. A source record records what was seen, not what BetterBulakan believes is true.
 _Avoid_: Document, canonical record
 
 **Raw-Preserving Collection**:
@@ -173,11 +173,11 @@ The observed fetchability of a PDF URL, such as reachable, dead, redirected, mis
 _Avoid_: Source identity, publication status
 
 **PDF Mirror**:
-A BetterLB-controlled archived copy of an official LGU PDF, usually stored outside D1. A PDF mirror preserves evidence when official links rot, but it does not replace the official source URL.
+A BetterBulakan-controlled archived copy of an official LGU PDF, usually stored outside D1. A PDF mirror preserves evidence when official links rot, but it does not replace the official source URL.
 _Avoid_: Official PDF URL, canonical source
 
 **Archived Copy Fallback**:
-A future public display mode where BetterLB can show a preserved PDF mirror when the official PDF URL is dead. Archived copy fallback is not the initial public behavior.
+A future public display mode where BetterBulakan can show a preserved PDF mirror when the official PDF URL is dead. Archived copy fallback is not the initial public behavior.
 _Avoid_: Primary source, official record
 
 **Facebook Post**:

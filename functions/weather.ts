@@ -9,8 +9,10 @@ import { Env } from './types';
  * Restricts API access to trusted origins only (security fix for T-059)
  */
 const ALLOWED_ORIGINS = [
-  'https://betterlb.pages.dev',
-  'https://betterlb.gov.ph', // Custom domain if configured
+  'https://betterbulakan.org',
+  'https://www.betterbulakan.org',
+  'https://betterbulakan.pages.dev',
+  'https://betterbulakan.vercel.app',
   'http://localhost:5173', // Vite dev server
   'http://localhost:8788', // Wrangler dev server
 ];
@@ -56,7 +58,7 @@ export async function onRequest(context: {
     }
 
     // Get data from KV store
-    const cachedData = (await context.env.WEATHER_KV.get(
+    const cachedData = (await context.env?.WEATHER_KV?.get(
       'philippines_weather',
       { type: 'json' }
     )) as Record<string, unknown> | null;
