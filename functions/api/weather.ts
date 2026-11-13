@@ -75,17 +75,52 @@ function getCityConfig(cityName: string): CityCoordinates | undefined {
 }
 
 // Map WMO weather code from Open-Meteo to OpenWeatherMap-compatible format
-function wmoCodeToWeather(code: number): { id: number; main: string; description: string; icon: string } {
-  if (code === 0) return { id: 800, main: 'Clear', description: 'clear sky', icon: '01d' };
-  if (code === 1) return { id: 801, main: 'Clouds', description: 'mainly clear', icon: '02d' };
-  if (code === 2) return { id: 802, main: 'Clouds', description: 'partly cloudy', icon: '03d' };
-  if (code === 3) return { id: 804, main: 'Clouds', description: 'overcast', icon: '04d' };
-  if (code === 45 || code === 48) return { id: 741, main: 'Fog', description: 'fog', icon: '50d' };
-  if (code >= 51 && code <= 57) return { id: 300, main: 'Drizzle', description: 'light drizzle', icon: '09d' };
-  if (code >= 61 && code <= 67) return { id: 500, main: 'Rain', description: 'rain', icon: '10d' };
-  if (code >= 71 && code <= 77) return { id: 600, main: 'Snow', description: 'snow', icon: '13d' };
-  if (code >= 80 && code <= 82) return { id: 520, main: 'Rain', description: 'rain showers', icon: '09d' };
-  if (code >= 95 && code <= 99) return { id: 200, main: 'Thunderstorm', description: 'thunderstorm', icon: '11d' };
+function wmoCodeToWeather(code: number): {
+  id: number;
+  main: string;
+  description: string;
+  icon: string;
+} {
+  if (code === 0)
+    return { id: 800, main: 'Clear', description: 'clear sky', icon: '01d' };
+  if (code === 1)
+    return {
+      id: 801,
+      main: 'Clouds',
+      description: 'mainly clear',
+      icon: '02d',
+    };
+  if (code === 2)
+    return {
+      id: 802,
+      main: 'Clouds',
+      description: 'partly cloudy',
+      icon: '03d',
+    };
+  if (code === 3)
+    return { id: 804, main: 'Clouds', description: 'overcast', icon: '04d' };
+  if (code === 45 || code === 48)
+    return { id: 741, main: 'Fog', description: 'fog', icon: '50d' };
+  if (code >= 51 && code <= 57)
+    return {
+      id: 300,
+      main: 'Drizzle',
+      description: 'light drizzle',
+      icon: '09d',
+    };
+  if (code >= 61 && code <= 67)
+    return { id: 500, main: 'Rain', description: 'rain', icon: '10d' };
+  if (code >= 71 && code <= 77)
+    return { id: 600, main: 'Snow', description: 'snow', icon: '13d' };
+  if (code >= 80 && code <= 82)
+    return { id: 520, main: 'Rain', description: 'rain showers', icon: '09d' };
+  if (code >= 95 && code <= 99)
+    return {
+      id: 200,
+      main: 'Thunderstorm',
+      description: 'thunderstorm',
+      icon: '11d',
+    };
   return { id: 800, main: 'Clear', description: 'clear sky', icon: '01d' };
 }
 
@@ -127,7 +162,11 @@ async function fetchCityWeatherOpenMeteo(
     if (startIndex === -1) startIndex = 0;
 
     const hourly: HourlyForecast[] = [];
-    for (let i = startIndex; i < hourlyTimes.length && hourly.length < 8; i += 3) {
+    for (
+      let i = startIndex;
+      i < hourlyTimes.length && hourly.length < 8;
+      i += 3
+    ) {
       const timeStr = hourlyTimes[i];
       const dt = Math.floor(new Date(timeStr + '+08:00').getTime() / 1000);
       const temp = hourlyTemps[i] ?? current.temperature_2m ?? 28;
@@ -245,7 +284,10 @@ async function fetchCityWeather(
         };
       }
     } catch (cityError) {
-      console.warn(`OpenWeatherMap fetch failed for ${cityName}, falling back to Open-Meteo:`, cityError);
+      console.warn(
+        `OpenWeatherMap fetch failed for ${cityName}, falling back to Open-Meteo:`,
+        cityError
+      );
     }
   }
 
@@ -276,7 +318,8 @@ async function fetchWeatherData(
       apiKey
     );
     if (defaultData) {
-      weatherData[normalizeCityKey(specificCity || DEFAULT_CITY.name)] = defaultData;
+      weatherData[normalizeCityKey(specificCity || DEFAULT_CITY.name)] =
+        defaultData;
     }
     return weatherData;
   }
@@ -344,21 +387,19 @@ export async function onRequest(context: {
       if (weatherKv) {
         if (!cityParam) {
           runWaitUntil(
-            weatherKv.put(
-              'philippines_weather',
-              JSON.stringify(weatherData),
-              {
-                expirationTtl: 3600, // Expire after 1 hour
-              }
-            )
+            weatherKv.put('philippines_weather', JSON.stringify(weatherData), {
+              expirationTtl: 3600, // Expire after 1 hour
+            })
           );
         } else if (cityParam && weatherData[normalizeCityKey(cityParam)]) {
           runWaitUntil(
-            weatherKv.get('philippines_weather', {
-              type: 'json',
-            })
+            weatherKv
+              .get('philippines_weather', {
+                type: 'json',
+              })
               .then(existingDataRaw => {
-                const existingData = (existingDataRaw as WeatherResponseData) || {};
+                const existingData =
+                  (existingDataRaw as WeatherResponseData) || {};
                 const cityKey = normalizeCityKey(cityParam);
                 existingData[cityKey] = weatherData[cityKey];
                 return weatherKv.put(
@@ -387,10 +428,9 @@ export async function onRequest(context: {
     }
 
     // Check if data exists in KV and is not expired
-    const cachedData = (await weatherKv.get(
-      'philippines_weather',
-      { type: 'json' }
-    )) as WeatherResponseData | null;
+    const cachedData = (await weatherKv.get('philippines_weather', {
+      type: 'json',
+    })) as WeatherResponseData | null;
 
     // If city parameter is provided, filter the data
     if (cityParam && cachedData) {
@@ -427,21 +467,19 @@ export async function onRequest(context: {
     if (weatherKv) {
       if (!cityParam) {
         runWaitUntil(
-          weatherKv.put(
-            'philippines_weather',
-            JSON.stringify(weatherData),
-            {
-              expirationTtl: 3600, // Expire after 1 hour
-            }
-          )
+          weatherKv.put('philippines_weather', JSON.stringify(weatherData), {
+            expirationTtl: 3600, // Expire after 1 hour
+          })
         );
       } else if (cityParam && weatherData[normalizeCityKey(cityParam)]) {
         runWaitUntil(
-          weatherKv.get('philippines_weather', {
-            type: 'json',
-          })
+          weatherKv
+            .get('philippines_weather', {
+              type: 'json',
+            })
             .then(existingDataRaw => {
-              const existingData = (existingDataRaw as WeatherResponseData) || {};
+              const existingData =
+                (existingDataRaw as WeatherResponseData) || {};
               const cityKey = normalizeCityKey(cityParam);
               existingData[cityKey] = weatherData[cityKey];
               return weatherKv.put(

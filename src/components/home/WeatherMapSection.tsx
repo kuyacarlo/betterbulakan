@@ -192,7 +192,9 @@ export default function WeatherMapSection() {
           icon: weather?.icon ?? 'Sun',
         }));
 
-  const WeatherIcon = weather ? lucideIconMap[weather.icon || 'Sun'] || Sun : Sun;
+  const WeatherIcon = weather
+    ? lucideIconMap[weather.icon || 'Sun'] || Sun
+    : Sun;
 
   return (
     <section className='border-kapwa-border-weak border-t py-12 bg-kapwa-bg-surface'>
@@ -214,7 +216,9 @@ export default function WeatherMapSection() {
               {loading ? (
                 <div className='flex flex-col items-center justify-center flex-1 py-12 text-kapwa-text-disabled gap-3'>
                   <LoaderIcon className='h-8 w-8 animate-spin text-kapwa-text-brand' />
-                  <span className='text-base font-medium'>Loading weather forecast...</span>
+                  <span className='text-base font-medium'>
+                    Loading weather forecast...
+                  </span>
                 </div>
               ) : error ? (
                 <div className='flex flex-col items-center justify-center flex-1 py-12 text-center gap-3'>
@@ -234,7 +238,9 @@ export default function WeatherMapSection() {
                       </div>
                       <div className='text-kapwa-text-disabled mt-2 flex items-center gap-1.5 text-sm'>
                         <MapPin className='h-4 w-4 shrink-0 text-kapwa-text-brand' />
-                        <span>{config.lgu.name}, {config.lgu.province}</span>
+                        <span>
+                          {config.lgu.name}, {config.lgu.province}
+                        </span>
                       </div>
                     </div>
                     <WeatherIcon className='text-kapwa-text-brand h-20 w-20 shrink-0 stroke-[1.5]' />
@@ -245,15 +251,23 @@ export default function WeatherMapSection() {
                     <div className='flex items-center gap-3'>
                       <Droplet className='text-kapwa-text-link h-5 w-5 shrink-0' />
                       <div>
-                        <div className='text-xs text-kapwa-text-disabled'>Humidity</div>
-                        <div className='text-sm font-semibold text-kapwa-text-strong'>{weather.humidity}%</div>
+                        <div className='text-xs text-kapwa-text-disabled'>
+                          Humidity
+                        </div>
+                        <div className='text-sm font-semibold text-kapwa-text-strong'>
+                          {weather.humidity}%
+                        </div>
                       </div>
                     </div>
                     <div className='flex items-center gap-3'>
                       <Wind className='text-kapwa-text-brand h-5 w-5 shrink-0' />
                       <div>
-                        <div className='text-xs text-kapwa-text-disabled'>Wind Speed</div>
-                        <div className='text-sm font-semibold text-kapwa-text-strong'>{weather.windSpeed} m/s</div>
+                        <div className='text-xs text-kapwa-text-disabled'>
+                          Wind Speed
+                        </div>
+                        <div className='text-sm font-semibold text-kapwa-text-strong'>
+                          {weather.windSpeed} m/s
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -322,7 +336,8 @@ export default function WeatherMapSection() {
                 </span>
               </div>
               <span className='text-xs text-kapwa-text-disabled'>
-                {config.location.coordinates.lat}, {config.location.coordinates.lon}
+                {config.location.coordinates.lat},{' '}
+                {config.location.coordinates.lon}
               </span>
             </div>
           </div>

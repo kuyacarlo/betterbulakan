@@ -5,9 +5,7 @@
     "type": "information",
     "description": "Official Citizen's Charter of the Municipality of Bulakan — requirements, fees, and processing times for frontline services.",
     "url": "https://drive.google.com/file/d/13qUeSH-ibdJk3axJZ5qdEVhnxA2Gh-gG/view",
-    "officeSlug": [
-      "office-of-the-mayor"
-    ],
+    "officeSlug": ["office-of-the-mayor"],
     "category": {
       "name": "Government Information",
       "slug": "government-information"
@@ -31,9 +29,7 @@
     "type": "information",
     "description": "Published ordinances of the Sangguniang Bayan of Bulakan, including appropriation ordinances.",
     "url": "https://elgu-bulacan-bulacan-news.e.gov.ph/ordinances",
-    "officeSlug": [
-      "sangguniang-bayan"
-    ],
+    "officeSlug": ["sangguniang-bayan"],
     "category": {
       "name": "Government Information",
       "slug": "government-information"
@@ -60,9 +56,7 @@
     "slug": "mayors-office-contact",
     "type": "information",
     "description": "Reach the Office of the Mayor — Hon. Vergel C. Meneses — for municipal inquiries.",
-    "officeSlug": [
-      "office-of-the-mayor"
-    ],
+    "officeSlug": ["office-of-the-mayor"],
     "category": {
       "name": "Government Information",
       "slug": "government-information"
@@ -92,9 +86,7 @@
     "type": "information",
     "description": "Official provincial profile for Bulakan: history, barangays, officials, and contact numbers.",
     "url": "https://bulacan.gov.ph/cities-and-municipalities/bulakan/",
-    "officeSlug": [
-      "municipal-planning-and-development-office"
-    ],
+    "officeSlug": ["municipal-planning-and-development-office"],
     "category": {
       "name": "Government Information",
       "slug": "government-information"
