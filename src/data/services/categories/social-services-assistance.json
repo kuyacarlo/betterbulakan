@@ -5,9 +5,7 @@
     "type": "information",
     "description": "GAD programs and information published by the Municipality of Bulakan.",
     "url": "https://elgu-bulacan-bulacan-news.e.gov.ph/GADcorner",
-    "officeSlug": [
-      "gender-and-development-office"
-    ],
+    "officeSlug": ["gender-and-development-office"],
     "category": {
       "name": "Social Services",
       "slug": "social-services-assistance"

@@ -145,7 +145,8 @@ export default function ReviewQueue() {
             issue_type: 'low_ocr_confidence',
             description: 'OCR confidence below 50% - manual review required',
             source_type: 'pdf',
-            source_url: 'https://elgu-bulacan-bulacan-news.e.gov.ph/resolutions/2024-001.pdf',
+            source_url:
+              'https://elgu-bulacan-bulacan-news.e.gov.ph/resolutions/2024-001.pdf',
             status: 'pending',
             assigned_to: null,
             resolution: null,
@@ -156,7 +157,8 @@ export default function ReviewQueue() {
               type: 'resolution',
               number: '2024-001',
               title: 'AN ORDINANCE ENACTING THE SUPPLEMENTAL BUDGET',
-              pdf_url: 'https://elgu-bulacan-bulacan-news.e.gov.ph/resolutions/2024-001.pdf',
+              pdf_url:
+                'https://elgu-bulacan-bulacan-news.e.gov.ph/resolutions/2024-001.pdf',
             },
           },
           {
@@ -166,7 +168,8 @@ export default function ReviewQueue() {
             issue_type: 'missing_author',
             description: 'Could not match author from extracted text',
             source_type: 'pdf',
-            source_url: 'https://elgu-bulacan-bulacan-news.e.gov.ph/ordinances/2025-2460.pdf',
+            source_url:
+              'https://elgu-bulacan-bulacan-news.e.gov.ph/ordinances/2025-2460.pdf',
             status: 'in_progress',
             assigned_to: 'mock-user',
             resolution: null,
@@ -177,7 +180,8 @@ export default function ReviewQueue() {
               type: 'ordinance',
               number: '2025-2460',
               title: 'SUPPLEMENTAL BUDGET FOR FY 2025',
-              pdf_url: 'https://elgu-bulacan-bulacan-news.e.gov.ph/ordinances/2025-2460.pdf',
+              pdf_url:
+                'https://elgu-bulacan-bulacan-news.e.gov.ph/ordinances/2025-2460.pdf',
             },
           },
           {
@@ -187,7 +191,8 @@ export default function ReviewQueue() {
             issue_type: 'attendance_mismatch',
             description: 'Absent count does not match between sources',
             source_type: 'pdf',
-            source_url: 'https://elgu-bulacan-bulacan-news.e.gov.ph/sessions/2025-01-15.pdf',
+            source_url:
+              'https://elgu-bulacan-bulacan-news.e.gov.ph/sessions/2025-01-15.pdf',
             status: 'pending',
             assigned_to: null,
             resolution: null,
