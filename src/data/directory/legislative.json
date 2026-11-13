@@ -1,66 +1,74 @@
 [
   {
-    "slug": "sb-cruz-bienvinido",
-    "name": "Bienvinido M. Cruz, Jr.",
-    "role": "Sangguniang Bayan Member",
-    "office": "Sangguniang Bayan",
-    "isElected": true,
-    "personId": "cruz-bienvinido-m-jr"
-  },
-  {
-    "slug": "sb-catindig-patrick",
-    "name": "Patrick Ian DC. Catindig",
-    "role": "Sangguniang Bayan Member",
-    "office": "Sangguniang Bayan",
-    "isElected": true,
-    "personId": "catindig-patrick-ian-dc"
-  },
-  {
-    "slug": "sb-mendoza-gloria",
-    "name": "Ma. Gloria DC. Mendoza",
-    "role": "Sangguniang Bayan Member",
-    "office": "Sangguniang Bayan",
-    "isElected": true,
-    "personId": "mendoza-ma-gloria-dc"
-  },
-  {
-    "slug": "sb-meneses-veronica",
-    "name": "Veronica Michaela V. Meneses",
-    "role": "Sangguniang Bayan Member",
-    "office": "Sangguniang Bayan",
-    "isElected": true,
-    "personId": "meneses-veronica-michaela-v"
-  },
-  {
-    "slug": "sb-san-jose-rchie",
-    "name": "Rchie E. San Jose",
-    "role": "Sangguniang Bayan Member",
-    "office": "Sangguniang Bayan",
-    "isElected": true,
-    "personId": "san-jose-rchie-e"
-  },
-  {
-    "slug": "sb-meneses-piccolo",
-    "name": "Piccolo Iñigo F. Meneses",
-    "role": "Sangguniang Bayan Member",
-    "office": "Sangguniang Bayan",
-    "isElected": true,
-    "personId": "meneses-piccolo-inigo-f"
-  },
-  {
-    "slug": "sb-pagsibigan-ana",
-    "name": "Ana Marie V. Pagsibigan",
-    "role": "Sangguniang Bayan Member",
-    "office": "Sangguniang Bayan",
-    "isElected": true,
-    "personId": "pagsibigan-ana-marie-v"
-  },
-  {
-    "slug": "sb-ramos-michael",
-    "name": "Michael M. Ramos",
-    "role": "Sangguniang Bayan Member",
-    "office": "Sangguniang Bayan",
-    "isElected": true,
-    "personId": "ramos-michael-m"
+    "slug": "12th-sangguniang-bayan",
+    "branch": "Legislative Branch",
+    "chamber": "Sangguniang Bayan ng Bulakan",
+    "officials": [
+      {
+        "slug": "sb-cruz-bienvinido",
+        "name": "Bienvinido M. Cruz, Jr.",
+        "role": "Sangguniang Bayan Member",
+        "office": "Sangguniang Bayan",
+        "isElected": true,
+        "personId": "cruz-bienvinido-m-jr"
+      },
+      {
+        "slug": "sb-catindig-patrick",
+        "name": "Patrick Ian DC. Catindig",
+        "role": "Sangguniang Bayan Member",
+        "office": "Sangguniang Bayan",
+        "isElected": true,
+        "personId": "catindig-patrick-ian-dc"
+      },
+      {
+        "slug": "sb-mendoza-gloria",
+        "name": "Ma. Gloria DC. Mendoza",
+        "role": "Sangguniang Bayan Member",
+        "office": "Sangguniang Bayan",
+        "isElected": true,
+        "personId": "mendoza-ma-gloria-dc"
+      },
+      {
+        "slug": "sb-meneses-veronica",
+        "name": "Veronica Michaela V. Meneses",
+        "role": "Sangguniang Bayan Member",
+        "office": "Sangguniang Bayan",
+        "isElected": true,
+        "personId": "meneses-veronica-michaela-v"
+      },
+      {
+        "slug": "sb-san-jose-rchie",
+        "name": "Rchie E. San Jose",
+        "role": "Sangguniang Bayan Member",
+        "office": "Sangguniang Bayan",
+        "isElected": true,
+        "personId": "san-jose-rchie-e"
+      },
+      {
+        "slug": "sb-meneses-piccolo",
+        "name": "Piccolo Iñigo F. Meneses",
+        "role": "Sangguniang Bayan Member",
+        "office": "Sangguniang Bayan",
+        "isElected": true,
+        "personId": "meneses-piccolo-inigo-f"
+      },
+      {
+        "slug": "sb-pagsibigan-ana",
+        "name": "Ana Marie V. Pagsibigan",
+        "role": "Sangguniang Bayan Member",
+        "office": "Sangguniang Bayan",
+        "isElected": true,
+        "personId": "pagsibigan-ana-marie-v"
+      },
+      {
+        "slug": "sb-ramos-michael",
+        "name": "Michael M. Ramos",
+        "role": "Sangguniang Bayan Member",
+        "office": "Sangguniang Bayan",
+        "isElected": true,
+        "personId": "ramos-michael-m"
+      }
+    ],
+    "permanent_committees": []
   }
 ]
