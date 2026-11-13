@@ -110,7 +110,7 @@ export const Navbar: FC = () => {
             <img
               src={config.portal.navbarLogoPath}
               alt={`${config.portal.name} Logo`}
-              className='mr-3 w-10 h-10 transition-transform shrink-0 group-hover:scale-105 md:h-12 md:w-12'
+              className='mr-3 h-8 w-auto transition-transform shrink-0 group-hover:scale-105 md:h-11'
             />
             <div className='flex flex-col justify-center min-w-0'>
               <div className='text-lg font-black tracking-tighter leading-none text-kapwa-text-strong md:text-xl'>
