@@ -56,3 +56,23 @@ export interface LGUConfig {
 
 export const config = lguConfig as LGUConfig;
 export default config;
+
+// Internal route prefixes owned by a feature flag; links into a disabled feature would 404
+const FEATURE_ROUTE_PREFIXES: Record<string, keyof LGUConfig['features']> = {
+  '/openlgu': 'openLGU',
+  '/transparency': 'transparency',
+  '/tourism': 'tourism',
+  '/statistics': 'statistics',
+};
+
+/** False when href points into a route whose feature flag is off. External links are always enabled. */
+export function isPathEnabled(
+  href: string,
+  features: LGUConfig['features'] = config.features
+): boolean {
+  const path = href.split(/[?#]/)[0];
+  return Object.entries(FEATURE_ROUTE_PREFIXES).every(
+    ([prefix, flag]) =>
+      features[flag] || (path !== prefix && !path.startsWith(`${prefix}/`))
+  );
+}

@@ -1,4 +1,4 @@
-import { config } from '../lib/lguConfig';
+import { config, isPathEnabled } from '../lib/lguConfig';
 import { lguLabels } from '../lib/lguLabels';
 import { NavigationItem } from '../types';
 import serviceCategories from './service_categories.json';
@@ -106,7 +106,7 @@ export const footerNavigation = {
         { label: 'Barangay Directory', href: '/government/barangays' },
         { label: 'OpenLGU Portal', href: '/openlgu' },
         { label: 'Transparency', href: '/transparency/financial' },
-      ],
+      ].filter(link => isPathEnabled(link.href)),
     },
     {
       title: 'BetterGov Network',
