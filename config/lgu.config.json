@@ -14,7 +14,7 @@
   "portal": {
     "name": "BetterBulakan",
     "domain": "betterbulakan.org",
-    "baseUrl": "https://betterbulakan.vercel.app",
+    "baseUrl": "https://betterbulakan.org",
     "tagline": "Community Powered Bulakan Portal",
     "description": "Community-powered portal of the Municipality of Bulakan, Bulacan.",
     "brandColor": "#0032a0",
