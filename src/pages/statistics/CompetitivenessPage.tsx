@@ -12,6 +12,7 @@ import {
   YAxis,
 } from 'recharts';
 
+import { EmptyState } from '@/components/ui/EmptyState';
 import { StatCard } from '@/components/ui/StatCard';
 import { Badge } from '@/components/ui/Badge';
 import {
@@ -23,7 +24,15 @@ import { PageHero } from '@/components/layout/PageLayouts';
 
 import { cn } from '@/lib/utils';
 
-import cmciData from '@/data/statistics/cmci.json';
+import rawCmciData from '@/data/statistics/cmci.json';
+
+import type { CmciData } from '@/types/statisticsTypes';
+
+const cmciData = rawCmciData as CmciData;
+const CMCI_SOURCE_URL = 'https://cmci.dti.gov.ph/data-portal.php';
+const PAGE_TITLE = 'Competitiveness';
+const PAGE_DESCRIPTION =
+  'National evaluation of municipal progress across pillars of governance and development.';
 
 const PILLAR_COLORS: Record<string, string> = {
   Overall: '#0066eb',
@@ -41,13 +50,46 @@ interface TrendPoint {
   [key: string]: number | null; // For the 5 pillars
 }
 
+/** Index of the latest year with a published overall score, or -1 if none. */
+function findLatestScoredIndex(data: CmciData): number {
+  for (let i = data.overall_score.length - 1; i >= 0; i--) {
+    if (typeof data.overall_score[i] === 'number') return i;
+  }
+  return -1;
+}
+
+// cmci.json is a placeholder (null scores, no pillars) until verified DTI figures land
 export default function CompetitivenessPage() {
+  const latestIdx = findLatestScoredIndex(cmciData);
+
+  if (latestIdx < 0) {
+    return (
+      <>
+        <PageHero title={PAGE_TITLE} description={PAGE_DESCRIPTION}>
+          <div className='flex flex-wrap gap-2 justify-center'>
+            <Badge variant='slate'>DTI Standards</Badge>
+          </div>
+        </PageHero>
+        <EmptyState
+          icon={Trophy}
+          title='Competitiveness scores not yet available'
+          message='Verified CMCI scores for this municipality have not been published here yet. Check back soon.'
+          actionHref={CMCI_SOURCE_URL}
+          actionLabel='View CMCI data portal'
+        />
+      </>
+    );
+  }
+
+  return <CompetitivenessReport latestIdx={latestIdx} />;
+}
+
+function CompetitivenessReport({ latestIdx }: { latestIdx: number }) {
   const [activeTab, setActiveTab] = useState<'trends' | 'pillars'>('trends');
   const [selectedPillar, setSelectedPillar] = useState(
-    cmciData.pillars[0].name
+    cmciData.pillars[0]?.name ?? ''
   );
 
-  const latestIdx = cmciData.meta.years.length - 1;
   const latestYear = cmciData.meta.years[latestIdx];
 
   // 2. Strictly Typed Trend Logic
@@ -75,10 +117,7 @@ export default function CompetitivenessPage() {
   return (
     <>
       {/* PageHero - documented pattern for layout headers */}
-      <PageHero
-        title='Competitiveness'
-        description='National evaluation of municipal progress across pillars of governance and development.'
-      >
+      <PageHero title={PAGE_TITLE} description={PAGE_DESCRIPTION}>
         <div className='flex flex-wrap gap-2 justify-center'>
           <Badge variant='primary' dot>
             CMCI {latestYear}
@@ -91,7 +130,7 @@ export default function CompetitivenessPage() {
       <div className='grid grid-cols-1 gap-4 items-stretch md:grid-cols-3 mb-kapwa-lg'>
         <StatCard
           label='Overall Score'
-          value={cmciData.overall_score[latestIdx].toFixed(2)}
+          value={cmciData.overall_score[latestIdx]?.toFixed(2) ?? '—'}
           subtext='CMCI Index'
           variant='primary'
         />
@@ -185,6 +224,12 @@ export default function CompetitivenessPage() {
             </LineChart>
           </ResponsiveChart>
         </DetailSection>
+      ) : cmciData.pillars.length === 0 ? (
+        <EmptyState
+          icon={BarChart3}
+          title='No pillar breakdown yet'
+          message='Pillar scores will appear here once verified CMCI data is published.'
+        />
       ) : (
         <div className='grid grid-cols-1 gap-8 lg:grid-cols-12'>
           <div className='space-y-3 lg:col-span-5'>
@@ -265,7 +310,7 @@ export default function CompetitivenessPage() {
           <p className='text-kapwa-text-disabled text-[10px] font-bold tracking-widest uppercase'>
             Source:{' '}
             <a
-              href='https://cmci.dti.gov.ph/data-portal.php'
+              href={CMCI_SOURCE_URL}
               target='_blank'
               rel='noreferrer'
               className='underline hover:text-kapwa-text-brand'
