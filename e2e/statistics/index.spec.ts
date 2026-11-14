@@ -1,4 +1,5 @@
 import { test, expect } from '../test-config';
+import { hasCmciData, hasIncomeData } from '../utils/data';
 import { assertKapwaTokens } from '../utils/kapwa';
 
 test.describe('Statistics Pages', () => {
@@ -99,10 +100,6 @@ test.describe('Statistics Pages', () => {
   });
 
   test('statistics sidebar navigation works', async ({ page }) => {
-    test.skip(
-      true,
-      'App bug: /statistics/municipal-income crashes on empty ari.json'
-    );
     // Wait for page to load
     await page.waitForLoadState('networkidle');
 
@@ -129,10 +126,6 @@ test.describe('Statistics Pages', () => {
   });
 
   test('municipal income page displays correctly', async ({ page }) => {
-    test.skip(
-      true,
-      'App bug: /statistics/municipal-income crashes on empty ari.json'
-    );
     // Navigate directly to municipal income page
     await page.goto('/statistics/municipal-income');
     await page.waitForLoadState('networkidle');
@@ -142,11 +135,13 @@ test.describe('Statistics Pages', () => {
       page.locator('h1').filter({ hasText: /Municipal Income/i })
     ).toBeVisible();
 
-    // Check for StatCard components
-    const statCards = page
-      .locator('[data-testid="stat-card"]')
-      .or(page.locator('.stat-card'));
-    await expect(statCards.first()).toBeVisible();
+    // Empty ari.json renders an empty state instead of crashing
+    if (!hasIncomeData) {
+      await expect(
+        page.getByText('Income data not yet available')
+      ).toBeVisible();
+      return;
+    }
 
     // Check for chart
     const chart = page
@@ -156,10 +151,6 @@ test.describe('Statistics Pages', () => {
   });
 
   test('competitiveness page displays correctly', async ({ page }) => {
-    test.skip(
-      true,
-      'App bug: /statistics/competitiveness crashes on empty cmci.json'
-    );
     // Navigate directly to competitiveness page
     await page.goto('/statistics/competitiveness');
     await page.waitForLoadState('networkidle');
@@ -169,11 +160,13 @@ test.describe('Statistics Pages', () => {
       page.locator('h1').filter({ hasText: /Competitiveness/i })
     ).toBeVisible();
 
-    // Check for StatCard components
-    const statCards = page
-      .locator('[data-testid="stat-card"]')
-      .or(page.locator('.stat-card'));
-    await expect(statCards.first()).toBeVisible();
+    // Placeholder cmci.json renders an empty state instead of crashing
+    if (!hasCmciData) {
+      await expect(
+        page.getByText('Competitiveness scores not yet available')
+      ).toBeVisible();
+      return;
+    }
 
     // Check for chart or data display
     const chart = page
@@ -187,7 +180,7 @@ test.describe('Statistics Pages', () => {
   }) => {
     test.skip(
       true,
-      'App bug: income and competitiveness pages crash on empty data'
+      'StatCard has no data-testid or .stat-card hook in this fork'
     );
     const pages = [
       '/statistics',
@@ -296,10 +289,6 @@ test.describe('Statistics Pages', () => {
   test('statistics pages have consistent breadcrumb navigation', async ({
     page,
   }) => {
-    test.skip(
-      true,
-      'App bug: /statistics/municipal-income crashes on empty ari.json'
-    );
     await page.goto('/statistics/municipal-income');
     await page.waitForLoadState('networkidle');
 

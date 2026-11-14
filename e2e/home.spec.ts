@@ -1,4 +1,5 @@
 import { test, expect } from './test-config';
+import { openLGUEnabled } from './utils/data';
 import { assertKapwaTokens } from './utils/kapwa';
 
 test.describe('Home Page', () => {
@@ -25,6 +26,17 @@ test.describe('Home Page', () => {
     ]) {
       await expect(page.locator(`a[href="${href}"]`).first()).toBeVisible();
     }
+  });
+
+  test('No links to OpenLGU while the feature is disabled', async ({
+    page,
+  }) => {
+    test.skip(openLGUEnabled, 'OpenLGU is enabled in lgu.config.json');
+    // Covers quick access, navbar and footer on the homepage
+    await expect(page.locator('a[href^="/openlgu"]')).toHaveCount(0);
+
+    await page.goto('/government/elected-officials');
+    await expect(page.locator('a[href^="/openlgu"]')).toHaveCount(0);
   });
 
   test('All main sections are displayed', async ({ page }) => {

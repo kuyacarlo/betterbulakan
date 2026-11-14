@@ -1,12 +1,11 @@
 import { test, expect } from '../test-config';
+import { hasBudgetData } from '../utils/data';
 import { assertKapwaTokens } from '../utils/kapwa';
 
-test.describe('Financial Transparency Page', () => {
-  test.skip(
-    true,
-    'App bug: /transparency/financial crashes on empty budget data'
-  );
+const NO_DATA_REASON =
+  'sre.json has no SRE quarters yet; page shows empty state';
 
+test.describe('Financial Transparency Page', () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to financial page before each test
     await page.goto('/transparency/financial');
@@ -22,7 +21,17 @@ test.describe('Financial Transparency Page', () => {
     await assertKapwaTokens(page);
   });
 
+  test('financial page shows an empty state without budget data', async ({
+    page,
+  }) => {
+    test.skip(hasBudgetData, 'Budget data is published; report view renders');
+    await expect(
+      page.getByText('Financial reports not yet available')
+    ).toBeVisible();
+  });
+
   test('financial page displays summary cards', async ({ page }) => {
+    test.skip(!hasBudgetData, NO_DATA_REASON);
     // Wait for page to load
     await page.waitForTimeout(1000);
 
@@ -41,6 +50,7 @@ test.describe('Financial Transparency Page', () => {
   });
 
   test('financial page displays pie chart', async ({ page }) => {
+    test.skip(!hasBudgetData, NO_DATA_REASON);
     // Wait for page to load
     await page.waitForTimeout(1000);
 
@@ -55,6 +65,7 @@ test.describe('Financial Transparency Page', () => {
   });
 
   test('financial page has quarter toggle', async ({ page }) => {
+    test.skip(!hasBudgetData, NO_DATA_REASON);
     // Check for quarter toggle buttons
     const quarterButtons = page.locator('button').filter({
       hasText: /Q1|Q2|Q3|Q4|Quarter/i,
@@ -72,6 +83,7 @@ test.describe('Financial Transparency Page', () => {
   });
 
   test('financial page displays budget information', async ({ page }) => {
+    test.skip(!hasBudgetData, NO_DATA_REASON);
     // Wait for data to load
     await page.waitForTimeout(1000);
 
@@ -86,13 +98,14 @@ test.describe('Financial Transparency Page', () => {
   test('financial page breadcrumbs are present', async ({ page }) => {
     // Check for breadcrumbs
     const breadcrumbs = page
-      .locator('nav[aria-label*="Breadcrumb"]')
+      .locator('nav[aria-label*="Breadcrumb" i]')
       .or(page.locator('[class*="breadcrumb"]'));
 
-    await expect(breadcrumbs).toBeVisible();
+    await expect(breadcrumbs.first()).toBeVisible();
   });
 
   test('financial page displays expenditure breakdown', async ({ page }) => {
+    test.skip(!hasBudgetData, NO_DATA_REASON);
     // Wait for data to load
     await page.waitForTimeout(1000);
 
@@ -108,6 +121,7 @@ test.describe('Financial Transparency Page', () => {
   });
 
   test('financial page quarter toggle updates display', async ({ page }) => {
+    test.skip(!hasBudgetData, NO_DATA_REASON);
     // Wait for initial load
     await page.waitForTimeout(1000);
 
