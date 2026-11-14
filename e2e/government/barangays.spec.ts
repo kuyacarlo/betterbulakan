@@ -16,13 +16,13 @@ test.describe('Barangays Pages', () => {
     const cards = page.locator('a[href*="/government/barangays/"]');
     const count = await cards.count();
 
-    // Should have multiple barangays (Los Baños has 14 barangays)
+    // Should have multiple barangays (Bulakan has 14 barangays)
     expect(count).toBeGreaterThan(10);
 
     // Check first card has proper structure
     const firstCard = cards.first();
     await expect(firstCard).toBeVisible();
-    await expect(firstCard.locator('[aria-label*="View profile"]')).toHaveCount(
+    await expect(page.locator('a[aria-label*="View profile"]')).toHaveCount(
       count
     );
   });
@@ -34,7 +34,7 @@ test.describe('Barangays Pages', () => {
 
     // Search for a specific barangay
     const searchInput = page.locator('input[placeholder*="Search"]');
-    await searchInput.fill('Anos');
+    await searchInput.fill('Taliptip');
 
     // Wait for filtering to apply
     await page.waitForTimeout(300);
@@ -89,9 +89,9 @@ test.describe('Barangays Pages', () => {
     await expect(officialCards.first()).toBeVisible();
 
     // Check for Punong Barangay section
-    const punongSection = page
-      .locator('p')
-      .filter({ hasText: 'Chief Executive' });
+    const punongSection = page.locator(
+      '[aria-label="Position: Punong Barangay"]'
+    );
     await expect(punongSection).toBeVisible();
   });
 
@@ -104,13 +104,11 @@ test.describe('Barangays Pages', () => {
     await page.waitForURL(/\/government\/barangays\/.+/);
 
     // Check breadcrumb navigation
-    const breadcrumb = page.locator('nav[aria-label="Breadcrumb"]');
+    const breadcrumb = page.locator('nav[aria-label="breadcrumb"]');
     await expect(breadcrumb).toBeVisible();
 
-    // Check breadcrumb links
-    await expect(
-      breadcrumb.locator('a[href="/"]').filter({ hasText: 'Home' })
-    ).toBeVisible();
+    // Check breadcrumb links (Home is an icon link)
+    await expect(breadcrumb.locator('a[href="/"]')).toBeVisible();
     await expect(
       breadcrumb.locator('a[href="/government/barangays"]')
     ).toBeVisible();
@@ -124,9 +122,9 @@ test.describe('Barangays Pages', () => {
     // Wait for navigation
     await page.waitForURL(/\/government\/barangays\/.+/);
 
-    // Check for skip link (should be hidden until focused)
+    // Check for skip link (should be off-screen until focused)
     const skipLink = page.locator('a[href="#main-content"]');
-    await expect(skipLink).toHaveAttribute('class', /sr-only/);
+    await expect(skipLink).not.toBeInViewport();
   });
 
   test('barangay card hover states work correctly', async ({ page }) => {
@@ -179,11 +177,14 @@ test.describe('Barangays Pages', () => {
     await page.waitForURL(/\/government\/barangays\/.+/);
 
     // Check sidebar exists on mobile (should be collapsed)
-    const sidebar = page.locator('aside');
+    const sidebar = page.locator('aside').first();
     await expect(sidebar).toBeVisible();
 
     // On mobile, sidebar should have mobile menu button
-    const mobileMenuButton = page.locator('button').filter({ hasText: 'Menu' });
+    const mobileMenuButton = page.getByRole('button', {
+      name: 'Menu',
+      exact: true,
+    });
     const hasMobileMenu = (await mobileMenuButton.count()) > 0;
 
     if (hasMobileMenu) {

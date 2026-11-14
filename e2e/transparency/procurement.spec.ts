@@ -2,6 +2,11 @@ import { test, expect } from '../test-config';
 import { assertKapwaTokens } from '../utils/kapwa';
 
 test.describe('Procurement Transparency Page', () => {
+  test.skip(
+    true,
+    'Needs live PhilGEPS data from external Meilisearch, not in CI'
+  );
+
   test.beforeEach(async ({ page }) => {
     // Navigate to procurement page before each test
     await page.goto('/transparency/procurement');

@@ -82,13 +82,11 @@ test.describe('Departments Pages', () => {
     await page.waitForURL(/\/government\/departments\/.+/);
 
     // Check breadcrumb navigation
-    const breadcrumb = page.locator('nav[aria-label="Breadcrumb"]');
+    const breadcrumb = page.locator('nav[aria-label="breadcrumb"]');
     await expect(breadcrumb).toBeVisible();
 
-    // Check breadcrumb links
-    await expect(
-      breadcrumb.locator('a[href="/"]').filter({ hasText: 'Home' })
-    ).toBeVisible();
+    // Check breadcrumb links (Home is an icon link)
+    await expect(breadcrumb.locator('a[href="/"]')).toBeVisible();
     await expect(
       breadcrumb.locator('a[href="/government/departments"]')
     ).toBeVisible();
@@ -143,9 +141,9 @@ test.describe('Departments Pages', () => {
     // Wait for navigation
     await page.waitForURL(/\/government\/departments\/.+/);
 
-    // Check for skip link (should be hidden until focused)
+    // Check for skip link (should be off-screen until focused)
     const skipLink = page.locator('a[href="#main-content"]');
-    await expect(skipLink).toHaveAttribute('class', /sr-only/);
+    await expect(skipLink).not.toBeInViewport();
   });
 
   test('department card shows department head when available', async ({
@@ -204,7 +202,7 @@ test.describe('Departments Pages', () => {
     await expect(firstCard).toHaveClass(/group/);
 
     // Check for arrow icon
-    const arrowIcon = firstCard.locator('svg[data-lucide="arrow-right"]');
+    const arrowIcon = firstCard.locator('svg.lucide-arrow-right');
     await expect(arrowIcon).toBeVisible();
 
     // Verify card has proper aria-label
