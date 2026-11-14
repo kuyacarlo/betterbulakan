@@ -1,20 +1,14 @@
-import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '../test-config';
+import { expectNoA11yViolations } from './a11y';
 
 test.describe('Better Bulakan Sanity Suite', () => {
   // RULE 1: Accessibility (The most important for a government portal)
   test('should pass WCAG 2.1 Level AA checks', async ({ page }) => {
-    test.skip(
-      true,
-      'App bug: axe reports aria-required-children and color-contrast violations'
-    );
     await page.goto('/');
-    const results = await new AxeBuilder({ page }).analyze();
-    expect(results.violations).toEqual([]);
+    await expectNoA11yViolations(page);
 
     await page.goto('/services');
-    const servicesResults = await new AxeBuilder({ page }).analyze();
-    expect(servicesResults.violations).toEqual([]);
+    await expectNoA11yViolations(page);
   });
 
   // RULE 2: Search Logic (Ensures the JSON-to-UI bridge isn't broken)
