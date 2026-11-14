@@ -4,7 +4,7 @@ Community-powered civic portal for the **Municipality of Bulakan, Bulacan**.
 
 Forked from [BetterLosBanos/betterlb](https://github.com/BetterLosBanos/betterlb) as part of the [BetterGov.ph](https://bettergov.ph) / [BetterLGU Directory](https://lgu.bettergov.ph/) initiative.
 
-- **Portal:** https://betterbulakan.vercel.app (custom domain later: betterbulakan.org)
+- **Portal:** https://betterbulakan.org
 - **Repo:** https://github.com/kuyacarlo/betterbulakan
 - **Official LGU (eLGU):** https://elgu-bulacan-bulacan-news.e.gov.ph/home
 
@@ -15,7 +15,7 @@ This portal complements eLGU. It does not replace permits or transactions. It ma
 - React 19 + TypeScript + Vite
 - Tailwind CSS v4 + Kapwa
 - pnpm
-- Deploy: Vercel (static)
+- Deploy: Cloudflare Pages (static site + Pages Functions in `functions/`)
 
 ## Develop
 
