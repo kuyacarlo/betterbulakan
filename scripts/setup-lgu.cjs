@@ -78,6 +78,8 @@ async function main() {
     'Domain (e.g. "betterlb.org")',
     `${slugify(portalName)}.org`
   );
+  // Logo files are named after the portal, e.g. betterbulakan-icon-white.svg
+  const logoSlug = slugify(portalName);
 
   const githubOrg = await question(
     rl,
@@ -161,12 +163,12 @@ async function main() {
       navbarTagline: 'A Community-run portal for',
       footerBrandName: `Better ${lguName}`,
       footerTagline: 'Community Civic Portal',
-      logoWhitePath: `/logos/svg/${slug}-icon-white.svg`,
-      navbarLogoPath: `/logos/svg/${slug}-icon-colored.svg`,
-      defaultOgImagePath: `/logos/svg/${slug}-icon-colored.svg`,
-      faviconPath: `/logos/png/${slug}-banner-colored.png`,
-      faviconSvgPath: `/logos/svg/${slug}-logo-primary.svg`,
-      appleTouchIconPath: `/logos/png/${slug}-banner-inverted.png`,
+      logoWhitePath: `/logos/svg/${logoSlug}-icon-white.svg`,
+      navbarLogoPath: `/logos/svg/${logoSlug}-icon-colored.svg`,
+      defaultOgImagePath: `/logos/png/${logoSlug}-blue.png`,
+      faviconPath: `/logos/png/${logoSlug}-favicon-colorinverted.png`,
+      faviconSvgPath: `/logos/svg/${logoSlug}-favicon-colorinverted.svg`,
+      appleTouchIconPath: `/logos/png/${logoSlug}-apple-touch-icon.png`,
       githubUrl,
       discordUrl: '',
       facebookUrl: '',
@@ -271,11 +273,11 @@ async function main() {
     const htmlPath = path.join(ROOT, 'index.html');
     let html = fs.readFileSync(htmlPath, 'utf8');
 
-    const slug = slugify(lguName);
     const replacements = {
-      '/logos/svg/betterlb-logo-primary.svg': `/logos/svg/${slug}-logo-primary.svg`,
-      '/logos/png/betterlb-banner-inverted.png': `/logos/png/${slug}-banner-inverted.png`,
-      '/logos/png/betterlb-blue.png': `/logos/png/${slug}-blue.png`,
+      '/logos/svg/betterbulakan-favicon-colorinverted.svg': `/logos/svg/${logoSlug}-favicon-colorinverted.svg`,
+      '/logos/png/betterbulakan-favicon-colorinverted.png': `/logos/png/${logoSlug}-favicon-colorinverted.png`,
+      '/logos/png/betterbulakan-apple-touch-icon.png': `/logos/png/${logoSlug}-apple-touch-icon.png`,
+      '/logos/png/betterbulakan-blue.png': `/logos/png/${logoSlug}-blue.png`,
     };
 
     for (const [from, to] of Object.entries(replacements)) {
