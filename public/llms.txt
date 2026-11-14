@@ -4,7 +4,7 @@
 
 BetterBulakan is a volunteer-run, open-source portal for the Municipality of Bulakan, Bulacan (Region III). It is not an official government website; the official LGU site is https://elgu-bulacan-bulacan-news.e.gov.ph/home.
 
-Source code: https://github.com/kuyacarlo/betterbulakan
+Source code: https://github.com/betterbulakan/betterbulakan
 
 ## Elected Officials
 

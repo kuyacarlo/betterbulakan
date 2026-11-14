@@ -5,7 +5,7 @@ Community-powered civic portal for the **Municipality of Bulakan, Bulacan**.
 Forked from [BetterLosBanos/betterlb](https://github.com/BetterLosBanos/betterlb) as part of the [BetterGov.ph](https://bettergov.ph) / [BetterLGU Directory](https://lgu.bettergov.ph/) initiative.
 
 - **Portal:** https://betterbulakan.org
-- **Repo:** https://github.com/kuyacarlo/betterbulakan
+- **Repo:** https://github.com/betterbulakan/betterbulakan
 - **Official LGU (eLGU):** https://elgu-bulacan-bulacan-news.e.gov.ph/home
 
 This portal complements eLGU. It does not replace permits or transactions. It makes public services, officials, ordinances, and transparency data easier to find.
