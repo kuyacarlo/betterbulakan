@@ -1,21 +1,31 @@
-import { test, expect } from '../test-config';
+import {
+  test,
+  expect,
+  mockAdminApi,
+  waitForAdminShell,
+  type AdminApiMock,
+} from '../test-config';
 import { assertKapwaTokens } from '../utils/kapwa';
 
 test.describe('Admin Error Log', () => {
-  test.skip(
-    true,
-    'Admin pages need a GitHub OAuth session and D1-backed /api/admin, unavailable in CI'
-  );
+  let mock: AdminApiMock;
 
   test.beforeEach(async ({ page }) => {
+    // Authenticated admin session and fixtures served at the network layer
+    mock = await mockAdminApi(page);
     // Navigate to error log page
     await page.goto('/admin/errors');
+    await waitForAdminShell(page, 'Parse Errors');
   });
 
   test('error log page uses Kapwa semantic tokens', async ({ page }) => {
+    test.skip(
+      true,
+      'Kapwa Button outline/ghost variants (@bettergov/kapwa 1.2.4) emit raw gray-* classes'
+    );
     // Check page title is visible
     await expect(
-      page.locator('h1').filter({ hasText: /Error Log/i })
+      page.getByRole('heading', { name: 'Parse Errors' })
     ).toBeVisible();
 
     // Verify Kapwa semantic tokens are used
@@ -23,18 +33,11 @@ test.describe('Admin Error Log', () => {
   });
 
   test('error log displays error cards', async ({ page }) => {
-    // Wait for page to load
-    await page.waitForLoadState('networkidle');
-
-    // Check that error cards or empty state is displayed
-    const errorCards = page.locator('[class*="card"]');
-    const emptyState = page.locator('[class*="empty"]');
-
-    const cardCount = await errorCards.count();
-    const emptyStateExists = (await emptyState.count()) > 0;
-
-    // Should either have error cards or empty state
-    expect(cardCount > 0 || emptyStateExists).toBeTruthy();
+    // One card per fixture error; the second has no document number
+    await expect(page.getByText('PDF returned 404 Not Found')).toBeVisible();
+    await expect(page.getByText('2025-099')).toBeVisible();
+    await expect(page.getByText('Unknown Document')).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Retry' })).toHaveCount(2);
   });
 
   test('error log has filter controls', async ({ page }) => {
@@ -47,6 +50,13 @@ test.describe('Admin Error Log', () => {
 
     // Filter controls should be present (at least for stage filtering)
     expect(filterCount).toBeGreaterThan(0);
+
+    // Filtering by stage re-queries the API
+    await page
+      .locator('select:has(option[value="download"])')
+      .selectOption('download');
+    await expect(page.getByRole('button', { name: 'Retry' })).toHaveCount(1);
+    expect(mock.requests.some(r => r.search === '?stage=download')).toBe(true);
   });
 
   test('error log is accessible', async ({ page }) => {
@@ -81,5 +91,14 @@ test.describe('Admin Error Log', () => {
 
     const linkCount = await dashboardLink.count();
     expect(linkCount).toBeGreaterThan(0);
+  });
+
+  test('failed retry shows an error banner', async ({ page }) => {
+    // The UI posts to /api/admin/errors/:id, which no Pages Function serves
+    await page.getByRole('button', { name: 'Retry' }).first().click();
+    await expect(
+      page.getByText('Failed to queue retry. Please try again.')
+    ).toBeVisible();
+    expect(mock.unhandled).toContain('POST /api/admin/errors/err_001');
   });
 });

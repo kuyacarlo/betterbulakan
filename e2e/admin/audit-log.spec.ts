@@ -1,15 +1,18 @@
-import { test, expect } from '../test-config';
+import { test, expect, mockAdminApi, waitForAdminShell } from '../test-config';
 import { assertKapwaTokens } from '../utils/kapwa';
 
 test.describe('Admin Audit Log', () => {
   test.skip(
     true,
-    'Admin pages need a GitHub OAuth session and D1-backed /api/admin, unavailable in CI'
+    'App bug: /admin/audit-logs crashes (PaginationControls lacks totalItems; EmptyState gets an element icon)'
   );
 
   test.beforeEach(async ({ page }) => {
+    // Authenticated admin session and fixtures served at the network layer
+    await mockAdminApi(page);
     // Navigate to audit log page
     await page.goto('/admin/audit-logs');
+    await waitForAdminShell(page);
   });
 
   test('audit log page uses Kapwa semantic tokens', async ({ page }) => {
