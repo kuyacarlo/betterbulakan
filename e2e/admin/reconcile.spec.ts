@@ -1,21 +1,31 @@
-import { test, expect } from '../test-config';
+import {
+  test,
+  expect,
+  mockAdminApi,
+  waitForAdminShell,
+  type AdminApiMock,
+} from '../test-config';
 import { assertKapwaTokens } from '../utils/kapwa';
 
 test.describe('Admin Reconcile', () => {
-  test.skip(
-    true,
-    'Admin pages need a GitHub OAuth session and D1-backed /api/admin, unavailable in CI'
-  );
+  let mock: AdminApiMock;
 
   test.beforeEach(async ({ page }) => {
+    // Authenticated admin session and fixtures served at the network layer
+    mock = await mockAdminApi(page);
     // Navigate to reconcile page
     await page.goto('/admin/reconcile');
+    await waitForAdminShell(page, 'Data Reconciliation');
   });
 
   test('reconcile page uses Kapwa semantic tokens', async ({ page }) => {
+    test.skip(
+      true,
+      'Kapwa Button outline/ghost variants (@bettergov/kapwa 1.2.4) emit raw gray-* classes'
+    );
     // Check page title is visible
     await expect(
-      page.locator('h1').filter({ hasText: /Reconcile/i })
+      page.getByRole('heading', { name: 'Data Reconciliation' })
     ).toBeVisible();
 
     // Verify Kapwa semantic tokens are used
@@ -23,25 +33,20 @@ test.describe('Admin Reconcile', () => {
   });
 
   test('reconcile page displays conflict records', async ({ page }) => {
-    // Wait for page to load
-    await page.waitForLoadState('networkidle');
-
-    // Check that conflict cards or empty state is displayed
-    const conflictCards = page.locator('[class*="card"]');
-    const emptyState = page.locator('[class*="empty"]');
-
-    const cardCount = await conflictCards.count();
-    const emptyStateExists = (await emptyState.count()) > 0;
-
-    // Should either have conflict cards or empty state
-    expect(cardCount > 0 || emptyStateExists).toBeTruthy();
+    // One card per unresolved fixture conflict
+    await expect(
+      page.getByText('2 conflicts between Facebook and gov.ph sources')
+    ).toBeVisible();
+    await expect(page.getByText('R - 2025-044')).toBeVisible();
+    await expect(page.getByText('O - 2025-101')).toBeVisible();
   });
 
   test('reconcile page has filter controls', async ({ page }) => {
-    // Check for status filter dropdown
+    // Status and conflict-type filters are SelectPicker listbox triggers
     const filterSelect = page
       .locator('select')
-      .or(page.locator('[role="combobox"]'));
+      .or(page.locator('[role="combobox"]'))
+      .or(page.locator('button[aria-haspopup="listbox"]'));
 
     const filterCount = await filterSelect.count();
 
@@ -81,5 +86,29 @@ test.describe('Admin Reconcile', () => {
 
     const linkCount = await dashboardLink.count();
     expect(linkCount).toBeGreaterThan(0);
+  });
+
+  test('choosing the gov.ph value resolves the conflict', async ({ page }) => {
+    test.skip(
+      true,
+      'App bug: POST /api/admin/reconcile parses conflict ids greedily; real doc ids get 400 Invalid conflict type'
+    );
+    await page.getByText('R - 2025-044').click();
+    await page.getByRole('button', { name: 'Use gov.ph' }).click();
+
+    // List refetches without the resolved conflict
+    await expect(
+      page.getByText('1 conflicts between Facebook and gov.ph sources')
+    ).toBeVisible();
+    await expect(page.getByText('R - 2025-044')).toHaveCount(0);
+
+    const resolve = mock.requests.find(
+      r => r.method === 'POST' && r.path === '/api/admin/reconcile'
+    );
+    expect(resolve?.body).toEqual({
+      conflict_id: 'conflict_moved_by_resolution_sb_12_2025-044',
+      resolved_value: 'Hon. Jose Reyes',
+      notes: 'Using gov.ph value',
+    });
   });
 });

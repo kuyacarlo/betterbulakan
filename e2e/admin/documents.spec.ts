@@ -1,35 +1,69 @@
-import { test, expect } from '../test-config';
+import {
+  test,
+  expect,
+  mockAdminApi,
+  waitForAdminShell,
+  type AdminApiMock,
+} from '../test-config';
 import { assertKapwaTokens } from '../utils/kapwa';
 
 test.describe('Admin Documents Page', () => {
-  test.skip(
-    true,
-    'Admin pages need a GitHub OAuth session and D1-backed /api/admin, unavailable in CI'
-  );
+  let mock: AdminApiMock;
 
   test.beforeEach(async ({ page }) => {
+    // Authenticated admin session and fixtures served at the network layer
+    mock = await mockAdminApi(page);
     // Navigate to admin documents page
     await page.goto('/admin/documents');
+    await waitForAdminShell(page, 'Documents Management');
   });
 
   test('documents page uses Kapwa semantic tokens', async ({ page }) => {
+    test.skip(
+      true,
+      'Kapwa Button outline/ghost variants (@bettergov/kapwa 1.2.4) emit raw gray-* classes'
+    );
     // Check page title is visible
     await expect(
-      page.locator('h1').filter({ hasText: /Documents/i })
+      page.getByRole('heading', { name: 'Documents Management' })
     ).toBeVisible();
 
     await assertKapwaTokens(page);
   });
 
   test('documents page displays document table or cards', async ({ page }) => {
-    // Wait for content to load
-    await page.waitForLoadState('networkidle');
+    // Check for document table with one row per fixture document
+    const rows = page.locator('table tbody tr');
+    await expect(rows).toHaveCount(3);
+    await expect(page.getByText('3 total documents')).toBeVisible();
+    await expect(
+      page.getByText('An Ordinance Regulating Riverside Fish Pens')
+    ).toBeVisible();
+  });
 
-    // Check for document table or cards
-    const table = page.locator('table');
-    const cards = page.locator('[class*="card"]');
+  test('type filter queries the API and narrows the table', async ({
+    page,
+  }) => {
+    await page
+      .locator('select:has(option[value="ordinance"])')
+      .selectOption('ordinance');
 
-    const hasContent = (await table.count()) > 0 || (await cards.count()) > 0;
-    expect(hasContent).toBeTruthy();
+    await expect(page.locator('table tbody tr')).toHaveCount(1);
+    expect(
+      mock.requests.some(
+        r =>
+          r.path === '/api/admin/documents' &&
+          r.search.includes('type=ordinance')
+      )
+    ).toBe(true);
+  });
+
+  test('shows the empty state when nothing matches', async ({ page }) => {
+    await page
+      .locator('select:has(option[value="suspended"])')
+      .selectOption('suspended');
+    await expect(
+      page.getByRole('heading', { name: 'No documents found' })
+    ).toBeVisible();
   });
 });
