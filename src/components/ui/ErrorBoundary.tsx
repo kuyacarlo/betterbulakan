@@ -4,6 +4,10 @@ interface ErrorBoundaryProps {
   children: ReactNode;
   /** Optional label for debugging — appears in console errors */
   name?: string;
+  /** Optional custom fallback; defaults to the inline section message */
+  fallback?: ReactNode;
+  /** Clears the error when this value changes (e.g. the route pathname) */
+  resetKey?: string;
 }
 
 interface ErrorBoundaryState {
@@ -33,8 +37,15 @@ export class ErrorBoundary extends Component<
     console.error(`[ErrorBoundary:${label}]`, error, info.componentStack);
   }
 
+  componentDidUpdate(prevProps: ErrorBoundaryProps): void {
+    if (this.state.hasError && prevProps.resetKey !== this.props.resetKey) {
+      this.setState({ hasError: false, error: null });
+    }
+  }
+
   render(): ReactNode {
     if (this.state.hasError) {
+      if (this.props.fallback !== undefined) return this.props.fallback;
       return (
         <div className='rounded-lg border border-kapwa-border-danger bg-kapwa-bg-danger-weak p-6 text-center'>
           <p className='text-kapwa-text-danger text-sm font-medium'>
