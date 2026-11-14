@@ -44,7 +44,7 @@ export function SidebarGroup({
 }) {
   return (
     <div className='mb-4 last:mb-0'>
-      <h3 className='text-kapwa-text-disabled px-3 py-2 text-[10px] font-bold tracking-widest uppercase'>
+      <h3 className='text-kapwa-text-support px-3 py-2 text-[10px] font-bold tracking-widest uppercase'>
         {title}
       </h3>
       <ul className='space-y-1'>{children}</ul>
@@ -96,7 +96,7 @@ export function SidebarItem({
         <span className='truncate'>{label}</span>
         {description && (
           <span
-            className={`text-[11px] leading-tight ${active ? 'text-kapwa-text-brand/70' : 'text-kapwa-text-disabled'}`}
+            className={`text-[11px] leading-tight ${active ? 'text-kapwa-text-brand' : 'text-kapwa-text-support'}`}
           >
             {description}
           </span>

@@ -60,7 +60,7 @@ export default function ServicesSidebar({
           </h3>
         </div>
 
-        <p className='text-xs leading-relaxed text-kapwa-text-on-disabled'>
+        <p className='text-xs leading-relaxed text-kapwa-text-support'>
           Better LB is community-maintained. Help your fellow citizens by
           suggesting a new service directory.
         </p>
@@ -69,7 +69,7 @@ export default function ServicesSidebar({
           href={`${config.portal.githubUrl}/issues/new?template=contribution.yml`}
           target='_blank'
           rel='noopener noreferrer'
-          className='bg-kapwa-bg-accent-orange-default hover:bg-kapwa-orange-700 shadow-md text-kapwa-text-inverse flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-xs font-bold transition-all'
+          className='bg-kapwa-orange-800 hover:bg-kapwa-orange-900 shadow-md text-kapwa-text-inverse flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-xs font-bold transition-all'
         >
           Suggest New Service
         </a>

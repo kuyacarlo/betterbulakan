@@ -90,14 +90,14 @@ export const Footer: FC = () => {
                         href={link.href}
                         target='_blank'
                         rel='noreferrer'
-                        className='flex gap-1 items-center text-sm transition-colors hover:text-kapwa-text-link-hover text-kapwa-text-support'
+                        className='flex gap-1 items-center text-sm transition-colors hover:text-kapwa-text-inverse text-kapwa-text-inverse-subtle'
                       >
                         {link.label}
                       </a>
                     ) : (
                       <Link
                         to={link.href}
-                        className='text-sm transition-colors hover:text-kapwa-text-link-hover text-kapwa-text-support'
+                        className='text-sm transition-colors hover:text-kapwa-text-inverse text-kapwa-text-inverse-subtle'
                       >
                         {link.label}
                       </Link>
@@ -112,13 +112,13 @@ export const Footer: FC = () => {
         {/* 3. The Signature BetterGov "Cost Statement" */}
         <div className='flex justify-center mt-20'>
           <div className='inline-flex flex-col gap-2 items-center px-6 py-4 text-center rounded-full border border-kapwa-border-strong bg-kapwa-bg-surface-bold/20 md:flex-row md:gap-4'>
-            <p className='text-xs font-medium text-kapwa-text-support md:text-sm'>
+            <p className='text-xs font-medium text-kapwa-text-inverse-subtle md:text-sm'>
               Built by the community for the community.
             </p>
             <span className='hidden w-1 h-1 rounded-full bg-kapwa-border-strong md:block' />
             <p className='text-xs font-bold md:text-sm'>
               Cost to the People of {config.lgu.name} ={' '}
-              <span className='text-kapwa-text-success'>₱0</span>
+              <span className='text-kapwa-green-400'>₱0</span>
             </p>
           </div>
         </div>

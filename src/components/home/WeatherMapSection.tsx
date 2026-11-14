@@ -214,7 +214,7 @@ export default function WeatherMapSection() {
           <Card className='lg:col-span-5 w-full flex flex-col justify-between shadow-sm min-h-[380px] md:min-h-[440px]'>
             <CardContent className='p-6 md:p-8 flex flex-col justify-between h-full'>
               {loading ? (
-                <div className='flex flex-col items-center justify-center flex-1 py-12 text-kapwa-text-disabled gap-3'>
+                <div className='flex flex-col items-center justify-center flex-1 py-12 text-kapwa-text-support gap-3'>
                   <LoaderIcon className='h-8 w-8 animate-spin text-kapwa-text-brand' />
                   <span className='text-base font-medium'>
                     Loading weather forecast...
@@ -236,7 +236,7 @@ export default function WeatherMapSection() {
                       <div className='text-kapwa-text-support text-lg capitalize font-medium mt-1'>
                         {weather.condition}
                       </div>
-                      <div className='text-kapwa-text-disabled mt-2 flex items-center gap-1.5 text-sm'>
+                      <div className='text-kapwa-text-support mt-2 flex items-center gap-1.5 text-sm'>
                         <MapPin className='h-4 w-4 shrink-0 text-kapwa-text-brand' />
                         <span>
                           {config.lgu.name}, {config.lgu.province}
@@ -251,7 +251,7 @@ export default function WeatherMapSection() {
                     <div className='flex items-center gap-3'>
                       <Droplet className='text-kapwa-text-link h-5 w-5 shrink-0' />
                       <div>
-                        <div className='text-xs text-kapwa-text-disabled'>
+                        <div className='text-xs text-kapwa-text-support'>
                           Humidity
                         </div>
                         <div className='text-sm font-semibold text-kapwa-text-strong'>
@@ -262,7 +262,7 @@ export default function WeatherMapSection() {
                     <div className='flex items-center gap-3'>
                       <Wind className='text-kapwa-text-brand h-5 w-5 shrink-0' />
                       <div>
-                        <div className='text-xs text-kapwa-text-disabled'>
+                        <div className='text-xs text-kapwa-text-support'>
                           Wind Speed
                         </div>
                         <div className='text-sm font-semibold text-kapwa-text-strong'>
@@ -274,7 +274,7 @@ export default function WeatherMapSection() {
 
                   {/* Bottom: Hourly forecast */}
                   <div>
-                    <div className='text-xs font-semibold text-kapwa-text-disabled uppercase tracking-wider mb-2.5'>
+                    <div className='text-xs font-semibold text-kapwa-text-support uppercase tracking-wider mb-2.5'>
                       Forecast
                     </div>
                     <div className='grid grid-cols-4 gap-2'>
@@ -285,7 +285,7 @@ export default function WeatherMapSection() {
                             key={idx}
                             className='hover:bg-kapwa-bg-surface-brand bg-kapwa-bg-hover flex flex-col items-center gap-1 rounded-xl p-2.5 transition-all duration-200'
                           >
-                            <span className='text-xs text-kapwa-text-disabled font-medium'>
+                            <span className='text-xs text-kapwa-text-support font-medium'>
                               {h.hour}
                             </span>
                             <IconComp className='text-kapwa-text-brand h-6 w-6 my-1' />
@@ -315,7 +315,7 @@ export default function WeatherMapSection() {
               aria-label={`Interactive map of ${config.lgu.fullName} Municipal Hall`}
             >
               <noscript>
-                <div className='text-kapwa-text-disabled p-4 text-sm'>
+                <div className='text-kapwa-text-support p-4 text-sm'>
                   JavaScript is required to view the interactive map.
                   <a
                     href={`https://www.openstreetmap.org/?mlat=${config.location.coordinates.lat}&mlon=${config.location.coordinates.lon}#map=15/${config.location.coordinates.lat}/${config.location.coordinates.lon}`}
@@ -335,7 +335,7 @@ export default function WeatherMapSection() {
                   {config.lgu.fullName} Municipal Hall
                 </span>
               </div>
-              <span className='text-xs text-kapwa-text-disabled'>
+              <span className='text-xs text-kapwa-text-support'>
                 {config.location.coordinates.lat},{' '}
                 {config.location.coordinates.lon}
               </span>

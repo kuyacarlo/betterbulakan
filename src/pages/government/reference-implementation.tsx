@@ -86,7 +86,7 @@ export default function ReferenceImplementation() {
                 <p className='kapwa-body-md text-kapwa-text-support'>
                   Body Medium standard text
                 </p>
-                <p className='kapwa-body-sm text-kapwa-text-disabled'>
+                <p className='kapwa-body-sm text-kapwa-text-support'>
                   Body Small muted text
                 </p>
               </div>
@@ -153,7 +153,7 @@ export default function ReferenceImplementation() {
               </p>
               <a
                 href='#'
-                className='text-kapwa-text-link hover:text-kapwa-text-link-hover kapwa-body-md'
+                className='text-kapwa-text-info hover:text-kapwa-text-link-hover kapwa-body-md'
               >
                 Link text (hover to see state)
               </a>

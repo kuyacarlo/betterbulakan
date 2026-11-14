@@ -54,7 +54,7 @@ export function ContactItem({
 
       {/* Text Area */}
       <div className='min-w-0 flex-1'>
-        <p className='text-kapwa-text-disabled mb-1 text-[10px] leading-none font-bold tracking-widest uppercase'>
+        <p className='text-kapwa-text-support mb-1 text-[10px] leading-none font-bold tracking-widest uppercase'>
           {label}
         </p>
         <div className='text-kapwa-text-support group-hover:text-kapwa-text-strong truncate text-sm font-bold transition-colors'>

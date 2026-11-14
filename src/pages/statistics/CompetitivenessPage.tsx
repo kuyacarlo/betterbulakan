@@ -272,7 +272,7 @@ function CompetitivenessReport({ latestIdx }: { latestIdx: number }) {
                     key={idx}
                     className='border-kapwa-border-weak bg-kapwa-bg-surface flex min-h-[100px] flex-col justify-between rounded-xl border p-4 shadow-xs'
                   >
-                    <span className='text-kapwa-text-disabled text-[10px] leading-tight font-bold tracking-widest uppercase'>
+                    <span className='text-kapwa-text-support text-[10px] leading-tight font-bold tracking-widest uppercase'>
                       {ind.name}
                     </span>
                     <span className='mt-2 text-xl font-black text-kapwa-text-strong'>
@@ -307,7 +307,7 @@ function CompetitivenessReport({ latestIdx }: { latestIdx: number }) {
           <p className='text-kapwa-text-strong text-[10px] font-bold tracking-widest uppercase'>
             Verified Data Audit
           </p>
-          <p className='text-kapwa-text-disabled text-[10px] font-bold tracking-widest uppercase'>
+          <p className='text-kapwa-text-support text-[10px] font-bold tracking-widest uppercase'>
             Source:{' '}
             <a
               href={CMCI_SOURCE_URL}

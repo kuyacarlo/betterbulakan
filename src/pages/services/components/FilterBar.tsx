@@ -76,7 +76,7 @@ export default function FilterBar({
             <div className='flex-1'>
               <div className='mb-2 flex items-center gap-2'>
                 <CheckCircle2 className='text-kapwa-text-disabled h-3.5 w-3.5' />
-                <h4 className='text-kapwa-text-disabled text-[10px] font-bold uppercase tracking-wider'>
+                <h4 className='text-kapwa-text-support text-[10px] font-bold uppercase tracking-wider'>
                   Source
                 </h4>
               </div>
@@ -106,7 +106,7 @@ export default function FilterBar({
             <div className='flex-1'>
               <div className='mb-2 flex items-center gap-2'>
                 <Layers className='text-kapwa-text-disabled h-3.5 w-3.5' />
-                <h4 className='text-kapwa-text-disabled text-[10px] font-bold uppercase tracking-wider'>
+                <h4 className='text-kapwa-text-support text-[10px] font-bold uppercase tracking-wider'>
                   Type
                 </h4>
               </div>
@@ -136,7 +136,7 @@ export default function FilterBar({
             <div className='flex-1'>
               <div className='mb-2 flex items-center gap-2'>
                 <Building2 className='text-kapwa-text-disabled h-3.5 w-3.5' />
-                <h4 className='text-kapwa-text-disabled text-[10px] font-bold uppercase tracking-wider'>
+                <h4 className='text-kapwa-text-support text-[10px] font-bold uppercase tracking-wider'>
                   Office
                 </h4>
               </div>

@@ -22,7 +22,7 @@ const DialogOverlay = forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Overlay
     ref={ref}
-    className={`data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50 ${className}`}
+    className={`data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-kapwa-bg-overlay ${className}`}
     {...props}
   />
 ));
@@ -40,7 +40,7 @@ const DialogContent = forwardRef<
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className='data-[state=open]:bg-kapwa-bg-surface-raised data-[state=open]:text-kapwa-text-disabled absolute top-4 right-4 rounded-sm opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 focus:outline-none disabled:pointer-events-none'>
+      <DialogPrimitive.Close className='data-[state=open]:bg-kapwa-bg-surface-raised data-[state=open]:text-kapwa-text-disabled absolute top-4 right-4 rounded-sm opacity-70 ring-offset-kapwa-bg-surface transition-opacity hover:opacity-100 focus:ring-2 focus:ring-kapwa-border-focus focus:ring-offset-2 focus:outline-none disabled:pointer-events-none'>
         <X className='h-4 w-4' />
         <span className='sr-only'>Close</span>
       </DialogPrimitive.Close>
@@ -89,7 +89,7 @@ const DialogDescription = forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
     ref={ref}
-    className={`text-kapwa-text-disabled text-sm ${className}`}
+    className={`text-kapwa-text-support text-sm ${className}`}
     {...props}
   />
 ));

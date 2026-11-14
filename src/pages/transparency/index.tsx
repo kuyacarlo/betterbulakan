@@ -57,10 +57,10 @@ export default function TransparencyIndex() {
             <HeartHandshake className='h-8 w-8' />
           </div>
           <div className='flex-1 space-y-2 text-center md:text-left'>
-            <h3 className='text-[10px] font-bold tracking-widest text-kapwa-orange-600 uppercase'>
+            <h3 className='text-[10px] font-bold tracking-widest text-kapwa-orange-800 uppercase'>
               Independent Grassroots Initiative
             </h3>
-            <p className='text-sm leading-relaxed text-kapwa-orange-600'>
+            <p className='text-sm leading-relaxed text-kapwa-orange-800'>
               Better LB is <strong>not an official government portal</strong>.
               We are a volunteer movement mirroring public records to empower
               citizens with the information they need to engage in local
@@ -101,7 +101,7 @@ export default function TransparencyIndex() {
                   <h4 className='group-hover:text-kapwa-text-brand text-kapwa-text-strong text-lg font-extrabold transition-colors'>
                     {section.title}
                   </h4>
-                  <p className='text-kapwa-text-disabled text-xs leading-relaxed'>
+                  <p className='text-kapwa-text-support text-xs leading-relaxed'>
                     {section.description}
                   </p>
                 </div>
@@ -148,7 +148,7 @@ export default function TransparencyIndex() {
           className='flex h-full flex-col'
         >
           <div className='flex h-full flex-col justify-between'>
-            <p className='text-kapwa-text-disabled mb-6 text-[11px] font-medium italic'>
+            <p className='text-kapwa-text-support mb-6 text-[11px] font-medium italic'>
               We mirror and verify data from the following platforms:
             </p>
             <div className='flex flex-col gap-3'>

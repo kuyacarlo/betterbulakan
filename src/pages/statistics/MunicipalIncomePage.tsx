@@ -268,7 +268,7 @@ function IncomeReport({ data }: { data: AriRecord }) {
           <p className='text-kapwa-text-strong text-[10px] font-bold tracking-widest uppercase'>
             Verified Data Audit
           </p>
-          <p className='text-kapwa-text-disabled text-[10px] font-bold tracking-widest uppercase'>
+          <p className='text-kapwa-text-support text-[10px] font-bold tracking-widest uppercase'>
             Source:{' '}
             <a
               href={BLGF_SOURCE_URL}

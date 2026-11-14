@@ -30,7 +30,7 @@ export function PageLoadingState({
 }: PageLoadingStateProps) {
   return (
     <div className='flex items-center justify-center p-kapwa-3xl'>
-      <div className='text-kapwa-text-disabled flex items-center gap-kapwa-md'>
+      <div className='text-kapwa-text-support flex items-center gap-kapwa-md'>
         <div className='border-kapwa-border-brand border-t-kapwa-bg-brand-default h-5 w-5 animate-spin rounded-full border-2' />
         <span className='kapwa-body-sm-default kapwa-body-sm-strong'>
           {message}

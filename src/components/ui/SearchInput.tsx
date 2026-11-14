@@ -74,7 +74,7 @@ const SearchInput = ({
         <button
           type='button'
           aria-label='Clear search'
-          className='text-kapwa-text-disabled hover:text-kapwa-text-strong focus-visible:ring-kapwa-border-focus absolute inset-y-0 right-0 flex items-center pr-3 transition-colors focus-visible:ring-2 focus-visible:outline-none'
+          className='text-kapwa-text-support hover:text-kapwa-text-strong focus-visible:ring-kapwa-border-focus absolute inset-y-0 right-0 flex items-center pr-3 transition-colors focus-visible:ring-2 focus-visible:outline-none'
           onClick={handleClear}
         >
           <XIcon className='h-4 w-4' aria-hidden='true' />

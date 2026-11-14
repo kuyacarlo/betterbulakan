@@ -54,7 +54,7 @@ export class ErrorBoundary extends Component<
           <button
             type='button'
             onClick={() => this.setState({ hasError: false, error: null })}
-            className='mt-2 text-xs text-kapwa-text-link hover:underline'
+            className='mt-2 text-xs text-kapwa-text-info hover:underline'
           >
             Try again
           </button>

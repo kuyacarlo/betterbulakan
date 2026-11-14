@@ -163,7 +163,7 @@ const SelectPicker = ({
             'truncate',
             selectedOptions.length > 0
               ? 'text-kapwa-text-strong'
-              : 'text-kapwa-text-disabled'
+              : 'text-kapwa-text-support'
           )}
         >
           {selectedOptions.length > 0
@@ -236,7 +236,7 @@ const SelectPicker = ({
                 ))}
               </ul>
             ) : (
-              <div className='text-kapwa-text-disabled px-3 py-2 text-center text-sm'>
+              <div className='text-kapwa-text-support px-3 py-2 text-center text-sm'>
                 No options found
               </div>
             )}

@@ -105,7 +105,7 @@ export default function MunicipalCommitteesPage() {
                     <h3 className='text-kapwa-text-strong text-base font-bold leading-tight'>
                       {toTitleCase(committee.committee)}
                     </h3>
-                    <p className='text-kapwa-text-disabled mt-0.5 text-[10px] font-bold tracking-widest uppercase'>
+                    <p className='text-kapwa-text-support mt-0.5 text-[10px] font-bold tracking-widest uppercase'>
                       Standing Committee
                     </p>
                   </div>
@@ -117,7 +117,7 @@ export default function MunicipalCommitteesPage() {
                     <User2 className='h-3.5 w-3.5' />
                   </div>
                   <div className='min-w-0'>
-                    <p className='text-kapwa-text-disabled mb-0.5 text-[9px] font-bold tracking-tighter uppercase'>
+                    <p className='text-kapwa-text-support mb-0.5 text-[9px] font-bold tracking-tighter uppercase'>
                       Chairperson
                     </p>
                     <p className='text-kapwa-text-strong truncate text-xs font-bold leading-tight'>
@@ -131,7 +131,7 @@ export default function MunicipalCommitteesPage() {
                   <div className='border-kapwa-border-weak border-t pt-2'>
                     <div className='mb-2.5 flex items-center gap-1.5'>
                       <UsersIcon className='text-kapwa-text-accent-orange h-3 w-3' />
-                      <p className='text-kapwa-text-disabled text-[9px] font-bold tracking-widest uppercase'>
+                      <p className='text-kapwa-text-support text-[9px] font-bold tracking-widest uppercase'>
                         Members ({committee.members.length})
                       </p>
                     </div>
@@ -145,7 +145,7 @@ export default function MunicipalCommitteesPage() {
                             {toTitleCase(member.name)}
                           </p>
                           {member.role && (
-                            <span className='text-kapwa-text-disabled bg-kapwa-bg-surface-raised shrink-0 rounded px-1.5 py-0.5 text-[9px] font-bold uppercase'>
+                            <span className='text-kapwa-text-support bg-kapwa-bg-surface-raised shrink-0 rounded px-1.5 py-0.5 text-[9px] font-bold uppercase'>
                               {member.role}
                             </span>
                           )}
@@ -162,7 +162,7 @@ export default function MunicipalCommitteesPage() {
 
       {/* Summary footer */}
       {filteredCommittees.length > 0 && (
-        <p className='text-kapwa-text-disabled text-center text-xs'>
+        <p className='text-kapwa-text-support text-center text-xs'>
           Showing {filteredCommittees.length} of {committees.length} committees
         </p>
       )}

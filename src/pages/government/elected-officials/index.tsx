@@ -86,7 +86,7 @@ function ElectedLeaderCard({ leader }: { leader: ExecutiveOfficial }) {
             <Icon className='h-10 w-10' />
           </div>
           {isMayor && (
-            <div className='bg-kapwa-bg-brand-default text-kapwa-text-inverse absolute -right-1 -bottom-1 rounded-full border-2 border-white p-1.5 shadow-md'>
+            <div className='bg-kapwa-bg-brand-default text-kapwa-text-inverse absolute -right-1 -bottom-1 rounded-full border-2 border-kapwa-border-inverse p-1.5 shadow-md'>
               <ShieldCheck className='h-3.5 w-3.5' />
             </div>
           )}
@@ -185,7 +185,7 @@ function CouncilMemberCard({
           <div className='border-kapwa-border-weak bg-kapwa-bg-surface-raised/50 flex flex-col gap-2 rounded-xl border p-3'>
             <div className='mb-1 flex items-center gap-2'>
               <BookOpenIcon className='text-kapwa-text-disabled h-3 w-3' />
-              <span className='text-kapwa-text-disabled text-[10px] font-bold tracking-widest uppercase'>
+              <span className='text-kapwa-text-support text-[10px] font-bold tracking-widest uppercase'>
                 Committee Chair
               </span>
             </div>
@@ -210,7 +210,7 @@ function CouncilMemberCard({
         {/* Row 3: Social footer */}
         {member.website && (
           <div className='border-kapwa-border-weak mt-auto flex items-center justify-between border-t pt-3'>
-            <span className='text-kapwa-text-disabled text-[10px] font-medium tracking-wide uppercase'>
+            <span className='text-kapwa-text-support text-[10px] font-medium tracking-wide uppercase'>
               Social Profile
             </span>
             <a
@@ -371,7 +371,7 @@ export default function ElectedOfficialsPage() {
                 <p className='text-kapwa-text-strong text-sm font-bold'>
                   Standing Committees
                 </p>
-                <p className='text-kapwa-text-disabled text-xs'>
+                <p className='text-kapwa-text-support text-xs'>
                   {sbData.permanent_committees?.length ?? 0} active committees
                   with full member listings
                 </p>
@@ -396,7 +396,7 @@ export default function ElectedOfficialsPage() {
             <h4 className='text-kapwa-text-strong font-bold'>
               Looking for Department Heads?
             </h4>
-            <p className='text-kapwa-text-disabled text-sm'>
+            <p className='text-kapwa-text-support text-sm'>
               Municipal Treasurer, Assessor, Engineer, and other service heads
               are listed in the directory.
             </p>

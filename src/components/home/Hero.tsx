@@ -235,7 +235,7 @@ const Hero: FC = () => {
                 <Link key={service.slug} to={`/services/${service.slug}`}>
                   <Badge
                     variant='outline'
-                    className='cursor-pointer border-white/20 text-kapwa-text-inverse hover:bg-kapwa-bg-surface/20'
+                    className='cursor-pointer border-kapwa-border-inverse/20 text-kapwa-text-inverse hover:bg-kapwa-bg-surface/20'
                   >
                     <FileTextIcon className='w-4 h-4' />
                     <span className='ml-1'>

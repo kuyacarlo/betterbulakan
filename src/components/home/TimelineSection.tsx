@@ -96,7 +96,7 @@ export default function TimelineSection() {
                           {item.title}
                         </h4>
                       </div>
-                      <p className='text-xs leading-relaxed text-kapwa-text-disabled'>
+                      <p className='text-xs leading-relaxed text-kapwa-text-support'>
                         {item.description}
                       </p>
                     </CardContent>

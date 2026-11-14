@@ -55,7 +55,7 @@ export function PageHero({
         {title}
       </h1>
       {description && (
-        <p className='text-kapwa-text-on-disabled mx-auto max-w-2xl text-sm leading-relaxed md:text-base'>
+        <p className='text-kapwa-text-support mx-auto max-w-2xl text-sm leading-relaxed md:text-base'>
           {description}
         </p>
       )}
@@ -90,7 +90,7 @@ export function ModuleHeader({
             {title}
           </h2>
           {description && (
-            <p className='text-kapwa-text-disabled mt-1 text-sm md:text-base'>
+            <p className='text-kapwa-text-support mt-1 text-sm md:text-base'>
               {description}
             </p>
           )}

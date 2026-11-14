@@ -259,7 +259,7 @@ export const CardAvatar = ({
   return (
     <div
       className={cn(
-        'bg-kapwa-bg-surface-raised text-kapwa-text-disabled flex shrink-0 items-center justify-center rounded-2xl font-black uppercase shadow-inner',
+        'bg-kapwa-bg-surface-raised text-kapwa-text-support flex shrink-0 items-center justify-center rounded-2xl font-black uppercase shadow-inner',
         sizes[size],
         className
       )}

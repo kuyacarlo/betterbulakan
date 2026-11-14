@@ -96,7 +96,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           {/* Service Number (for Citizens Charter services) */}
           {service.serviceNumber && (
             <div className='mb-2'>
-              <span className='text-kapwa-text-disabled text-[10px] font-bold tracking-widest uppercase'>
+              <span className='text-kapwa-text-support text-[10px] font-bold tracking-widest uppercase'>
                 Service No. {service.serviceNumber}
               </span>
             </div>
@@ -107,7 +107,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
             <h3 className='group-hover:text-kapwa-text-brand text-kapwa-text-strong mb-1 leading-snug font-bold transition-colors'>
               {service.plainLanguageName || service.service}
             </h3>
-            <p className='text-kapwa-text-disabled text-[10px] font-bold tracking-widest uppercase'>
+            <p className='text-kapwa-text-support text-[10px] font-bold tracking-widest uppercase'>
               {service.category.name}
             </p>
             {/* Office Division (for Citizens Charter services) */}

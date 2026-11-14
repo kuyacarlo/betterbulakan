@@ -33,7 +33,7 @@ const SlideToggle = <T extends string>({
           <button
             key={option}
             onClick={() => onChange(option)}
-            className={`relative z-10 rounded-md px-3 py-1 text-xs font-medium transition-all duration-200 ${isActive ? 'text-kapwa-text-strong' : 'hover:text-kapwa-text-support text-kapwa-text-disabled'} `}
+            className={`relative z-10 rounded-md px-3 py-1 text-xs font-medium transition-all duration-200 ${isActive ? 'text-kapwa-text-strong' : 'hover:text-kapwa-text-support text-kapwa-text-support'} `}
           >
             {labels ? labels[option] : option}
 
@@ -87,7 +87,7 @@ export default function QuarterToggle({
       {/* Bottom Row: Quarter Buttons (Only in Quarter View) */}
       {viewMode === 'quarter' && (
         <div className='animate-in fade-in slide-in-from-top-1 flex items-center gap-2 duration-200'>
-          <span className='text-kapwa-text-disabled mr-1 text-xs font-semibold tracking-wider uppercase'>
+          <span className='text-kapwa-text-support mr-1 text-xs font-semibold tracking-wider uppercase'>
             Period
           </span>
           <div className='border-kapwa-border-weak bg-kapwa-bg-surface-raised flex rounded-lg border p-1'>

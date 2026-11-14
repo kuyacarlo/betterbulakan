@@ -74,7 +74,7 @@ export default function ServiceDetail() {
   const service = getServiceBySlug(decodeURIComponent(serviceSlug));
   if (!service)
     return (
-      <div className='text-kapwa-text-disabled p-20 text-center font-bold tracking-widest uppercase'>
+      <div className='text-kapwa-text-support p-20 text-center font-bold tracking-widest uppercase'>
         Service not found
       </div>
     );
@@ -273,7 +273,7 @@ export default function ServiceDetail() {
                     <info.icon className='h-4 w-4' />
                   </div>
                   <div>
-                    <p className='text-kapwa-text-disabled mb-1 text-[10px] font-bold tracking-widest uppercase'>
+                    <p className='text-kapwa-text-support mb-1 text-[10px] font-bold tracking-widest uppercase'>
                       {info.label}
                     </p>
                     <p className='text-kapwa-text-strong text-xs font-bold'>
@@ -370,7 +370,7 @@ export default function ServiceDetail() {
                     <info.icon className='h-4 w-4' />
                   </div>
                   <div>
-                    <p className='text-kapwa-text-disabled mb-1 text-[10px] font-bold tracking-widest uppercase'>
+                    <p className='text-kapwa-text-support mb-1 text-[10px] font-bold tracking-widest uppercase'>
                       {info.label}
                     </p>
                     <p className='text-kapwa-text-strong text-xs font-bold'>
@@ -395,7 +395,7 @@ export default function ServiceDetail() {
                       <LinkIcon className='h-3.5 w-3.5' />
                     </div>
                     <div className='flex flex-col'>
-                      <p className='text-kapwa-text-disabled mb-1 text-[10px] font-bold tracking-widest uppercase'>
+                      <p className='text-kapwa-text-support mb-1 text-[10px] font-bold tracking-widest uppercase'>
                         Reference
                       </p>
                       {source.url ? (
@@ -436,7 +436,7 @@ export default function ServiceDetail() {
             }`}
           >
             <div className='flex items-center justify-between'>
-              <p className='text-kapwa-text-disabled text-[10px] font-bold tracking-widest uppercase'>
+              <p className='text-kapwa-text-support text-[10px] font-bold tracking-widest uppercase'>
                 Data Integrity
               </p>
               {isOfficialSource || isVerified ? (
@@ -467,7 +467,7 @@ export default function ServiceDetail() {
                       ? 'Verified Information'
                       : 'Unverified Data'}
                 </p>
-                <p className='text-kapwa-text-disabled text-[11px] font-medium'>
+                <p className='text-kapwa-text-support text-[11px] font-medium'>
                   {isOfficialSource
                     ? 'From Citizens Charter document'
                     : isVerified
@@ -523,7 +523,7 @@ export default function ServiceDetail() {
                 Help improve this data
               </h4>
             </div>
-            <p className='text-kapwa-text-disabled text-xs leading-relaxed'>
+            <p className='text-kapwa-text-support text-xs leading-relaxed'>
               Find an error or outdated info? Our community helps keep this
               portal accurate.
             </p>

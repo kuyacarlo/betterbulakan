@@ -70,7 +70,7 @@ export function FeesCard({ fees }: FeesCardProps) {
         </div>
         <div className='flex flex-1 items-center justify-between'>
           <div className='text-left'>
-            <p className='text-kapwa-text-disabled mb-1 text-[10px] font-bold tracking-widest uppercase'>
+            <p className='text-kapwa-text-support mb-1 text-[10px] font-bold tracking-widest uppercase'>
               Fees
             </p>
             <p className='text-kapwa-text-strong text-xs font-bold'>
@@ -130,7 +130,7 @@ export function FeesCard({ fees }: FeesCardProps) {
                         {fee.description}
                       </p>
                     </div>
-                    <p className='text-kapwa-text-disabled ml-3 text-xs font-bold'>
+                    <p className='text-kapwa-text-support ml-3 text-xs font-bold'>
                       {fee.amount}
                     </p>
                   </div>
