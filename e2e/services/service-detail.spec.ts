@@ -1,11 +1,15 @@
 import { test, expect } from '../test-config';
 import { assertKapwaTokens } from '../utils/kapwa';
 
+const SERVICE_SLUG = 'elgu-online-services-business-clearances-civil-registry';
+// The services layout adds its own h1, so match the service title specifically
+const SERVICE_TITLE = /^eLGU Online Services/;
+
 test.describe('Service Detail Page', () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to a service detail page before each test
-    // Using 'animal-bite-treatment-center' as it's a real service
-    await page.goto('/services/animal-bite-treatment-center');
+    // Real Citizens Charter service with both requirements and client steps
+    await page.goto(`/services/${SERVICE_SLUG}`);
   });
 
   test('service detail page uses Kapwa semantic tokens', async ({ page }) => {
@@ -15,7 +19,7 @@ test.describe('Service Detail Page', () => {
 
   test('service detail page displays quick info section', async ({ page }) => {
     // Check that service title is visible
-    const h1 = page.locator('h1');
+    const h1 = page.getByRole('heading', { level: 1, name: SERVICE_TITLE });
     await expect(h1).toBeVisible();
 
     // Verify Kapwa design tokens are present
@@ -25,43 +29,22 @@ test.describe('Service Detail Page', () => {
   test('service detail page displays requirements section', async ({
     page,
   }) => {
-    // Check for requirement cards
+    // This service lists requirements, so at least one card must render
     const requirementCards = page.locator('[data-testid="requirement-card"]');
-    const cardCount = await requirementCards.count();
+    await expect(requirementCards.first()).toBeVisible();
 
-    // Some services have requirements, others don't
-    // Just verify the page loaded successfully
-    const h1 = page.locator('h1');
-    await expect(h1).toBeVisible();
-
-    // If requirements exist, check their structure
-    if (cardCount > 0) {
-      const firstCard = requirementCards.first();
-      await expect(firstCard).toBeVisible();
-
-      // Check that requirement card uses Kapwa tokens
-      await assertKapwaTokens(page);
-    }
+    // Check that requirement card uses Kapwa tokens
+    await assertKapwaTokens(page);
   });
 
   test('service detail page displays process timeline', async ({ page }) => {
-    // Check for process timeline
+    // This service lists client steps, so the timeline must render
     const timeline = page.locator('[data-testid="process-timeline"]');
-    const timelineExists = (await timeline.count()) > 0;
+    await expect(timeline).toBeVisible();
 
-    // Some services have process steps, others don't
-    // Just verify the page loaded successfully
-    const h1 = page.locator('h1');
-    await expect(h1).toBeVisible();
-
-    // If timeline exists, check its structure
-    if (timelineExists) {
-      await expect(timeline).toBeVisible();
-
-      // Check that timeline uses Kapwa tokens
-      const timelineHTML = await timeline.innerHTML();
-      expect(timelineHTML).toMatch(/kapwa/);
-    }
+    // Check that timeline uses Kapwa tokens
+    const timelineHTML = await timeline.innerHTML();
+    expect(timelineHTML).toMatch(/kapwa/);
   });
 
   test('service detail page has breadcrumb navigation', async ({ page }) => {
@@ -83,7 +66,7 @@ test.describe('Service Detail Page', () => {
   }) => {
     // May or may not have contact info depending on service
     // Just verify page structure is intact
-    const h1 = page.locator('h1');
+    const h1 = page.getByRole('heading', { level: 1, name: SERVICE_TITLE });
     await expect(h1).toBeVisible();
   });
 
@@ -115,7 +98,7 @@ test.describe('Service Detail Page', () => {
 
   test('service detail page is accessible', async ({ page }) => {
     // Check page has proper heading structure
-    const h1 = page.locator('h1');
+    const h1 = page.getByRole('heading', { level: 1, name: SERVICE_TITLE });
     await expect(h1).toBeVisible();
 
     // Check that interactive elements are focusable
