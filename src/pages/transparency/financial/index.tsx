@@ -17,6 +17,7 @@ import {
 } from '@/components/navigation/Breadcrumb';
 // UI Components
 import { Badge } from '@/components/ui/Badge';
+import { EmptyState } from '@/components/ui/EmptyState';
 
 import FinancialPieChart, {
   ChartDataPoint,
@@ -28,7 +29,53 @@ import { useFinancialData } from '@/hooks/useFinancialData';
 
 import { formatLabel } from '@/lib/budgetUtils';
 
+import budgetData from '@/data/transparency/budgetData';
+
+function FinancialBreadcrumb() {
+  return (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbHome href='/' />
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink href='/transparency'>Transparency</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Financial Report</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  );
+}
+
+// sre.json ships as [] until SRE reports are encoded; the report view needs at least one quarter
 export default function FinancialPage() {
+  if (budgetData.length === 0) {
+    return (
+      <div className='animate-in fade-in mx-auto max-w-7xl space-y-6 pb-20 duration-500'>
+        <FinancialBreadcrumb />
+        <div className='border-kapwa-border-weak bg-kapwa-bg-surface space-y-4 rounded-3xl border p-8 shadow-sm'>
+          <h1 className='text-kapwa-text-strong kapwa-heading-xl font-extrabold flex items-center gap-3'>
+            <BarChart2Icon className='h-8 w-8 text-kapwa-text-success' />
+            Financial Performance
+          </h1>
+          <EmptyState
+            icon={ReceiptText}
+            title='Financial reports not yet available'
+            message='Statements of Receipts and Expenditures for this municipality have not been published here yet. Check back soon.'
+          />
+        </div>
+      </div>
+    );
+  }
+
+  return <FinancialReport />;
+}
+
+function FinancialReport() {
   const {
     years,
     selectedYear,
@@ -204,21 +251,7 @@ export default function FinancialPage() {
   return (
     <div className='animate-in fade-in mx-auto max-w-7xl space-y-6 pb-20 duration-500'>
       {/* 1. Standardized Breadcrumbs */}
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbHome href='/' />
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href='/transparency'>Transparency</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Financial Report</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <FinancialBreadcrumb />
 
       {/* 2. Unified Header with Controls */}
       <div className='border-kapwa-border-weak bg-kapwa-bg-surface flex flex-col gap-8 rounded-3xl border p-8 shadow-sm xl:flex-row xl:items-center xl:justify-between'>
