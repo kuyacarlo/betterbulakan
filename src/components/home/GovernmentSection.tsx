@@ -2,7 +2,6 @@ import { FC, useMemo } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-import { Banner } from '@bettergov/kapwa/banner';
 import { Button } from '@bettergov/kapwa/button';
 import { Building2Icon, HomeIcon, UsersIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -119,19 +118,28 @@ const GovernmentSection: FC = () => {
           ))}
         </CardGrid>
 
-        {/* Banner CTA - using documented Banner component */}
-        <Banner
-          className='p-kapwa-lg mt-12'
-          type='default'
-          title={t('government.directoryTitle')}
-          description={t('government.directoryDescription')}
-          cta={{
-            label: t('government.viewDirectory'),
-            onClick: () => navigate('/government/'),
-            variant: 'primary',
-            size: 'lg',
-          }}
-        />
+        {/* Banner CTA - mirrors the Kapwa Banner layout with semantic tokens (its default type hardcodes gray-* colors) */}
+        <div className='bg-kapwa-bg-surface-raised border-kapwa-border-weak relative mt-12 rounded-lg border p-kapwa-lg'>
+          <div className='items-center md:flex'>
+            <div className='mb-6 md:mb-0 md:w-2/3 md:pr-8'>
+              <h3 className='text-kapwa-text-strong mb-2 text-xl font-semibold'>
+                {t('government.directoryTitle')}
+              </h3>
+              <p className='text-kapwa-text-strong'>
+                {t('government.directoryDescription')}
+              </p>
+            </div>
+            <div className='flex justify-center md:w-1/3 md:justify-end'>
+              <Button
+                onClick={() => navigate('/government/')}
+                variant='primary'
+                size='lg'
+              >
+                {t('government.viewDirectory')}
+              </Button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

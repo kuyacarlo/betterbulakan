@@ -37,7 +37,7 @@ export function SupportingDocumentsDetail({
             <h3 className='text-kapwa-text-strong text-sm font-bold'>
               Supporting Documents Details
             </h3>
-            <p className='text-kapwa-text-disabled text-[10px] font-medium'>
+            <p className='text-kapwa-text-support text-[10px] font-medium'>
               Click to {isExpanded ? 'collapse' : 'expand'}
             </p>
           </div>
@@ -86,7 +86,7 @@ export function SupportingDocumentsDetail({
                         </p>
                       )}
                       {doc.note && (
-                        <p className='text-kapwa-text-disabled mt-1 text-[10px] italic'>
+                        <p className='text-kapwa-text-support mt-1 text-[10px] italic'>
                           {doc.note}
                         </p>
                       )}
@@ -138,7 +138,7 @@ export function SupportingDocumentsDetail({
                         </p>
                       )}
                       {doc.note && (
-                        <p className='text-kapwa-text-disabled mt-1 text-[10px] italic'>
+                        <p className='text-kapwa-text-support mt-1 text-[10px] italic'>
                           {doc.note}
                         </p>
                       )}
@@ -188,7 +188,7 @@ export function SupportingDocumentsDetail({
                           <p className='text-kapwa-text-support text-xs font-medium'>
                             {doc.document}
                           </p>
-                          <p className='text-kapwa-text-disabled mt-0.5 text-[11px]'>
+                          <p className='text-kapwa-text-support mt-0.5 text-[11px]'>
                             from: {doc.where_to_secure}
                           </p>
                           {doc.copies && (
@@ -197,7 +197,7 @@ export function SupportingDocumentsDetail({
                             </p>
                           )}
                           {doc.note && (
-                            <p className='text-kapwa-text-disabled mt-1 text-[10px] italic'>
+                            <p className='text-kapwa-text-support mt-1 text-[10px] italic'>
                               {doc.note}
                             </p>
                           )}
@@ -261,14 +261,14 @@ export function SupportingDocumentsDetail({
                                 </p>
                               )}
                               {option.note && (
-                                <p className='text-kapwa-text-disabled mt-1 text-[10px] italic'>
+                                <p className='text-kapwa-text-support mt-1 text-[10px] italic'>
                                   {option.note}
                                 </p>
                               )}
                               {option.if_unavailable &&
                                 option.if_unavailable.length > 0 && (
                                   <div className='mt-2 border-t border-kapwa-border-weak pt-2'>
-                                    <p className='text-kapwa-text-disabled mb-1 text-[10px] font-semibold uppercase'>
+                                    <p className='text-kapwa-text-support mb-1 text-[10px] font-semibold uppercase'>
                                       If unavailable:
                                     </p>
                                     {option.if_unavailable.map(

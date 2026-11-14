@@ -71,7 +71,7 @@ const CustomTooltip = ({ active, payload }: TooltipProps<number, string>) => {
         <p className='pl-4 font-mono font-medium text-kapwa-text-success'>
           {formatPesoAdaptive(data.value as number).fullString}
         </p>
-        <p className='text-kapwa-text-disabled mt-1 pl-4 text-xs'>
+        <p className='text-kapwa-text-support mt-1 pl-4 text-xs'>
           {((data.payload.percent || 0) * 100).toFixed(1)}% of total
         </p>
         {!isDetail && data.payload.details?.length > 0 && (
@@ -196,7 +196,7 @@ export default function FinancialPieChart({
               {drillDownItem ? drillDownItem.name : title}
             </span>
             {drillDownItem && (
-              <span className='animate-in fade-in text-kapwa-text-disabled mt-1 text-[10px] font-medium tracking-wide uppercase'>
+              <span className='animate-in fade-in text-kapwa-text-support mt-1 text-[10px] font-medium tracking-wide uppercase'>
                 Breakdown View
               </span>
             )}
@@ -219,7 +219,7 @@ export default function FinancialPieChart({
             className={`rounded-md p-1.5 transition-colors ${
               showLabels
                 ? 'bg-kapwa-bg-brand-weak text-kapwa-text-brand'
-                : 'hover:bg-kapwa-bg-surface-raised text-kapwa-text-disabled'
+                : 'hover:bg-kapwa-bg-surface-raised text-kapwa-text-support'
             }`}
           >
             <Tag className='h-3.5 w-3.5' />
@@ -227,7 +227,7 @@ export default function FinancialPieChart({
 
           <button
             onClick={() => setShowBreakdownList(!showBreakdownList)}
-            className='text-kapwa-text-disabled hover:text-kapwa-text-strong p-1 transition-colors'
+            className='text-kapwa-text-support hover:text-kapwa-text-strong p-1 transition-colors'
             title='Toggle List'
           >
             {showBreakdownList ? (
@@ -294,13 +294,13 @@ export default function FinancialPieChart({
                 className='group bg-kapwa-bg-surface-raised/0 hover:bg-kapwa-bg-surface-raised pointer-events-auto flex h-24 w-24 flex-col items-center justify-center rounded-full transition-colors'
               >
                 <Undo2 className='text-kapwa-text-disabled group-hover:text-kapwa-text-support mb-1 h-5 w-5' />
-                <span className='text-kapwa-text-disabled group-hover:text-kapwa-text-strong text-[10px] font-semibold tracking-widest uppercase'>
+                <span className='text-kapwa-text-support group-hover:text-kapwa-text-strong text-[10px] font-semibold tracking-widest uppercase'>
                   Return
                 </span>
               </button>
             ) : (
               <div className='flex flex-col items-center justify-center'>
-                <span className='text-kapwa-text-disabled text-[10px] font-medium tracking-widest uppercase'>
+                <span className='text-kapwa-text-support text-[10px] font-medium tracking-widest uppercase'>
                   Total
                 </span>
                 <span className='text-kapwa-text-support mt-1 text-xs font-bold'>
@@ -362,7 +362,7 @@ export default function FinancialPieChart({
                     <span className='text-kapwa-text-strong font-medium'>
                       {formatPesoAdaptive(item.value).fullString}
                     </span>
-                    <span className='text-kapwa-text-disabled w-10 text-right text-xs'>
+                    <span className='text-kapwa-text-support w-10 text-right text-xs'>
                       {percent.toFixed(1)}%
                     </span>
                   </div>

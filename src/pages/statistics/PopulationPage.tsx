@@ -243,7 +243,7 @@ export default function PopulationPage() {
 
       {/* Info box using DetailSection for consistency */}
       <DetailSection title='How to read this data' icon={Info}>
-        <p className='text-xs italic leading-relaxed text-kapwa-text-disabled'>
+        <p className='text-xs italic leading-relaxed text-kapwa-text-support'>
           {activeTab === 'municipality'
             ? 'The municipal growth chart tracks long-term population expansion from 1960 to current estimates.'
             : 'The comparison chart allows you to track which barangays are experiencing the fastest urban growth relative to their 2010 baseline.'}
@@ -271,7 +271,7 @@ export default function PopulationPage() {
           <p className='text-kapwa-text-strong text-[10px] font-bold tracking-widest uppercase'>
             Verified Data Audit
           </p>
-          <p className='text-kapwa-text-disabled text-[10px] font-bold tracking-widest uppercase'>
+          <p className='text-kapwa-text-support text-[10px] font-bold tracking-widest uppercase'>
             Source: {meta.source}
           </p>
         </div>

@@ -35,7 +35,7 @@ export function Badge({
     primary:
       'bg-kapwa-bg-brand-weak text-kapwa-text-brand border-kapwa-border-brand',
     secondary:
-      'bg-kapwa-bg-accent-orange-weak text-kapwa-text-accent-orange border-kapwa-border-warning',
+      'bg-kapwa-bg-accent-orange-weak text-kapwa-orange-800 border-kapwa-border-warning',
     yellow: 'bg-kapwa-yellow-50 text-kapwa-yellow-700 border-kapwa-yellow-600',
     success:
       'bg-kapwa-bg-success-weak text-kapwa-text-success border-kapwa-border-success',

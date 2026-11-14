@@ -80,7 +80,7 @@ export default function DepartmentsIndex() {
                         <User2 className='h-3.5 w-3.5' />
                       </div>
                       <div className='min-w-0'>
-                        <p className='text-kapwa-text-disabled mb-0.5 text-[9px] leading-none font-bold tracking-tighter uppercase'>
+                        <p className='text-kapwa-text-support mb-0.5 text-[9px] leading-none font-bold tracking-tighter uppercase'>
                           Department Head
                         </p>
                         <p className='text-kapwa-text-support truncate text-xs leading-tight font-bold'>
@@ -104,7 +104,7 @@ export default function DepartmentsIndex() {
                               : dept.trunkline
                           ) || '#'
                         }
-                        className='text-kapwa-text-disabled flex items-center gap-1.5 text-[11px] font-medium hover:text-kapwa-text-brand transition-colors'
+                        className='text-kapwa-text-support flex items-center gap-1.5 text-[11px] font-medium hover:text-kapwa-text-brand transition-colors'
                       >
                         <Phone className='text-kapwa-text-brand h-3 w-3' />
                         <span>

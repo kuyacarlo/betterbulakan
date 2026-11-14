@@ -75,7 +75,7 @@ const ServicesSection: FC = () => {
                       {category.description}
                     </p>
 
-                    <div className='text-kapwa-text-link group-hover:text-kapwa-text-link-hover flex items-center text-sm font-medium group-hover:underline'>
+                    <div className='text-kapwa-text-info group-hover:text-kapwa-text-link-hover flex items-center text-sm font-medium group-hover:underline'>
                       {t('services.viewAllCategory')}
                       <LucideIcons.ArrowRight className='ml-1 h-4 w-4 transition-transform group-hover:translate-x-1' />
                     </div>

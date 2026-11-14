@@ -77,7 +77,7 @@ export default function BarangaysIndex() {
                       <User2 className='h-3.5 w-3.5' />
                     </div>
                     <div className='min-w-0'>
-                      <p className='text-kapwa-text-disabled mb-0.5 text-[9px] leading-none font-bold tracking-tighter uppercase'>
+                      <p className='text-kapwa-text-support mb-0.5 text-[9px] leading-none font-bold tracking-tighter uppercase'>
                         Punong Barangay
                       </p>
                       <p className='text-kapwa-text-support truncate text-xs leading-tight font-bold'>
@@ -89,7 +89,7 @@ export default function BarangaysIndex() {
                   {/* Bottom Row: Trunkline & Action */}
                   <div className='mt-auto flex items-center justify-between gap-4 border-t border-kapwa-border-weak pt-3'>
                     {brgy.trunkline && brgy.trunkline.length > 0 ? (
-                      <div className='text-kapwa-text-disabled flex items-center gap-1.5 text-[11px] font-medium'>
+                      <div className='text-kapwa-text-support flex items-center gap-1.5 text-[11px] font-medium'>
                         <Phone className='text-kapwa-text-brand h-3 w-3' />
                         <span>{brgy.trunkline[0]}</span>
                       </div>

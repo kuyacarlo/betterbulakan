@@ -9,10 +9,6 @@ test.describe('Elected Officials Pages', () => {
   test('elected officials index page uses Kapwa semantic tokens', async ({
     page,
   }) => {
-    test.skip(
-      true,
-      'App bug: elected officials page still uses raw Tailwind text colors'
-    );
     await assertKapwaTokens(page);
   });
 

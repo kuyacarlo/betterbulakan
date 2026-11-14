@@ -159,7 +159,7 @@ const Hit: FC<HitProps> = ({ hit }) => {
           )}
         </div>
         {(hit.url || hit.website) && (
-          <p className='text-kapwa-text-link mt-1 truncate text-xs'>
+          <p className='text-kapwa-text-info mt-1 truncate text-xs'>
             {hit.url || hit.website}
           </p>
         )}

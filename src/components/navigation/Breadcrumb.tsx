@@ -64,7 +64,7 @@ const BreadcrumbList = forwardRef<HTMLOListElement, BreadcrumbListProps>(
     <ol
       ref={ref}
       className={cn(
-        'text-kapwa-text-disabled flex flex-wrap items-center gap-2 text-sm',
+        'text-kapwa-text-support flex flex-wrap items-center gap-2 text-sm',
         className
       )}
       {...props}
@@ -94,7 +94,7 @@ const BreadcrumbLink = forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>(
       ref={ref}
       to={href}
       className={cn(
-        'hover:text-kapwa-text-strong text-kapwa-text-disabled font-medium transition-colors',
+        'hover:text-kapwa-text-strong text-kapwa-text-support font-medium transition-colors',
         className
       )}
       {...props}
@@ -143,7 +143,7 @@ const BreadcrumbHome = forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>(
       ref={ref}
       to={href}
       className={cn(
-        'hover:text-kapwa-text-strong text-kapwa-text-disabled flex items-center gap-1.5 font-medium transition-colors',
+        'hover:text-kapwa-text-strong text-kapwa-text-support flex items-center gap-1.5 font-medium transition-colors',
         className
       )}
       // Icon-only by default, so give the link an accessible name

@@ -75,7 +75,7 @@ export function StatCard(props: StatCardProps) {
         )}
       >
         <div className='flex min-w-0 flex-1 flex-col gap-1'>
-          <p className='text-kapwa-text-disabled truncate text-[10px] font-bold tracking-widest uppercase'>
+          <p className='text-kapwa-text-support truncate text-[10px] font-bold tracking-widest uppercase'>
             {label}
           </p>
           <div className='text-kapwa-text-strong flex items-center gap-2 text-3xl font-black'>
@@ -102,7 +102,7 @@ export function StatCard(props: StatCardProps) {
             </span>
           </div>
           {subtext && (
-            <span className='text-kapwa-text-disabled truncate text-xs font-medium'>
+            <span className='text-kapwa-text-support truncate text-xs font-medium'>
               {subtext}
             </span>
           )}

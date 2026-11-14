@@ -401,7 +401,7 @@ export function PageHeader({
               {title}
             </h1>
             {description && (
-              <p className='mx-auto max-w-2xl text-sm leading-relaxed text-kapwa-text-disabled md:text-base'>
+              <p className='mx-auto max-w-2xl text-sm leading-relaxed text-kapwa-text-support md:text-base'>
                 {description}
               </p>
             )}
@@ -429,7 +429,7 @@ export function PageHeader({
               {title}
             </h1>
             {description && (
-              <p className='mx-auto max-w-2xl text-sm leading-relaxed text-kapwa-text-disabled md:text-base'>
+              <p className='mx-auto max-w-2xl text-sm leading-relaxed text-kapwa-text-support md:text-base'>
                 {description}
               </p>
             )}
@@ -457,7 +457,7 @@ export function PageHeader({
               {title}
             </h1>
             {description && (
-              <p className='mt-1 text-sm text-kapwa-text-disabled md:text-base'>
+              <p className='mt-1 text-sm text-kapwa-text-support md:text-base'>
                 {description}
               </p>
             )}

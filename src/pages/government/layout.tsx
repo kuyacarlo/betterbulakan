@@ -90,7 +90,7 @@ export default function GovernmentRootLayout() {
                         'text-[10px] font-bold tracking-[0.2em] uppercase',
                         isActive
                           ? 'text-kapwa-text-inverse'
-                          : 'text-kapwa-text-disabled'
+                          : 'text-kapwa-text-support'
                       )}
                     >
                       {branch.category}

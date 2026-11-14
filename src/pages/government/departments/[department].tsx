@@ -48,7 +48,7 @@ export default function DepartmentDetail() {
   if (!dept)
     return (
       <div
-        className='text-kapwa-text-disabled p-20 text-center font-bold tracking-widest uppercase'
+        className='text-kapwa-text-support p-20 text-center font-bold tracking-widest uppercase'
         role='alert'
       >
         Office Not Found
@@ -153,7 +153,7 @@ export default function DepartmentDetail() {
             aria-label='Office Leadership'
           >
             <p className='sr-only'>Office Leadership</p>
-            <p className='text-kapwa-text-disabled pl-1 text-[10px] font-bold tracking-widest uppercase'>
+            <p className='text-kapwa-text-support pl-1 text-[10px] font-bold tracking-widest uppercase'>
               Office Leadership
             </p>
             <Card hover={false} className='rounded-xl'>
@@ -191,7 +191,7 @@ export default function DepartmentDetail() {
             aria-label='Department Services'
           >
             <p className='sr-only'>Department Services</p>
-            <p className='text-kapwa-text-disabled pl-1 text-[10px] font-bold tracking-widest uppercase'>
+            <p className='text-kapwa-text-support pl-1 text-[10px] font-bold tracking-widest uppercase'>
               Department Services
             </p>
             <div className='grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3'>
@@ -231,7 +231,7 @@ export default function DepartmentDetail() {
         {/* Office Mandate */}
         <div className='space-y-2' role='group' aria-label='Office Mandate'>
           <p className='sr-only'>Office Mandate</p>
-          <p className='text-kapwa-text-disabled pl-1 text-[10px] font-bold tracking-widest uppercase'>
+          <p className='text-kapwa-text-support pl-1 text-[10px] font-bold tracking-widest uppercase'>
             Office Mandate
           </p>
           <Card variant='default' hover={false} className='bg-kapwa-bg-surface'>

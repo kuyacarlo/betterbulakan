@@ -63,7 +63,7 @@ export function ProcessTimeline({ steps }: ProcessTimelineProps) {
                                 key={detailIdx}
                                 className='flex items-start gap-2'
                               >
-                                <span className='text-kapwa-text-disabled text-xs font-medium'>
+                                <span className='text-kapwa-text-support text-xs font-medium'>
                                   {detailIdx + 1 === 1
                                     ? 'i.'
                                     : detailIdx + 1 === 2
@@ -91,7 +91,7 @@ export function ProcessTimeline({ steps }: ProcessTimelineProps) {
                 {/* Processing time for this step */}
                 {step.processing_time && (
                   <div className='mt-2 ml-4 flex items-center gap-2'>
-                    <span className='text-kapwa-text-disabled text-[10px] font-bold uppercase tracking-wider'>
+                    <span className='text-kapwa-text-support text-[10px] font-bold uppercase tracking-wider'>
                       Time:
                     </span>
                     <span className='text-kapwa-text-support text-xs'>

@@ -58,7 +58,7 @@ export function PaginationControls({
   return (
     <div className='border-kapwa-border-weak bg-kapwa-bg-surface-raised flex flex-col items-center gap-4 border-t p-4 md:flex-row md:justify-between'>
       {/* Left: Info & Selector */}
-      <div className='text-kapwa-text-disabled flex flex-wrap items-center justify-center gap-4 text-xs font-medium'>
+      <div className='text-kapwa-text-support flex flex-wrap items-center justify-center gap-4 text-xs font-medium'>
         <span>
           Showing{' '}
           <span className='text-kapwa-text-strong font-bold'>
@@ -103,7 +103,7 @@ export function PaginationControls({
             page === '...' ? (
               <span
                 key={`ellipsis-${idx}`}
-                className='text-kapwa-text-disabled px-2 py-1 text-xs'
+                className='text-kapwa-text-support px-2 py-1 text-xs'
               >
                 ...
               </span>
