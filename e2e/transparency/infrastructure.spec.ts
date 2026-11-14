@@ -2,6 +2,8 @@ import { test, expect } from '../test-config';
 import { assertKapwaTokens } from '../utils/kapwa';
 
 test.describe('Infrastructure Transparency Page', () => {
+  test.skip(true, 'Needs live DPWH data from external Meilisearch, not in CI');
+
   test.beforeEach(async ({ page }) => {
     // Navigate to infrastructure page before each test
     await page.goto('/transparency/infrastructure');
