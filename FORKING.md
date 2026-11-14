@@ -134,10 +134,10 @@ Everything reads from `config/lgu.config.json`. No hardcoded LGU names in source
 
 ```bash
 npm run build
-# Deploy dist/ to Cloudflare Pages, Netlify, Vercel, or any static host
+# Deploy dist/ to Cloudflare Pages
 ```
 
-For Cloudflare Pages Functions (admin API), see `functions/` directory.
+Production runs on Cloudflare Pages. The API (`/api/*`, admin, weather) is served by Pages Functions in `functions/`, so other static hosts get the site but no API.
 
 ---
 
