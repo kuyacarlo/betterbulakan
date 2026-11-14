@@ -81,12 +81,13 @@ const WeatherPage: FC = () => {
   return (
     <div className='bg-kapwa-bg-surface-raised min-h-screen'>
       <div className='container mx-auto px-4 py-8 md:py-12'>
+        <h1 className='sr-only'>Weather Updates</h1>
         {isLoading ? (
           <div className='flex h-64 items-center justify-center'>
             <div className='border-kapwa-border-brand h-12 w-12 animate-spin rounded-full border-t-2 border-b-2'></div>
           </div>
         ) : error ? (
-          <div className='bg-kapwa-bg-danger-weak text-kapwa-text-danger rounded-sm border-l-4 border-red-500 p-4 shadow-md'>
+          <div className='bg-kapwa-bg-danger-weak text-kapwa-text-accent-red rounded-sm border-l-4 border-red-500 p-4 shadow-md'>
             <p className='font-bold'>Error</p>
             <p>{error}</p>
           </div>
@@ -267,7 +268,7 @@ const WeatherPage: FC = () => {
                 forecasts, please visit the{' '}
                 <a
                   href='https://bagong.pagasa.dost.gov.ph/'
-                  className='text-kapwa-text-brand hover:underline'
+                  className='text-kapwa-text-brand underline underline-offset-2'
                   target='_blank'
                   rel='noopener noreferrer'
                 >

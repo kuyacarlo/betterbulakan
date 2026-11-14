@@ -322,7 +322,7 @@ export default function ProcurementPage() {
         <div className='border-kapwa-border-weak bg-kapwa-bg-surface overflow-hidden rounded-xl border shadow-sm'>
           <div className='overflow-x-auto'>
             <table className='w-full text-left text-sm'>
-              <thead className='border-kapwa-border-weak bg-kapwa-bg-surface-raised text-kapwa-text-disabled border-b text-xs font-bold tracking-wider uppercase'>
+              <thead className='border-kapwa-border-weak bg-kapwa-bg-surface-raised text-kapwa-text-support border-b text-xs font-bold tracking-wider uppercase'>
                 <tr>
                   <th className='hidden w-32 px-3 py-3 md:table-cell md:px-6 md:py-4'>
                     Ref ID
@@ -345,7 +345,7 @@ export default function ProcurementPage() {
                     key={row.id}
                     className='group hover:bg-kapwa-bg-surface-raised/50 transition-colors'
                   >
-                    <td className='group-hover:text-kapwa-text-brand text-kapwa-text-disabled hidden px-3 py-3 font-mono text-xs transition-colors md:table-cell md:px-6 md:py-4'>
+                    <td className='group-hover:text-kapwa-text-brand text-kapwa-text-support hidden px-3 py-3 font-mono text-xs transition-colors md:table-cell md:px-6 md:py-4'>
                       {row.reference_id}
                     </td>
                     <td className='px-3 py-3 sm:px-6 sm:py-4'>
@@ -368,7 +368,7 @@ export default function ProcurementPage() {
                         </Badge>
                         {row.awardee_name && (
                           <span
-                            className='text-kapwa-text-disabled max-w-[150px] truncate text-xs sm:max-w-[200px]'
+                            className='text-kapwa-text-support max-w-[150px] truncate text-xs sm:max-w-[200px]'
                             title={row.awardee_name}
                           >
                             • {row.awardee_name}
@@ -420,10 +420,10 @@ export default function ProcurementPage() {
               <BarChart3 className='h-6 w-6' />
             </div>
             <div>
-              <h4 className='text-kapwa-text-strong mb-1 font-bold'>
+              <h3 className='text-kapwa-text-strong mb-1 font-bold'>
                 Advanced Analytics
-              </h4>
-              <p className='text-kapwa-text-disabled text-xs leading-relaxed'>
+              </h3>
+              <p className='text-kapwa-text-support text-xs leading-relaxed'>
                 View detailed spending charts, top supplier breakdowns, and
                 historical procurement trends for {lguLabels.name}.
               </p>
@@ -446,10 +446,10 @@ export default function ProcurementPage() {
               <Building2 className='h-6 w-6' />
             </div>
             <div>
-              <h4 className='text-kapwa-text-strong mb-1 font-bold'>
+              <h3 className='text-kapwa-text-strong mb-1 font-bold'>
                 Transparency Dashboard
-              </h4>
-              <p className='text-kapwa-text-disabled text-xs leading-relaxed'>
+              </h3>
+              <p className='text-kapwa-text-support text-xs leading-relaxed'>
                 Access the full Philippine procurement database to compare local
                 spending against national averages.
               </p>

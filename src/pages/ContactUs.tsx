@@ -129,9 +129,9 @@ const ContactUs: FC = () => {
               <div className={`${method.color} mb-4 w-fit rounded-lg p-3`}>
                 {method.icon}
               </div>
-              <h3 className='text-kapwa-text-strong mb-2 text-lg font-semibold'>
+              <h2 className='text-kapwa-text-strong mb-2 text-lg font-semibold'>
                 {method.title}
-              </h3>
+              </h2>
               <p className='text-kapwa-text-support mb-4 text-sm'>
                 {method.description}
               </p>

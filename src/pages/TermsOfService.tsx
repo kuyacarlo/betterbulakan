@@ -93,12 +93,12 @@ const TermsOfService: FC = () => {
               </h2>
             </div>
             <div className='mb-4 border-l-4 border-kapwa-border-warning bg-kapwa-bg-warning-weak p-4'>
-              <p className='mb-2 font-semibold text-kapwa-text-warning'>
+              <p className='mb-2 font-semibold text-kapwa-orange-800'>
                 ALL INFORMATION ON THIS WEBSITE IS PROVIDED &quot;AS IS&quot;
                 WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
                 INCLUDING BUT NOT LIMITED TO:
               </p>
-              <ul className='list-inside list-disc space-y-1 text-kapwa-text-warning'>
+              <ul className='list-inside list-disc space-y-1 text-kapwa-orange-800'>
                 <li>Warranties of merchantability</li>
                 <li>Fitness for a particular purpose</li>
                 <li>Non-infringement of intellectual property rights</li>
@@ -377,7 +377,7 @@ const TermsOfService: FC = () => {
               </div>
 
               <div className='bg-kapwa-bg-danger-weak rounded-lg border border-kapwa-border-danger p-4'>
-                <p className='text-kapwa-text-danger'>
+                <p className='text-kapwa-text-accent-red'>
                   <strong>False or Frivolous Complaints:</strong> Submitting
                   knowingly false takedown requests or complaints may result in
                   being blocked from contacting our volunteers.

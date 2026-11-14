@@ -294,7 +294,7 @@ export default function InfrastructurePage() {
         <div className='border-kapwa-border-weak bg-kapwa-bg-surface overflow-hidden rounded-xl border shadow-sm'>
           <div className='overflow-x-auto'>
             <table className='w-full text-left text-sm'>
-              <thead className='border-kapwa-border-weak bg-kapwa-bg-surface-raised text-kapwa-text-disabled border-b text-xs font-bold tracking-wider uppercase'>
+              <thead className='border-kapwa-border-weak bg-kapwa-bg-surface-raised text-kapwa-text-support border-b text-xs font-bold tracking-wider uppercase'>
                 <tr>
                   <th className='hidden w-32 px-3 py-3 md:table-cell md:px-6 md:py-4'>
                     Contract ID
@@ -322,7 +322,7 @@ export default function InfrastructurePage() {
                     }
                     className='group hover:bg-kapwa-bg-surface-raised/50 cursor-pointer transition-colors'
                   >
-                    <td className='group-hover:text-kapwa-text-brand text-kapwa-text-disabled hidden px-3 py-3 font-mono text-xs transition-colors md:table-cell md:px-6 md:py-4'>
+                    <td className='group-hover:text-kapwa-text-brand text-kapwa-text-support hidden px-3 py-3 font-mono text-xs transition-colors md:table-cell md:px-6 md:py-4'>
                       {item.contractId}
                     </td>
                     <td className='px-3 py-3 sm:px-6 sm:py-4'>
@@ -338,7 +338,7 @@ export default function InfrastructurePage() {
                             {item.category}
                           </span>
                         </Badge>
-                        <span className='text-kapwa-text-disabled flex items-center gap-1 text-xs'>
+                        <span className='text-kapwa-text-support flex items-center gap-1 text-xs'>
                           <MapPin className='text-kapwa-text-support h-3 w-3 shrink-0' />
                           <span className='truncate'>
                             {item.location.barangay
@@ -408,10 +408,10 @@ export default function InfrastructurePage() {
               <BarChart3 className='h-6 w-6' />
             </div>
             <div>
-              <h4 className='text-kapwa-text-strong mb-1 font-bold'>
+              <h3 className='text-kapwa-text-strong mb-1 font-bold'>
                 Data & Analytics
-              </h4>
-              <p className='text-kapwa-text-disabled text-xs leading-relaxed'>
+              </h3>
+              <p className='text-kapwa-text-support text-xs leading-relaxed'>
                 View detailed budget breakdowns, regional comparisons, and
                 contractor performance charts on BetterGov Transparency
                 Dashboard.
@@ -434,10 +434,10 @@ export default function InfrastructurePage() {
               <Layers className='h-6 w-6' />
             </div>
             <div>
-              <h4 className='text-kapwa-text-strong mb-1 font-bold'>
+              <h3 className='text-kapwa-text-strong mb-1 font-bold'>
                 Citizen Verification
-              </h4>
-              <p className='text-kapwa-text-disabled text-xs leading-relaxed'>
+              </h3>
+              <p className='text-kapwa-text-support text-xs leading-relaxed'>
                 Report issues, upload photos, and verify actual physical
                 progress of infrastructure projects in your barangay on
                 Bisto.ph.

@@ -21,7 +21,10 @@ describe('FinancialPage', () => {
     expect(
       screen.getByText('Financial reports not yet available')
     ).toBeInTheDocument();
-    expect(screen.getByText('Financial Report')).toBeInTheDocument();
+    // The transparency layout owns the breadcrumb; a second one here duplicates the landmark
+    expect(
+      screen.queryByRole('navigation', { name: /breadcrumb/i })
+    ).not.toBeInTheDocument();
     expect(screen.queryByText('Income Composition')).not.toBeInTheDocument();
   });
 });

@@ -519,9 +519,9 @@ export default function ServiceDetail() {
               <div className='bg-kapwa-bg-accent-orange-weak text-kapwa-text-accent-orange rounded-lg p-2'>
                 <HeartHandshake className='h-5 w-5' />
               </div>
-              <h4 className='text-kapwa-text-strong text-sm leading-tight font-bold'>
+              <h2 className='text-kapwa-text-strong text-sm leading-tight font-bold'>
                 Help improve this data
-              </h4>
+              </h2>
             </div>
             <p className='text-kapwa-text-support text-xs leading-relaxed'>
               Find an error or outdated info? Our community helps keep this
