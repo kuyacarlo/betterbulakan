@@ -61,11 +61,17 @@ Supported LGU types: `municipality`, `city`, `province`. Labels adapt automatica
 
 ### 3. Logos
 
-Replace files in `public/logos/` with your own:
+Replace files in `public/logos/` with your own. `{slug}` is your slugified portal name (e.g. `betterbulakan`); `setup-lgu.cjs` writes these paths into `config/lgu.config.json` and `index.html`.
+
+Referenced by config and `index.html`:
 - `svg/{slug}-icon-white.svg` — Navbar/footer logo (white)
-- `svg/{slug}-icon-colored.svg` — Default logo
-- `png/{slug}-banner-colored.png` — Favicon
-- `png/{slug}-banner-inverted.png` — Apple touch icon
+- `svg/{slug}-icon-colored.svg` — Navbar logo
+- `svg/{slug}-favicon-colorinverted.svg` — Favicon (SVG)
+- `png/{slug}-favicon-colorinverted.png` — Favicon (PNG, 512px)
+- `png/{slug}-apple-touch-icon.png` — Apple touch icon (180px)
+- `png/{slug}-blue.png` — Default Open Graph image (1024px)
+
+Other variants kept for reuse (SVG + PNG): `{slug}-icon-primary`, `{slug}-icon-colorinverted`, `{slug}-logo-colored`, `{slug}-favicon-colored-bg`.
 
 ### 4. SEO Metadata
 
