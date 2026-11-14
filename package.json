@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && pnpm run merge:services && vite build",
+    "build": "tsc && pnpm run merge:services && pnpm run generate:seo && vite build",
     "lint": "eslint . --max-warnings 0",
     "format": "prettier --write .",
     "test": "vitest",
@@ -28,6 +28,8 @@
     "wrangler": "wrangler",
     "functions:dev": "pnpm dlx wrangler pages dev --proxy 5173",
     "generate:sitemap": "node ./scripts/generate-sitemap.js",
+    "generate:llms": "node ./scripts/generate-llms-txt.js",
+    "generate:seo": "pnpm run generate:sitemap && pnpm run generate:llms",
     "db:migrate": "./scripts/migrate.sh local",
     "db:migrate:remote": "./scripts/migrate.sh remote",
     "db:migrate:status": "./scripts/migrate.sh status",
