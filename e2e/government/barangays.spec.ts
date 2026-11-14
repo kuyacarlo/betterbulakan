@@ -122,8 +122,8 @@ test.describe('Barangays Pages', () => {
     // Wait for navigation
     await page.waitForURL(/\/government\/barangays\/.+/);
 
-    // Check for skip link (should be off-screen until focused)
-    const skipLink = page.locator('a[href="#main-content"]');
+    // Check the app shell skip link (should be off-screen until focused)
+    const skipLink = page.locator('a[href="#main-content"]').first();
     await expect(skipLink).not.toBeInViewport();
   });
 
