@@ -1,8 +1,4 @@
-import { useState } from 'react';
-
-import { Button } from '@bettergov/kapwa/button';
 import {
-  ChevronDown,
   Feather,
   Gavel,
   Leaf,
@@ -31,16 +27,6 @@ const ICON_MAP: Record<string, LucideIcon> = {
 };
 
 export default function TimelineSection() {
-  const [showAll, setShowAll] = useState(false);
-  const COLLAPSE_LIMIT = 5;
-
-  const visibleHistory = showAll
-    ? historyData
-    : historyData.slice(0, COLLAPSE_LIMIT);
-  const visibleHighlights = showAll
-    ? highlightsData
-    : highlightsData.slice(0, COLLAPSE_LIMIT);
-
   return (
     <section className='border-kapwa-border-weak border-t py-12 bg-kapwa-bg-surface-raised'>
       <div className='container px-4 mx-auto'>
@@ -56,7 +42,7 @@ export default function TimelineSection() {
           <div className='relative'>
             <div className='border-l-2 border-kapwa-border-brand absolute top-2 bottom-0 left-4 w-0.5' />
             <div className='space-y-6'>
-              {visibleHistory.map((event, idx) => (
+              {historyData.map((event, idx) => (
                 <div
                   key={idx}
                   className='relative pl-12 duration-300 group animate-in fade-in slide-in-from-left-4'
@@ -89,7 +75,7 @@ export default function TimelineSection() {
 
           {/* --- RIGHT: Highlights --- */}
           <div className='hidden space-y-3 lg:block'>
-            {visibleHighlights.map((item, idx) => {
+            {highlightsData.map((item, idx) => {
               const Icon = ICON_MAP[item.icon] || Waves;
               return (
                 <div
@@ -120,25 +106,6 @@ export default function TimelineSection() {
             })}
           </div>
         </div>
-
-        {/* Show More / Show Less */}
-        {(historyData.length > COLLAPSE_LIMIT ||
-          highlightsData.length > COLLAPSE_LIMIT) && (
-          <div className='flex justify-center mt-8'>
-            <Button
-              variant='primary'
-              onClick={() => setShowAll(!showAll)}
-              className='bg-kapwa-bg-surface text-kapwa-text-brand hover:bg-kapwa-bg-surface-brand'
-              rightIcon={
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`}
-                />
-              }
-            >
-              {showAll ? 'Show Less' : 'Show More'}
-            </Button>
-          </div>
-        )}
       </div>
     </section>
   );
