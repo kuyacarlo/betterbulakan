@@ -1,7 +1,7 @@
 # BetterBulakan — LGU outreach brief
 
 **Audience:** Municipal ITO / MPDO / Mayor’s Office / PIO  
-**Contact (portal):** GitHub [@kuyacarlo](https://github.com/kuyacarlo) · repo https://github.com/kuyacarlo/betterbulakan
+**Contact (portal):** GitHub [@kuyacarlo](https://github.com/kuyacarlo) · repo https://github.com/betterbulakan/betterbulakan
 
 ## What this is
 
