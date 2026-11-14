@@ -144,7 +144,7 @@ jobs:
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps chromium
 
-      # Axe scans of key pages against a production build (vite preview when CI is set)
+      # Axe scans of every public route (scripts/lib/site-routes.js) against a production build
       - name: Run accessibility tests
         run: pnpm exec playwright test --project=chromium --grep @a11y
         env:
