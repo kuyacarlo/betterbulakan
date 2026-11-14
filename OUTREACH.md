@@ -37,5 +37,4 @@ It does **not** replace eLGU. eLGU remains the place for permits, clearances, an
 
 ## Status
 
-Work in progress. Preview: https://betterbulakan.vercel.app  
-Custom domain (betterbulakan.org) comes later.
+Work in progress. Live at https://betterbulakan.org

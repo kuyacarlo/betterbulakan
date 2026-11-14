@@ -19,7 +19,6 @@ const ALLOWED_ORIGINS = [
   'https://betterbulakan.org',
   'https://www.betterbulakan.org',
   'https://betterbulakan.pages.dev',
-  'https://betterbulakan.vercel.app',
   'http://localhost:5173', // Vite dev server
   'http://localhost:8788', // Wrangler dev server
 ];
