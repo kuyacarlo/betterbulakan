@@ -140,18 +140,18 @@ jobs:
         run: python3 scripts/merge_services.py
 
       - name: Install Playwright Browsers
-        run: pnpm exec playwright install --with-deps
+        run: pnpm exec playwright install --with-deps chromium
 
       - name: Run accessibility tests
-        run: pnpm exec playwright test e2e/accessibility --grep @a11y
+        run: pnpm exec playwright test --project=chromium --grep @a11y
+      # Axe scans of key pages against a production build (vite preview when CI is set)
         env:
           CI: true
-        continue-on-error: true
 
       - name: Upload accessibility report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
           name: accessibility-report
-          path: playwright-report/
+          path: blob-report/
           retention-days: 7
