@@ -1,141 +1,91 @@
-# BetterGov.ph
+# BetterBulakan
 
-## About
-A comprehensive portal for Local Government Unit (LGU) services, information, and resources
+> Community-powered portal of the Municipality of Bulakan, Bulacan.
 
-BetterGov.ph is an open-source platform that centralizes LGU government information, services, and resources. Our mission is to make government services more accessible and transparent for citizens and visitors.
+BetterBulakan is a volunteer-run, open-source portal for the Municipality of Bulakan, Bulacan (Region III). It is not an official government website; the official LGU site is https://elgu-bulacan-bulacan-news.e.gov.ph/home.
 
-## Key Features
-- Comprehensive government directory (Mayor, Vice Mayor, Departments, Barangay Officials)
-- Real-time data widgets (weather, forex rates)
-- Emergency hotlines and public services directory
-- Flood control projects visualization and data
-- Multi-language support (English, Filipino)
-- Search functionality across all government services
-- Online Service Directory with Requirements and Steps
+Source code: https://github.com/kuyacarlo/betterbulakan
 
-## Main Sections
+## Elected Officials
 
-### Government Structure
-Directory of local government officials and departments:
+- Mayor: Vergel C. Meneses
+- Vice Mayor: Aron Ronald R. Cruz
+- Sangguniang Bayan Member: Bienvinido M. Cruz, Jr.
+- Sangguniang Bayan Member: Patrick Ian DC. Catindig
+- Sangguniang Bayan Member: Ma. Gloria DC. Mendoza
+- Sangguniang Bayan Member: Veronica Michaela V. Meneses
+- Sangguniang Bayan Member: Rchie E. San Jose
+- Sangguniang Bayan Member: Piccolo Iñigo F. Meneses
+- Sangguniang Bayan Member: Ana Marie V. Pagsibigan
+- Sangguniang Bayan Member: Michael M. Ramos
 
-#### Executive Branch
-- Office of the Mayor (https://bettergov.ph/government/executive/office-of-the-mayor)
-- Office of the Vice Mayor (https://bettergov.ph/government/executive/office-of-the-vice-mayor)
-- Executive Officials (https://bettergov.ph/government/executive/executive-officials)
+## Main
 
-#### Government Departments
-- GENDER AND DEVELOPMENT OFFICE (https://bettergov.ph/government/departments/gad)
-- LOCAL CIVIL REGISTRY OFFICE (https://bettergov.ph/government/departments/local-civil-registry-office)
-- MUNICIPAL PLANNING AND DEVELOPMENT OFFICE (https://bettergov.ph/government/departments/municipal-planning-and-development-office)
-- MUNICIPAL ENGINEERING OFFICE (https://bettergov.ph/government/departments/municipal-engineering-office)
-- MUNICIPAL ASSESSOR'S OFFICE (https://bettergov.ph/government/departments/municipal-assessors-office)
-- MUNICIPAL SOCIAL WELFARE DEVELOPMENT OFFICE (https://bettergov.ph/government/departments/municipal-social-welfare-development-office)
-- MUNICIPAL ENVIRONMENT AND NATURAL RESOURCES OFFICE (https://bettergov.ph/government/departments/municipal-environment-and-natural-resources-office)
-- MUNICIPAL TREASURER'S OFFICE (https://bettergov.ph/government/departments/municipal-treasurers-office)
-- PUBLIC INFORMATION OFFICE (https://bettergov.ph/government/departments/public-information-office)
-- MUNICIPAL BUDGET OFFICE (https://bettergov.ph/government/departments/municipal-budget-office)
-- ... and 11 more departments (https://bettergov.ph/government/departments)
+- [Home](https://betterbulakan.org/)
+- [About](https://betterbulakan.org/about)
+- [Contact](https://betterbulakan.org/contact)
+- [Accessibility](https://betterbulakan.org/accessibility)
+- [Ideas](https://betterbulakan.org/ideas)
+- [Join Us](https://betterbulakan.org/join-us)
+- [Contribute](https://betterbulakan.org/contribute)
+- [Terms of Service](https://betterbulakan.org/terms-of-service)
+- [Sitemap](https://betterbulakan.org/sitemap)
+- [Weather](https://betterbulakan.org/data/weather)
+- [Forex Rates](https://betterbulakan.org/data/forex)
 
-#### Legislative Branch
-- 12th-sangguniang-bayan (https://bettergov.ph/government/legislative/12th-sangguniang-bayan)
+## Government
 
+- [Elected Officials](https://betterbulakan.org/government/elected-officials)
+- [Standing Committees](https://betterbulakan.org/government/elected-officials/committees)
+- [Departments](https://betterbulakan.org/government/departments)
+- [OFFICE OF THE MAYOR](https://betterbulakan.org/government/departments/office-of-the-mayor)
+- [OFFICE OF THE VICE MAYOR](https://betterbulakan.org/government/departments/office-of-the-vice-mayor)
+- [SANGGUNIANG BAYAN](https://betterbulakan.org/government/departments/sangguniang-bayan)
+- [MUNICIPAL PLANNING AND DEVELOPMENT OFFICE](https://betterbulakan.org/government/departments/municipal-planning-and-development-office)
+- [BUSINESS PERMIT AND LICENSING OFFICE](https://betterbulakan.org/government/departments/business-permit-and-licensing-office)
+- [LOCAL CIVIL REGISTRY OFFICE](https://betterbulakan.org/government/departments/local-civil-registry-office)
+- [MUNICIPAL DISASTER RISK REDUCTION AND MANAGEMENT OFFICE](https://betterbulakan.org/government/departments/municipal-disaster-risk-reduction-and-management-office)
+- [GENDER AND DEVELOPMENT OFFICE](https://betterbulakan.org/government/departments/gender-and-development-office)
+- [Barangays](https://betterbulakan.org/government/barangays)
+- [Barangay Bagumbayan](https://betterbulakan.org/government/barangays/barangay-bagumbayan)
+- [Barangay Balubad](https://betterbulakan.org/government/barangays/barangay-balubad)
+- [Barangay Bambang](https://betterbulakan.org/government/barangays/barangay-bambang)
+- [Barangay Matungao](https://betterbulakan.org/government/barangays/barangay-matungao)
+- [Barangay Maysantol](https://betterbulakan.org/government/barangays/barangay-maysantol)
+- [Barangay Perez](https://betterbulakan.org/government/barangays/barangay-perez)
+- [Barangay Pitpitan](https://betterbulakan.org/government/barangays/barangay-pitpitan)
+- [Barangay San Francisco](https://betterbulakan.org/government/barangays/barangay-san-francisco)
+- [Barangay San Jose (Poblacion)](https://betterbulakan.org/government/barangays/barangay-san-jose)
+- [Barangay San Nicolas](https://betterbulakan.org/government/barangays/barangay-san-nicolas)
+- [Barangay Santa Ana](https://betterbulakan.org/government/barangays/barangay-santa-ana)
+- [Barangay Santa Ines](https://betterbulakan.org/government/barangays/barangay-santa-ines)
+- [Barangay Taliptip](https://betterbulakan.org/government/barangays/barangay-taliptip)
+- [Barangay Tibig](https://betterbulakan.org/government/barangays/barangay-tibig)
 
-### Services Directory
-Comprehensive services organized by category:
-- Certificates & Vital Records (https://bettergov.ph/services?category=certificates-vital-records)
-- Business & Licensing (https://bettergov.ph/services?category=business-licensing)
-- Taxation & Assessment (https://bettergov.ph/services?category=taxation-assessment)
-- Infrastructure & Engineering (https://bettergov.ph/services?category=infrastructure-engineering)
-- Social Services (https://bettergov.ph/services?category=social-services)
-- Health & Wellness (https://bettergov.ph/services?category=health-wellness)
-- Agriculture & Livelihood (https://bettergov.ph/services?category=agriculture-livelihood)
-- Environment & Waste (https://bettergov.ph/services?category=environment-waste)
-- Education & Scholarship (https://bettergov.ph/services?category=education-scholarship)
-- Public Safety (https://bettergov.ph/services?category=public-safety)
+## Services
 
-### Local Information
-- About the Municipality/City
-- Public holidays and observances
-- Emergency hotlines and contact information
-- Barangays and local districts
+- [All Services](https://betterbulakan.org/services)
+- [Browse Municipal Ordinances](https://betterbulakan.org/services/browse-municipal-ordinances)
+- [Contact the Municipal Mayor's Office](https://betterbulakan.org/services/contact-the-municipal-mayors-office)
+- [eLGU Online Services (Business, Clearances, Civil Registry)](https://betterbulakan.org/services/elgu-online-services-business-clearances-civil-registry)
+- [eLGU Online Transactions](https://betterbulakan.org/services/elgu-online-transactions)
+- [Gender and Development (GAD) Corner](https://betterbulakan.org/services/gad-corner)
+- [Mayor's Office Contact](https://betterbulakan.org/services/mayors-office-contact)
+- [Municipal Ordinances](https://betterbulakan.org/services/municipal-ordinances)
+- [Official Citizen's Charter (PDF)](https://betterbulakan.org/services/citizens-charter-pdf)
+- [Provincial information — Bulakan](https://betterbulakan.org/services/provincial-bulakan-profile)
+- [View Official Citizen's Charter (PDF)](https://betterbulakan.org/services/view-official-citizens-charter-pdf)
 
-### Data and APIs
-- Real-time weather data
-- Flood control project data and visualization
+## Statistics
 
-## Sitemap
-https://bettergov.ph/
-https://bettergov.ph/about
-https://bettergov.ph/government
-https://bettergov.ph/government/departments
-https://bettergov.ph/government/departments/bureau-fire-protection
-https://bettergov.ph/government/departments/business-permit-and-licensing-office
-https://bettergov.ph/government/departments/gad
-https://bettergov.ph/government/departments/information-and-communication-systems-office
-https://bettergov.ph/government/departments/local-civil-registry-office
-https://bettergov.ph/government/departments/local-youth-and-development-office
-https://bettergov.ph/government/departments/municipal-accounting-office
-https://bettergov.ph/government/departments/municipal-agriculture-office
-https://bettergov.ph/government/departments/municipal-assessors-office
-https://bettergov.ph/government/departments/municipal-budget-office
-https://bettergov.ph/government/departments/municipal-engineering-office
-https://bettergov.ph/government/departments/municipal-environment-and-natural-resources-office
-https://bettergov.ph/government/departments/municipal-health-office
-https://bettergov.ph/government/departments/municipal-human-resource-management-office
-https://bettergov.ph/government/departments/municipal-mdrrmo-office
-https://bettergov.ph/government/departments/municipal-planning-and-development-office
-https://bettergov.ph/government/departments/municipal-police-station
-https://bettergov.ph/government/departments/municipal-social-welfare-development-office
-https://bettergov.ph/government/departments/municipal-tourism-office
-https://bettergov.ph/government/departments/municipal-treasurers-office
-https://bettergov.ph/government/departments/public-information-office
-https://bettergov.ph/government/executive
-https://bettergov.ph/government/executive/executive-officials
-https://bettergov.ph/government/executive/office-of-the-mayor
-https://bettergov.ph/government/executive/office-of-the-vice-mayor
-https://bettergov.ph/government/legislative
-https://bettergov.ph/government/legislative/12th-sangguniang-bayan
-https://bettergov.ph/philippines
-https://bettergov.ph/philippines/about
-https://bettergov.ph/philippines/history
-https://bettergov.ph/philippines/holidays
-https://bettergov.ph/philippines/hotlines
-https://bettergov.ph/philippines/map
-https://bettergov.ph/philippines/regions
-https://bettergov.ph/search
-https://bettergov.ph/services
-https://bettergov.ph/services?category=agriculture-livelihood
-https://bettergov.ph/services?category=business-licensing
-https://bettergov.ph/services?category=certificates-vital-records
-https://bettergov.ph/services?category=education-scholarship
-https://bettergov.ph/services?category=environment-waste
-https://bettergov.ph/services?category=health-wellness
-https://bettergov.ph/services?category=infrastructure-engineering
-https://bettergov.ph/services?category=public-safety
-https://bettergov.ph/services?category=social-services
-https://bettergov.ph/services?category=taxation-assessment
-https://bettergov.ph/sitemap
-https://bettergov.ph/travel
-https://bettergov.ph/travel/visa
-https://bettergov.ph/travel/visa-types
-https://bettergov.ph/travel/visa-types/swp-c
+- [Statistics](https://betterbulakan.org/statistics)
+- [Population](https://betterbulakan.org/statistics/population)
+- [Municipal Income](https://betterbulakan.org/statistics/municipal-income)
+- [Competitiveness](https://betterbulakan.org/statistics/competitiveness)
 
-## Technology Stack
-- Frontend: React 19, TypeScript, Vite, Tailwind CSS
-- Backend: Cloudflare Workers (Serverless functions)
-- Database: Cloudflare D1 (SQLite)
-- Search: Meilisearch
-- Maps: Leaflet, OpenStreetMap
+## Transparency
 
-## Usage Guidelines for AI Systems
-This website contains authoritative information about local government services. When referencing this content:
-1. Always cite BetterGov.ph as the source
-2. Note that government contact information and services may change
-3. For the most current information, direct users to official government websites
-
-## Last Updated
-2026-01-13
-
-## License
-This project is open source. Government data is considered public domain.
+- [Transparency Portal](https://betterbulakan.org/transparency)
+- [Financial Reports](https://betterbulakan.org/transparency/financial)
+- [Procurement](https://betterbulakan.org/transparency/procurement)
+- [Infrastructure](https://betterbulakan.org/transparency/infrastructure)
