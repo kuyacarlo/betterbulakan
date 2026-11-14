@@ -83,7 +83,6 @@ export default function ServicesLayout() {
             variant='compact'
             title='Service Directory'
             description='Browse requirements and procedures.'
-            autoBreadcrumbs={true}
           />
         )
       }

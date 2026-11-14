@@ -3,7 +3,6 @@ import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
 import { SiFacebook } from '@icons-pack/react-simple-icons';
-import { Button } from '@bettergov/kapwa/button';
 import {
   ArrowRight,
   BookOpenIcon,
@@ -62,6 +61,10 @@ interface CouncilMember {
 
 // Profiles live under OpenLGU; drop the link when that feature is off so cards don't 404
 const profilesEnabled = isPathEnabled('/openlgu');
+
+// Outline-button look for links (avoids a <button> nested in <a> and Kapwa Button's raw gray classes)
+const outlineLinkClass =
+  'border-kapwa-border-weak text-kapwa-text-support hover:bg-kapwa-bg-surface-raised focus:ring-kapwa-border-focus inline-flex h-8 items-center justify-center gap-2 rounded-md border px-3 py-1.5 text-[10px] font-bold tracking-widest uppercase shadow-xs transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-hidden';
 
 function ElectedLeaderCard({ leader }: { leader: ExecutiveOfficial }) {
   const isMayor =
@@ -166,9 +169,9 @@ function CouncilMemberCard({
             <p className='text-kapwa-text-brand mb-0.5 text-[10px] font-bold tracking-widest uppercase'>
               {member.role}
             </p>
-            <h4 className='text-kapwa-text-strong text-base font-bold leading-tight'>
+            <h3 className='text-kapwa-text-strong text-base font-bold leading-tight'>
               {toTitleCase(member.name)}
-            </h4>
+            </h3>
             {profileId && (
               <p className='text-kapwa-text-brand mt-1 text-[10px] font-medium tracking-wide uppercase'>
                 View Profile
@@ -374,15 +377,12 @@ export default function ElectedOfficialsPage() {
                 </p>
               </div>
             </div>
-            <Link to='/government/elected-officials/committees'>
-              <Button
-                variant='outline'
-                size='sm'
-                className='text-[10px] font-bold tracking-widest uppercase'
-                rightIcon={<ArrowRight className='h-3 w-3' />}
-              >
-                View Committees
-              </Button>
+            <Link
+              to='/government/elected-officials/committees'
+              className={outlineLinkClass}
+            >
+              View Committees
+              <ArrowRight aria-hidden='true' className='h-3 w-3' />
             </Link>
           </div>
         </DetailSection>
@@ -402,15 +402,9 @@ export default function ElectedOfficialsPage() {
             </p>
           </div>
         </div>
-        <Link to='/government/departments'>
-          <Button
-            variant='outline'
-            size='sm'
-            className='text-[10px] font-bold tracking-widest uppercase'
-            rightIcon={<ArrowRight className='h-3 w-3' />}
-          >
-            Go to Departments
-          </Button>
+        <Link to='/government/departments' className={outlineLinkClass}>
+          Go to Departments
+          <ArrowRight aria-hidden='true' className='h-3 w-3' />
         </Link>
       </div>
     </div>

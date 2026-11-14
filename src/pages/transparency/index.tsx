@@ -73,12 +73,7 @@ export default function TransparencyIndex() {
       {/* 2. The Three Pillars of Oversight - Using CardGrid */}
       <CardGrid columns={3}>
         {sections.map(section => (
-          <Link
-            key={section.href}
-            to={section.href}
-            className='group'
-            role='listitem'
-          >
+          <Link key={section.href} to={section.href} className='group'>
             <Card
               hover
               className='border-kapwa-border-weak flex h-full flex-col'

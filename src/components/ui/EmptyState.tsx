@@ -36,9 +36,9 @@ export function EmptyState({
       </div>
 
       {/* Text Content */}
-      <h3 className='text-kapwa-text-strong kapwa-heading-lg leading-tight'>
+      <h2 className='text-kapwa-text-strong kapwa-heading-lg leading-tight'>
         {title}
-      </h3>
+      </h2>
       <p className='text-kapwa-text-support mx-auto mt-kapwa-xs max-w-sm kapwa-body-sm-default leading-relaxed'>
         {message}
       </p>

@@ -59,12 +59,12 @@ export default function BarangaysIndex() {
                       <MapPinIcon className='h-5 w-5' />
                     </div>
                     <div className='min-w-0 flex-1'>
-                      <h3 className='group-hover:text-kapwa-text-brand text-kapwa-text-strong text-base leading-tight font-bold transition-colors'>
+                      <h2 className='group-hover:text-kapwa-text-brand text-kapwa-text-strong text-base leading-tight font-bold transition-colors'>
                         {toTitleCase(
                           brgy.barangay_name.replace('BARANGAY ', '')
                         )}
-                      </h3>
-                      <p className='text-kapwa-text-disabled mt-0.5 text-[10px] font-bold tracking-widest uppercase'>
+                      </h2>
+                      <p className='text-kapwa-text-support mt-0.5 text-[10px] font-bold tracking-widest uppercase'>
                         Official Barangay Profile
                       </p>
                     </div>

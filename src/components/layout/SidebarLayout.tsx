@@ -105,6 +105,7 @@ export function SidebarLayout({
 
           {/* Sidebar */}
           <aside
+            aria-label='Section menu'
             className={cn(
               'shrink-0',
               mobileMenuOpen ? 'block' : 'hidden',
@@ -132,14 +133,14 @@ export function SidebarLayout({
           </aside>
 
           {/* Main Content */}
-          <main className='min-w-0 flex-1 transition-all duration-500 ease-in-out'>
+          <div className='min-w-0 flex-1 transition-all duration-500 ease-in-out'>
             <div
               id='layout-content'
               className='border-kapwa-border-weak bg-kapwa-bg-surface min-h-[50vh] rounded-2xl border p-4 shadow-sm md:p-8'
             >
               {children}
             </div>
-          </main>
+          </div>
         </div>
       </div>
     </div>

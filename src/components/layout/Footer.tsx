@@ -79,9 +79,9 @@ export const Footer: FC = () => {
           {/* Navigation Columns */}
           {footerNavigation.mainSections.map(section => (
             <div key={section.title} className='col-span-1'>
-              <h3 className='mb-6 text-[10px] font-bold tracking-[0.2em] text-kapwa-text-disabled uppercase'>
+              <h2 className='mb-6 text-[10px] font-bold tracking-[0.2em] text-kapwa-text-disabled uppercase'>
                 {section.title}
-              </h3>
+              </h2>
               <ul className='space-y-4'>
                 {section.links.map(link => (
                   <li key={link.label}>

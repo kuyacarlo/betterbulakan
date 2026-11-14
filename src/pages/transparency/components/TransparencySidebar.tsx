@@ -26,14 +26,16 @@ const sections = [
 export default function TransparencySidebar() {
   return (
     <SidebarContainer title='Transparency'>
-      {sections.map(section => (
-        <SidebarItem
-          key={section.slug}
-          label={section.name}
-          icon={section.icon}
-          path={`${section.slug}`}
-        />
-      ))}
+      <ul className='space-y-1'>
+        {sections.map(section => (
+          <SidebarItem
+            key={section.slug}
+            label={section.name}
+            icon={section.icon}
+            path={`${section.slug}`}
+          />
+        ))}
+      </ul>
     </SidebarContainer>
   );
 }

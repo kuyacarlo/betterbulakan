@@ -1,3 +1,5 @@
+import { Fragment } from 'react';
+
 import { Link, useParams } from 'react-router-dom';
 
 import { format, isValid } from 'date-fns';
@@ -154,7 +156,7 @@ export default function ServiceDetail() {
           {breadcrumbs.map((crumb, index) => {
             const isLast = index === breadcrumbs.length - 1;
             return (
-              <div key={crumb.href} className='flex items-center gap-2'>
+              <Fragment key={crumb.href}>
                 {index === 0 ? (
                   <BreadcrumbItem>
                     <BreadcrumbHome href={crumb.href} />
@@ -175,7 +177,7 @@ export default function ServiceDetail() {
                     </BreadcrumbItem>
                   </>
                 )}
-              </div>
+              </Fragment>
             );
           })}
         </BreadcrumbList>
@@ -419,7 +421,10 @@ export default function ServiceDetail() {
         </div>
 
         {/* --- SIDEBAR --- */}
-        <aside className='w-full space-y-6 xl:w-80'>
+        <aside
+          aria-label='Service summary'
+          className='w-full space-y-6 xl:w-80'
+        >
           {/* Data Integrity Card */}
           <div
             className={`flex flex-col gap-3 rounded-2xl border p-5 transition-colors ${

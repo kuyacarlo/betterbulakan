@@ -61,12 +61,12 @@ export default function DepartmentsIndex() {
                       <Icon className='h-5 w-5' />
                     </div>
                     <div className='min-w-0 flex-1'>
-                      <h3 className='group-hover:text-kapwa-text-brand text-kapwa-text-strong truncate text-sm leading-tight font-bold transition-colors md:text-base'>
+                      <h2 className='group-hover:text-kapwa-text-brand text-kapwa-text-strong truncate text-sm leading-tight font-bold transition-colors md:text-base'>
                         {toTitleCase(
                           formatGovName(dept.office_name, 'department')
                         )}
-                      </h3>
-                      <p className='text-kapwa-text-disabled mt-0.5 truncate text-[10px] font-bold tracking-widest uppercase'>
+                      </h2>
+                      <p className='text-kapwa-text-support mt-0.5 truncate text-[10px] font-bold tracking-widest uppercase'>
                         {dept.office_name}
                       </p>
                     </div>

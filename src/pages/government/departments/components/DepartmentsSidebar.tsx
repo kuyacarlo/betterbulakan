@@ -30,25 +30,27 @@ export default function DepartmentsSidebar() {
 
   return (
     <SidebarContainer title='Municipal Departments'>
-      {sortedDepartments.map(dept => {
-        // 2. Get the specific icon or fallback to a default building icon
-        const IconComponent = officeIcons[dept.slug] || Building2Icon;
+      <ul className='space-y-1'>
+        {sortedDepartments.map(dept => {
+          // 2. Get the specific icon or fallback to a default building icon
+          const IconComponent = officeIcons[dept.slug] || Building2Icon;
 
-        return (
-          <SidebarItem
-            key={dept.slug}
-            label={formatGovName(dept.office_name, 'department')}
-            tooltip={dept.office_name}
-            icon={IconComponent} // Use the specific icon
-            isActive={activeSlug === dept.slug}
-            onClick={() =>
-              navigate(`/government/departments/${dept.slug}`, {
-                state: { scrollToContent: true },
-              })
-            }
-          />
-        );
-      })}
+          return (
+            <SidebarItem
+              key={dept.slug}
+              label={formatGovName(dept.office_name, 'department')}
+              tooltip={dept.office_name}
+              icon={IconComponent} // Use the specific icon
+              isActive={activeSlug === dept.slug}
+              onClick={() =>
+                navigate(`/government/departments/${dept.slug}`, {
+                  state: { scrollToContent: true },
+                })
+              }
+            />
+          );
+        })}
+      </ul>
     </SidebarContainer>
   );
 }

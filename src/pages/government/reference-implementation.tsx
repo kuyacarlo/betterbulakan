@@ -20,7 +20,7 @@ export default function ReferenceImplementation() {
         className='bg-kapwa-bg-surface-bold border-kapwa-border-weak'
       />
 
-      <main className='container mx-auto px-kapwa-md py-kapwa-lg'>
+      <div className='container mx-auto px-kapwa-md py-kapwa-lg'>
         <div className='grid gap-kapwa-md md:grid-cols-2 lg:grid-cols-3'>
           {/* Card Example 1: Basic Card */}
           <Card className='bg-kapwa-bg-surface border-kapwa-border-weak'>
@@ -204,7 +204,7 @@ export default function ReferenceImplementation() {
             </CardContent>
           </Card>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

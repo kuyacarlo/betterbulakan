@@ -101,12 +101,15 @@ const Ticker: FC = () => {
 
   if (isLoading && weatherLoading) {
     return (
-      <div className='py-1 bg-kapwa-bg-surface-bold px-kapwa-md text-kapwa-text-inverse'>
+      <section
+        aria-label='Exchange rates and weather'
+        className='py-1 bg-kapwa-bg-surface-bold px-kapwa-md text-kapwa-text-inverse'
+      >
         <div className='container flex justify-center items-center mx-auto'>
           <LoaderIcon className='mr-2 w-4 h-4 animate-spin' />
           <span className='kapwa-body-xs-default'>Loading data...</span>
         </div>
-      </div>
+      </section>
     );
   }
 
@@ -121,8 +124,12 @@ const Ticker: FC = () => {
 
   if (!currentRate) return null;
 
+  // Named region so the ticker sits inside a landmark
   return (
-    <div className='bg-kapwa-blue-950 py-1.5'>
+    <section
+      aria-label='Exchange rates and weather'
+      className='bg-kapwa-blue-950 py-1.5'
+    >
       <div className='container flex justify-end px-4 mx-auto'>
         <div className='flex justify-end items-center'>
           {/* Forex ticker */}
@@ -183,7 +190,7 @@ const Ticker: FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

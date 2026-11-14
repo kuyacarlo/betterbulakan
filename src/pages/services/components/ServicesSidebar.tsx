@@ -23,39 +23,41 @@ export default function ServicesSidebar({
   return (
     <div className='space-y-6'>
       <SidebarContainer title='Categories'>
-        {/* Special "All Services" item */}
-        <SidebarItem
-          label='All Services'
-          icon={FileText}
-          isActive={selectedCategorySlug === 'all'}
-          onClick={() => {
-            scrollToTop();
-            handleCategoryChange('all');
-          }}
-        />
-
-        {/* Dynamic Categories */}
-        {serviceCategories.categories.map(category => (
+        <ul className='space-y-1'>
+          {/* Special "All Services" item */}
           <SidebarItem
-            key={category.slug}
-            label={category.name}
-            icon={getCategoryIconBySlug(category.slug)}
-            isActive={selectedCategorySlug === category.slug}
+            label='All Services'
+            icon={FileText}
+            isActive={selectedCategorySlug === 'all'}
             onClick={() => {
               scrollToTop();
-              handleCategoryChange(category.slug);
+              handleCategoryChange('all');
             }}
           />
-        ))}
+
+          {/* Dynamic Categories */}
+          {serviceCategories.categories.map(category => (
+            <SidebarItem
+              key={category.slug}
+              label={category.name}
+              icon={getCategoryIconBySlug(category.slug)}
+              isActive={selectedCategorySlug === category.slug}
+              onClick={() => {
+                scrollToTop();
+                handleCategoryChange(category.slug);
+              }}
+            />
+          ))}
+        </ul>
       </SidebarContainer>
       <div className='p-5 mt-8 space-y-4 rounded-2xl border-2 shadow-sm border-kapwa-orange-100 bg-kapwa-bg-accent-orange-weak/30'>
         <div className='flex gap-3 items-center'>
           <div className='p-2 rounded-lg bg-kapwa-bg-accent-orange-weak text-kapwa-text-accent-orange'>
             <PlusCircle className='w-5 h-5' />
           </div>
-          <h4 className='text-sm font-bold leading-tight text-kapwa-text-strong'>
+          <h3 className='text-sm font-bold leading-tight text-kapwa-text-strong'>
             Missing a service?
-          </h4>
+          </h3>
         </div>
 
         <p className='text-xs leading-relaxed text-kapwa-text-on-disabled'>
