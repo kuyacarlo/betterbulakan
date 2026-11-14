@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 
 import { Coins, Landmark, Wallet } from 'lucide-react';
 
+import { EmptyState } from '@/components/ui/EmptyState';
 import { StatGrid } from '@/components/ui/StatCard';
 import { Badge } from '@/components/ui/Badge';
 import { DetailSection } from '@/components/layout/PageLayouts';
@@ -13,6 +14,8 @@ import { formatPesoAdaptive } from '@/lib/format';
 
 import ariData from '@/data/statistics/ari.json';
 
+import type { AriRecord } from '@/types/statisticsTypes';
+
 const COLORS = {
   national: '#0066eb',
   local: '#cc3e00',
@@ -20,9 +23,39 @@ const COLORS = {
   other: '#64748b',
 };
 
-export default function MunicipalIncomePage() {
-  const data = ariData[0];
+const BLGF_SOURCE_URL = 'https://data.bettergov.ph/datasets/9/resources/31';
 
+const PAGE_TITLE = 'Municipal Income';
+const PAGE_DESCRIPTION =
+  'Detailed analysis of revenue sources, fiscal autonomy, and national tax dependency.';
+
+// ari.json ships as [] until verified BLGF figures exist, so guard before reading nested fields
+export default function MunicipalIncomePage() {
+  const data = (ariData as AriRecord[])[0];
+
+  if (!data?.summary_indicators) {
+    return (
+      <>
+        <PageHero title={PAGE_TITLE} description={PAGE_DESCRIPTION}>
+          <div className='flex flex-wrap justify-center gap-2'>
+            <Badge variant='slate'>BLGF Data</Badge>
+          </div>
+        </PageHero>
+        <EmptyState
+          icon={Coins}
+          title='Income data not yet available'
+          message='Verified BLGF income figures for this municipality have not been published here yet. Check back soon.'
+          actionHref={BLGF_SOURCE_URL}
+          actionLabel='View BLGF dataset'
+        />
+      </>
+    );
+  }
+
+  return <IncomeReport data={data} />;
+}
+
+function IncomeReport({ data }: { data: AriRecord }) {
   const drillDownIncomeData = useMemo(
     () => [
       {
@@ -65,10 +98,7 @@ export default function MunicipalIncomePage() {
   return (
     <>
       {/* PageHero - documented pattern for layout headers */}
-      <PageHero
-        title='Municipal Income'
-        description='Detailed analysis of revenue sources, fiscal autonomy, and national tax dependency.'
-      >
+      <PageHero title={PAGE_TITLE} description={PAGE_DESCRIPTION}>
         <div className='flex flex-wrap justify-center gap-2'>
           <Badge variant='primary' dot>
             {data.period}
@@ -241,7 +271,7 @@ export default function MunicipalIncomePage() {
           <p className='text-kapwa-text-disabled text-[10px] font-bold tracking-widest uppercase'>
             Source:{' '}
             <a
-              href='https://data.bettergov.ph/datasets/9/resources/31'
+              href={BLGF_SOURCE_URL}
               target='_blank'
               rel='noreferrer'
               className='hover:text-kapwa-text-brand underline'
