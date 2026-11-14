@@ -40,10 +40,11 @@ jobs:
         run: python3 scripts/merge_services.py
 
       - name: Install Playwright Browsers
-        run: pnpm exec playwright install --with-deps
+        run: pnpm exec playwright install --with-deps chromium
 
+      # Chromium only; visual and a11y tags run in their own jobs below
       - name: Run E2E tests
-        run: pnpm run test:e2e
+        run: pnpm run test:e2e --project=chromium --grep-invert "@visual|@a11y"
         env:
           CI: true
 
