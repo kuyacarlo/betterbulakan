@@ -69,13 +69,17 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     if: github.event_name == 'pull_request'
+    # Same image the committed chromium-linux baselines were generated in, so rendering matches.
+    # Regenerate with the same image: podman run ... playwright test --project=chromium --grep @visual --update-snapshots
+    container:
+      image: mcr.microsoft.com/playwright:v1.58.2-noble@sha256:6446946a1d9fd62d9ae501312a2d76a43ee688542b21622056a372959b65d63d
+      options: --ipc=host
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          fetch-depth: 0 # Fetch all history for visual regression comparison
 
       - name: Setup pnpm
         uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4.3.0
@@ -94,14 +98,12 @@ jobs:
       - name: Merge service data
         run: python3 scripts/merge_services.py
 
-      - name: Install Playwright Browsers
-        run: pnpm exec playwright install --with-deps
-
+      # Browsers ship with the container image; no playwright install needed
       - name: Run visual regression tests
-        run: pnpm exec playwright test --grep @visual
+        run: pnpm exec playwright test --project=chromium --grep @visual
         env:
           CI: true
-        continue-on-error: true
+          HOME: /root
 
       - name: Upload visual regression results
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -142,9 +144,9 @@ jobs:
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps chromium
 
+      # Axe scans of key pages against a production build (vite preview when CI is set)
       - name: Run accessibility tests
         run: pnpm exec playwright test --project=chromium --grep @a11y
-      # Axe scans of key pages against a production build (vite preview when CI is set)
         env:
           CI: true
 

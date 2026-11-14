@@ -1,0 +1,10 @@
+/* Test-only: applied by toHaveScreenshot so sticky/fixed chrome cannot overlap or shift captures */
+.sticky,
+[role='navigation'],
+aside {
+  position: static !important;
+}
+
+a[href='#main-content'] {
+  visibility: hidden !important;
+}
