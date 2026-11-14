@@ -2,6 +2,8 @@ import { test, expect } from './test-config';
 
 test.describe('Sitemap Page', () => {
   test('every sitemap link resolves to a routed page', async ({ page }) => {
+    // Visits every public route in sequence, which can outrun the default 30s under parallel load
+    test.slow();
     await page.goto('/sitemap');
 
     const hrefs = await page
