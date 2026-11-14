@@ -13,7 +13,8 @@ export function SidebarContainer({
   title?: string;
 }) {
   return (
-    <aside className='w-full shrink-0 md:w-64'>
+    // SidebarLayout already provides the <aside> landmark
+    <div className='w-full shrink-0 md:w-64'>
       <div className='border-kapwa-border-weak bg-kapwa-bg-surface sticky top-32 overflow-hidden rounded-lg border shadow-sm'>
         {title && (
           <div className='border-kapwa-border-weak bg-kapwa-bg-surface-raised/50 border-b px-4 py-3'>
@@ -22,11 +23,14 @@ export function SidebarContainer({
             </h2>
           </div>
         )}
-        <nav className='scrollbar-thin max-h-[calc(100vh-200px)] overflow-y-auto p-2'>
+        <nav
+          aria-label={title}
+          className='scrollbar-thin max-h-[calc(100vh-200px)] overflow-y-auto p-2'
+        >
           {children}
         </nav>
       </div>
-    </aside>
+    </div>
   );
 }
 

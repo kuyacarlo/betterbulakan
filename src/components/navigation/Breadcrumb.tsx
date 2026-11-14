@@ -146,9 +146,11 @@ const BreadcrumbHome = forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>(
         'hover:text-kapwa-text-strong text-kapwa-text-disabled flex items-center gap-1.5 font-medium transition-colors',
         className
       )}
+      // Icon-only by default, so give the link an accessible name
+      aria-label={children ? undefined : 'Home'}
       {...props}
     >
-      <HomeIcon className='h-4 w-4' />
+      <HomeIcon aria-hidden='true' className='h-4 w-4' />
       {children}
     </Link>
   )

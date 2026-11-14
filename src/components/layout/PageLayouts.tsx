@@ -146,7 +146,12 @@ export function DetailSection({
         )}
       >
         {Icon && <Icon className='text-kapwa-text-brand h-4 w-4' />}
-        <div className='text-kapwa-text-disabled flex flex-1 items-center justify-between text-[10px] font-bold tracking-widest uppercase'>
+        {/* ARIA heading so section titles fit the page outline; title may hold block content */}
+        <div
+          role='heading'
+          aria-level={2}
+          className='text-kapwa-text-support flex flex-1 items-center justify-between text-[10px] font-bold tracking-widest uppercase'
+        >
           {title}
         </div>
       </div>

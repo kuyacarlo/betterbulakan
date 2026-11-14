@@ -64,7 +64,9 @@ test.describe('Barangays Pages', () => {
     await page.waitForURL(/\/government\/barangays\/.+/);
 
     // Check barangay header is visible
-    const header = page.locator('header[role="banner"]');
+    const header = page.locator(
+      'header[aria-label="Barangay information header"]'
+    );
     await expect(header).toBeVisible();
 
     await assertKapwaTokens(page);
@@ -155,7 +157,9 @@ test.describe('Barangays Pages', () => {
     await page.waitForURL(/\/government\/barangays\/.+/);
 
     // Check for contact section in header
-    const header = page.locator('header[role="banner"]');
+    const header = page.locator(
+      'header[aria-label="Barangay information header"]'
+    );
 
     // Check for phone icon/link
     const phoneLink = header.locator('a[href^="tel:"]').first();

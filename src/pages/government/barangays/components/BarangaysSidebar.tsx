@@ -18,21 +18,23 @@ export default function BarangaysSidebar() {
 
   return (
     <SidebarContainer title='Barangays'>
-      {barangaysData
-        .sort((a, b) => a.barangay_name.localeCompare(b.barangay_name))
-        .map(brgy => (
-          <SidebarItem
-            key={brgy.slug}
-            label={formatGovName(brgy.barangay_name, 'barangay')}
-            icon={MapPinIcon}
-            isActive={activeSlug === brgy.slug}
-            onClick={() =>
-              navigate(`/government/barangays/${brgy.slug}`, {
-                state: { scrollToContent: true },
-              })
-            }
-          />
-        ))}
+      <ul className='space-y-1'>
+        {barangaysData
+          .sort((a, b) => a.barangay_name.localeCompare(b.barangay_name))
+          .map(brgy => (
+            <SidebarItem
+              key={brgy.slug}
+              label={formatGovName(brgy.barangay_name, 'barangay')}
+              icon={MapPinIcon}
+              isActive={activeSlug === brgy.slug}
+              onClick={() =>
+                navigate(`/government/barangays/${brgy.slug}`, {
+                  state: { scrollToContent: true },
+                })
+              }
+            />
+          ))}
+      </ul>
     </SidebarContainer>
   );
 }

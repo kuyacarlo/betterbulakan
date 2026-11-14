@@ -90,7 +90,9 @@ test('reference page code examples are visible', async ({ page }) => {
   await page.goto('/government/reference-implementation');
 
   // Check implementation patterns section
-  await expect(page.locator('h2')).toContainText('Implementation Patterns');
+  await expect(
+    page.locator('h2', { hasText: 'Implementation Patterns' })
+  ).toBeVisible();
 
   // Check code examples exist
   const codeBlocks = page.locator('pre');

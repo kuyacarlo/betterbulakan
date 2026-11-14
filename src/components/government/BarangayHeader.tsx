@@ -22,7 +22,6 @@ export function BarangayHeader({ barangay }: BarangayHeaderProps) {
   return (
     <header
       className='bg-kapwa-bg-surface border-kapwa-border-weak rounded-xl border p-6 shadow-sm'
-      role='banner'
       aria-label='Barangay information header'
     >
       {/* Top Row: Name + Badge */}

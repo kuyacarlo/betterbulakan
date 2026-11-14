@@ -61,14 +61,6 @@ export default function DepartmentDetail() {
 
   return (
     <div className='animate-in fade-in space-y-6 pb-20 duration-500'>
-      {/* Skip Link for Accessibility */}
-      <a
-        href='#main-content'
-        className='focus:bg-kapwa-bg-surface focus:text-kapwa-text-strong focus:ring-kapwa-border-focus sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:ring-2'
-      >
-        Skip to main content
-      </a>
-
       {/* --- BREADCRUMBS --- */}
       <Breadcrumb>
         <BreadcrumbList>
@@ -92,7 +84,6 @@ export default function DepartmentDetail() {
       <Card
         hover={false}
         className='rounded-xl p-6'
-        role='banner'
         aria-label='Department information header'
       >
         {/* Top Row: Name + Badge */}
@@ -153,7 +144,7 @@ export default function DepartmentDetail() {
       </Card>
 
       {/* --- MAIN CONTENT --- */}
-      <main id='main-content' className='space-y-6'>
+      <section className='space-y-6'>
         {/* Office Leadership */}
         {dept.department_head?.name && (
           <div
@@ -255,7 +246,7 @@ export default function DepartmentDetail() {
             </CardContent>
           </Card>
         </div>
-      </main>
+      </section>
     </div>
   );
 }

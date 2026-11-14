@@ -97,7 +97,7 @@ export default function GovernmentRootLayout() {
                     </p>
                   </div>
 
-                  <h3
+                  <h2
                     className={cn(
                       'text-xl leading-tight font-extrabold tracking-tight',
                       isActive
@@ -106,7 +106,7 @@ export default function GovernmentRootLayout() {
                     )}
                   >
                     {branch.title}
-                  </h3>
+                  </h2>
                 </div>
 
                 <div className='mt-6 flex items-center justify-between'>

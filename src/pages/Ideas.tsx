@@ -214,7 +214,7 @@ const Ideas: FC = () => {
         </div>
 
         {/* Project Ideas List */}
-        <main>
+        <div>
           <h2 className='text-kapwa-text-strong mb-6 text-2xl font-bold'>
             All Project Ideas
           </h2>
@@ -274,7 +274,7 @@ const Ideas: FC = () => {
                 </Card>
               ))}
           </div>
-        </main>
+        </div>
 
         {/* Call to Action */}
         <section className='bg-kapwa-bg-surface mt-12 rounded-lg p-8 text-center shadow-xs'>

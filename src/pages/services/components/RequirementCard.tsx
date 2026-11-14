@@ -29,9 +29,9 @@ export function RequirementCard({ requirement }: RequirementCardProps) {
           <FileText className='h-4 w-4' />
         </div>
         <div className='flex-1'>
-          <h4 className='text-kapwa-text-strong text-sm font-semibold'>
+          <h3 className='text-kapwa-text-strong text-sm font-semibold'>
             {title}
-          </h4>
+          </h3>
           <p className='text-kapwa-text-support mt-1 text-xs'>
             from: {where_to_secure}
           </p>

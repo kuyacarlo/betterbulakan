@@ -1,5 +1,7 @@
 import {
+  Children,
   ComponentType,
+  Fragment,
   ReactNode,
   createContext,
   useContext,
@@ -9,7 +11,6 @@ import {
   useCallback,
 } from 'react';
 
-import { HomeIcon } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 
 import { cn } from '@/lib/utils';
@@ -17,6 +18,7 @@ import type { BreadcrumbItem as BreadcrumbItemType } from '@/types/components';
 
 import {
   Breadcrumb,
+  BreadcrumbHome,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
@@ -357,12 +359,10 @@ export function PageHeader({
           {generatedBreadcrumbs.map((crumb, index) => {
             const isLast = index === generatedBreadcrumbs.length - 1;
             return (
-              <div key={crumb.href} className='flex gap-2 items-center'>
+              <Fragment key={crumb.href}>
                 {index === 0 ? (
                   <BreadcrumbItem>
-                    <BreadcrumbLink href={crumb.href}>
-                      <HomeIcon className='w-4 h-4' />
-                    </BreadcrumbLink>
+                    <BreadcrumbHome href={crumb.href} />
                   </BreadcrumbItem>
                 ) : (
                   <>
@@ -378,7 +378,7 @@ export function PageHeader({
                     </BreadcrumbItem>
                   </>
                 )}
-              </div>
+              </Fragment>
             );
           })}
         </BreadcrumbList>
@@ -523,17 +523,16 @@ export function StaggeredGrid({
 
   return (
     <div className={cn('grid gap-6', cols[columns], className)} role='list'>
-      {Array.isArray(children)
-        ? children.map((child, index) => (
-            <div
-              key={(child as { key?: ReactNode }).key || index}
-              className='duration-500 animate-in fade-in slide-in-from-bottom-4'
-              style={{ animationDelay: `${baseDelay + index * delayStep}ms` }}
-            >
-              {child}
-            </div>
-          ))
-        : children}
+      {Children.toArray(children).map((child, index) => (
+        <div
+          key={index}
+          role='listitem'
+          className='duration-500 animate-in fade-in slide-in-from-bottom-4'
+          style={{ animationDelay: `${baseDelay + index * delayStep}ms` }}
+        >
+          {child}
+        </div>
+      ))}
     </div>
   );
 }

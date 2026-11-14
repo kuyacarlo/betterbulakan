@@ -1,4 +1,5 @@
 import {
+  Children,
   HTMLAttributes,
   ImgHTMLAttributes,
   ReactNode,
@@ -478,7 +479,12 @@ export const CardGrid = ({
       )}
       role='list'
     >
-      {children}
+      {/* role=list needs listitem children; `contents` keeps each card a grid item */}
+      {Children.toArray(children).map((child, index) => (
+        <div key={index} role='listitem' className='contents'>
+          {child}
+        </div>
+      ))}
     </div>
   );
 };
@@ -499,7 +505,11 @@ export const CardList = ({
   className?: string;
 }) => (
   <div className={cn('space-y-4', className)} role='list'>
-    {children}
+    {Children.toArray(children).map((child, index) => (
+      <div key={index} role='listitem'>
+        {child}
+      </div>
+    ))}
   </div>
 );
 
