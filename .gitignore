@@ -15,10 +15,12 @@ dist-ssr
 # Playwright
 /test-results/
 /playwright-report/
+/blob-report/
 /playwright/.cache/
 
-# E2E test snapshots
-e2e/**/*.spec.ts-snapshots/
+# E2E test snapshots: only chromium-linux baselines (made in the Playwright image) are committed
+e2e/**/*.spec.ts-snapshots/*
+!e2e/**/*.spec.ts-snapshots/*-chromium-linux.png
 e2e/**/__screenshots__/
 e2e/**/__snapshots__/
 
