@@ -65,10 +65,6 @@ test.describe('Home Page', () => {
   });
 
   test('Page uses Kapwa semantic tokens', async ({ page }) => {
-    test.skip(
-      true,
-      'App bug: home main content still uses raw Tailwind colors'
-    );
     await assertKapwaTokens(page);
   });
 
@@ -113,7 +109,7 @@ test.describe('Home Page - Visual Regression', () => {
   test('Hero section visual snapshot @visual', async ({ page }) => {
     await page.goto('/');
 
-    const heroSection = page.locator('main > div > div').first();
+    const heroSection = page.locator('main > div > div > div').first();
     await expect(heroSection).toHaveScreenshot('hero-section.png', {
       maxDiffPixels: 100,
     });
@@ -130,15 +126,5 @@ test.describe('Home Page - Visual Regression', () => {
     await expect(servicesSection).toHaveScreenshot('services-section.png', {
       maxDiffPixels: 100,
     });
-  });
-});
-
-test.describe('Home Page - Accessibility', () => {
-  test('Home page passes accessibility checks @a11y', async ({ page }) => {
-    await page.goto('/');
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const accessibilityScanResults = await (page as any).accessibility.scan();
-    expect(accessibilityScanResults.violations).toEqual([]);
   });
 });

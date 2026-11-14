@@ -5,7 +5,7 @@
  *
  *   import { test, expect } from './test-config';
  *
- * When CI=true or MOCK_API=true, all API requests will be mocked automatically.
+ * When CI is set (e.g. CI=true or CI=1) or MOCK_API=true, all API requests will be mocked automatically.
  */
 
 /* eslint-disable react-hooks/rules-of-hooks -- 'use' is from Playwright fixtures, not React */
@@ -13,8 +13,7 @@
 import { test as base, expect, type Page } from '@playwright/test';
 
 // Check if API mocking should be enabled
-const shouldMockApis =
-  process.env.CI === 'true' || process.env.MOCK_API === 'true';
+const shouldMockApis = !!process.env.CI || process.env.MOCK_API === 'true';
 
 /**
  * Wait until the app shell has rendered a route instead of the lazy-load fallback.
