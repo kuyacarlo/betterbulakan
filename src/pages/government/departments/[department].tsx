@@ -152,10 +152,9 @@ export default function DepartmentDetail() {
             role='group'
             aria-label='Office Leadership'
           >
-            <p className='sr-only'>Office Leadership</p>
-            <p className='text-kapwa-text-support pl-1 text-[10px] font-bold tracking-widest uppercase'>
+            <h2 className='text-kapwa-text-support pl-1 text-[10px] font-bold tracking-widest uppercase'>
               Office Leadership
-            </p>
+            </h2>
             <Card hover={false} className='rounded-xl'>
               <div className='flex flex-col gap-4 md:flex-row md:items-center md:gap-6'>
                 <div className='border-kapwa-border-brand text-kapwa-text-brand bg-kapwa-bg-surface flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2'>
@@ -190,10 +189,9 @@ export default function DepartmentDetail() {
             role='group'
             aria-label='Department Services'
           >
-            <p className='sr-only'>Department Services</p>
-            <p className='text-kapwa-text-support pl-1 text-[10px] font-bold tracking-widest uppercase'>
+            <h2 className='text-kapwa-text-support pl-1 text-[10px] font-bold tracking-widest uppercase'>
               Department Services
-            </p>
+            </h2>
             <div className='grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3'>
               {associatedServices.map(service => (
                 <Link
@@ -230,10 +228,9 @@ export default function DepartmentDetail() {
 
         {/* Office Mandate */}
         <div className='space-y-2' role='group' aria-label='Office Mandate'>
-          <p className='sr-only'>Office Mandate</p>
-          <p className='text-kapwa-text-support pl-1 text-[10px] font-bold tracking-widest uppercase'>
+          <h2 className='text-kapwa-text-support pl-1 text-[10px] font-bold tracking-widest uppercase'>
             Office Mandate
-          </p>
+          </h2>
           <Card variant='default' hover={false} className='bg-kapwa-bg-surface'>
             <CardContent className='p-6'>
               <p className='text-kapwa-text-support text-sm leading-relaxed'>

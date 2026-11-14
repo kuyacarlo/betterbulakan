@@ -81,9 +81,9 @@ const initialProjectIdeas: ProjectIdea[] = [
 const getPriorityColor = (priority: string) => {
   switch (priority) {
     case 'high':
-      return 'bg-kapwa-bg-danger-weak text-kapwa-text-danger';
+      return 'bg-kapwa-bg-danger-weak text-kapwa-text-accent-red';
     case 'medium':
-      return 'bg-kapwa-bg-warning-weak text-kapwa-text-warning';
+      return 'bg-kapwa-bg-warning-weak text-kapwa-orange-800';
     case 'low':
       return 'bg-kapwa-bg-success-weak text-kapwa-text-success';
     default:
@@ -98,7 +98,7 @@ const getComplexityColor = (complexity: string) => {
     case 'moderate':
       return 'bg-kapwa-bg-accent-purple-weak text-kapwa-text-accent-purple';
     case 'complex':
-      return 'bg-kapwa-bg-accent-orange-weak text-kapwa-text-accent-orange';
+      return 'bg-kapwa-bg-accent-orange-weak text-kapwa-orange-800';
     default:
       return 'bg-kapwa-bg-surface-raised text-kapwa-text-strong';
   }
@@ -155,31 +155,25 @@ const Ideas: FC = () => {
             <div className='text-kapwa-text-brand text-2xl font-bold'>
               {projectIdeas.length}
             </div>
-            <div className='text-kapwa-text-on-disabled text-sm'>
-              Total Ideas
-            </div>
+            <div className='text-kapwa-text-support text-sm'>Total Ideas</div>
           </div>
           <div className='bg-kapwa-bg-surface rounded-lg p-4 text-center shadow-xs'>
             <div className='text-kapwa-text-danger text-2xl font-bold'>
               {projectIdeas.filter(idea => idea.priority === 'high').length}
             </div>
-            <div className='text-kapwa-text-on-disabled text-sm'>
-              High Priority
-            </div>
+            <div className='text-kapwa-text-support text-sm'>High Priority</div>
           </div>
           <div className='bg-kapwa-bg-surface rounded-lg p-4 text-center shadow-xs'>
             <div className='text-kapwa-text-info text-2xl font-bold'>
               {new Set(projectIdeas.map(idea => idea.category)).size}
             </div>
-            <div className='text-kapwa-text-on-disabled text-sm'>
-              Categories
-            </div>
+            <div className='text-kapwa-text-support text-sm'>Categories</div>
           </div>
           <div className='bg-kapwa-bg-surface rounded-lg p-4 text-center shadow-xs'>
             <div className='text-kapwa-text-success text-2xl font-bold'>
               {projectIdeas.filter(idea => idea.complexity === 'simple').length}
             </div>
-            <div className='text-kapwa-text-on-disabled text-sm'>
+            <div className='text-kapwa-text-support text-sm'>
               Simple Projects
             </div>
           </div>
@@ -187,9 +181,7 @@ const Ideas: FC = () => {
             <div className='text-kapwa-text-accent-purple text-2xl font-bold'>
               {projectIdeas.reduce((sum, idea) => sum + idea.upvotes, 0)}
             </div>
-            <div className='text-kapwa-text-on-disabled text-sm'>
-              Total Votes
-            </div>
+            <div className='text-kapwa-text-support text-sm'>Total Votes</div>
           </div>
         </div>
 

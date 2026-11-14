@@ -143,12 +143,13 @@ const ForexPage: FC = () => {
   return (
     <div className='bg-kapwa-bg-surface-raised min-h-screen'>
       <div className='container mx-auto px-4 py-8 md:py-12'>
+        <h1 className='sr-only'>Foreign Exchange Rates</h1>
         {isLoading ? (
           <div className='flex h-64 items-center justify-center'>
             <div className='border-kapwa-border-brand h-12 w-12 animate-spin rounded-full border-t-2 border-b-2'></div>
           </div>
         ) : error ? (
-          <div className='bg-kapwa-bg-danger-weak text-kapwa-text-danger rounded-sm border-l-4 border-red-500 p-4 shadow-md'>
+          <div className='bg-kapwa-bg-danger-weak text-kapwa-text-accent-red rounded-sm border-l-4 border-red-500 p-4 shadow-md'>
             <p className='font-bold'>Error</p>
             <p>{error}</p>
           </div>
@@ -164,6 +165,7 @@ const ForexPage: FC = () => {
                     </h2>
                     <button
                       onClick={() => setIsSearchOpen(true)}
+                      aria-label='Search currencies'
                       className='text-kapwa-text-disabled hover:bg-kapwa-bg-hover hover:text-kapwa-text-support rounded-md p-2 transition-colors'
                     >
                       <LucideIcons.Search className='h-5 w-5' />
@@ -193,6 +195,7 @@ const ForexPage: FC = () => {
                           setSearchTerm('');
                           setIsSearchOpen(false);
                         }}
+                        aria-label='Clear search'
                         className='hover:text-kapwa-text-support text-kapwa-text-disabled'
                       >
                         <LucideIcons.X className='h-4 w-4' />
@@ -369,7 +372,10 @@ const ForexPage: FC = () => {
                   </h3>
                   <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
                     <div>
-                      <label className='text-kapwa-text-support mb-2 block text-sm font-medium'>
+                      <label
+                        htmlFor='forex-php-amount'
+                        className='text-kapwa-text-support mb-2 block text-sm font-medium'
+                      >
                         Philippine Peso (PHP)
                       </label>
                       <div className='relative rounded-md shadow-xs'>
@@ -379,6 +385,7 @@ const ForexPage: FC = () => {
                           </span>
                         </div>
                         <input
+                          id='forex-php-amount'
                           type='number'
                           className='focus:ring-kapwa-border-brand focus:border-kapwa-border-brand border-kapwa-border-weak block w-full rounded-md py-3 pr-12 pl-7 sm:text-sm'
                           placeholder='0.00'
@@ -388,7 +395,10 @@ const ForexPage: FC = () => {
                       </div>
                     </div>
                     <div>
-                      <label className='text-kapwa-text-support mb-2 block text-sm font-medium'>
+                      <label
+                        htmlFor='forex-converted-amount'
+                        className='text-kapwa-text-support mb-2 block text-sm font-medium'
+                      >
                         {selectedCurrencyData.code} (
                         {formatCurrencyName(selectedCurrencyData.currency)})
                       </label>
@@ -407,6 +417,7 @@ const ForexPage: FC = () => {
                           </span>
                         </div>
                         <input
+                          id='forex-converted-amount'
                           type='text'
                           className='focus:ring-kapwa-border-brand focus:border-kapwa-border-brand border-kapwa-border-weak bg-kapwa-bg-surface-raised block w-full rounded-md py-3 pr-12 pl-7 sm:text-sm'
                           readOnly
@@ -471,7 +482,7 @@ const ForexPage: FC = () => {
                 information, please visit the{' '}
                 <a
                   href='https://www.bsp.gov.ph/SitePages/Statistics/ExchangeRate.aspx'
-                  className='text-kapwa-text-brand hover:underline'
+                  className='text-kapwa-text-brand underline underline-offset-2'
                   target='_blank'
                   rel='noopener noreferrer'
                 >

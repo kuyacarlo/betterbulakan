@@ -40,9 +40,9 @@ export function Badge({
     success:
       'bg-kapwa-bg-success-weak text-kapwa-text-success border-kapwa-border-success',
     warning:
-      'bg-kapwa-bg-warning-weak text-kapwa-text-warning border-kapwa-border-warning',
+      'bg-kapwa-bg-warning-weak text-kapwa-orange-800 border-kapwa-border-warning',
     error:
-      'bg-kapwa-bg-danger-weak text-kapwa-text-danger border-kapwa-border-danger',
+      'bg-kapwa-bg-danger-weak text-kapwa-text-accent-red border-kapwa-border-danger',
     slate:
       'bg-kapwa-bg-surface-raised text-kapwa-text-support border-kapwa-border-weak',
     outline: 'bg-transparent text-kapwa-text-support border-kapwa-border-weak',

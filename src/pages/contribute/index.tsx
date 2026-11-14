@@ -30,6 +30,7 @@ export default function ContributePage() {
       </Breadcrumb>
 
       <ModuleHeader
+        headingLevel={1}
         title='Contribute to BetterBulakan'
         description='Help us keep the service directory accurate and up-to-date.'
       />
@@ -37,9 +38,9 @@ export default function ContributePage() {
       <div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
         <div className='space-y-6'>
           <div className='space-y-3'>
-            <h3 className='text-kapwa-text-strong text-lg font-bold'>
+            <h2 className='text-kapwa-text-strong text-lg font-bold'>
               How it works
-            </h3>
+            </h2>
             <ol className='text-kapwa-text-support space-y-3 text-sm leading-relaxed'>
               <li className='flex gap-3'>
                 <span className='bg-kapwa-bg-brand-default text-kapwa-text-inverse flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold'>
@@ -90,9 +91,9 @@ export default function ContributePage() {
 
         <aside className='space-y-6'>
           <div className='space-y-3'>
-            <h3 className='text-kapwa-text-strong text-lg font-bold'>
+            <h2 className='text-kapwa-text-strong text-lg font-bold'>
               What you can contribute
-            </h3>
+            </h2>
             <ul className='text-kapwa-text-support space-y-2 text-sm'>
               <li className='flex gap-2'>
                 <span className='text-kapwa-text-success'>&#10003;</span>
@@ -114,7 +115,7 @@ export default function ContributePage() {
           </div>
 
           <div className='flex gap-4 rounded-2xl border border-kapwa-border-warning bg-kapwa-bg-warning-weak p-5'>
-            <p className='text-xs leading-relaxed text-kapwa-text-warning'>
+            <p className='text-xs leading-relaxed text-kapwa-orange-800'>
               <strong>Note:</strong> All submissions are reviewed manually.
               Provide an official source link to avoid rejection.
             </p>
