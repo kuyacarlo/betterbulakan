@@ -12,12 +12,12 @@ export default defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  retries: process.env.CI ? 1 : 0,
   /* Use multiple workers for parallel execution */
-  workers: process.env.CI ? 2 : undefined,
+  workers: process.env.CI ? 4 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: process.env.CI
-    ? [['blob', { outputFolder: 'blob-report' }]]
+    ? [['blob', { outputFolder: 'blob-report' }], ['line']]
     : 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -55,11 +55,14 @@ export default defineConfig({
     },
   ],
 
-  /* Run your local dev server before starting the tests */
+  /* Run your local dev server before starting the tests.
+     CI serves a production build, which is faster and less flaky than dev. */
   webServer: {
-    command: 'npm run dev',
+    command: process.env.CI
+      ? 'pnpm exec vite build && pnpm exec vite preview --port 5173 --strictPort'
+      : 'npm run dev',
     url: 'http://localhost:5173',
     reuseExistingServer: !process.env.CI,
-    timeout: 120 * 1000,
+    timeout: 300 * 1000,
   },
 });
